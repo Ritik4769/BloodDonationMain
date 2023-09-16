@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                #recipient{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .input{            
+            padding: 10px; border: none;
+            outline: none;
+        } 
+        .form-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <%- include('../partials/header', {variant: 'compact' }); %>
+    </header>
+
+    <section id="recipient">
+        <div class="form-container" style="background-color:rgba(247, 247, 247, 1) ;">
+            <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5">Recipient Registration</h1>
+            
+            <form>
+                <div class="container">
+                 <div class="row">
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 mb-2">
+                    <input class="input" placeholder="Name" type="text" name="name">
+                  </div>            
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 mb-2">
+                    <input class="input" placeholder="Email" type="text" name="email">
+                  </div>           
+                
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 my-2">
+                    <input class="input" placeholder="Password" type="password" name="pass">
+                  </div>
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 my-2">
+                    <input class="input" placeholder="Confirm Password" type="password" name="cpass">
+                  </div>
+                
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 my-2">
+                    <input class="input" placeholder="Enter Age" type="text" name="age">
+                  </div>
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 my-2">
+                    <input class="input mx-2" type="radio" name="gender" value="Male">Male <br>
+                    <input class="input mx-2" type="radio" name="gender" value="Female">Female <br>
+                  </div>
+                
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 my-2">
+                    <input class="input" placeholder="Contact" type="text" name="contact">
+                  </div>
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 my-2">
+                    <select name="state" id="state" style="outline: none;border: none;padding: 10px;">
+                        <option value="">Select State</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                    </select>
+                  </div>
+                  
+                  <div class="col-lg-6 col-md-6 p-2 ps-4 my-2">
+                    <select name="city" id="city"  style="outline: none;border: none;padding: 10px;">
+                        <option value="">Select City</option>
+                        <option value="Indore">Indore</option>
+                        <option value="Gwalior">Gwalior</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-6 col-md-6  p-2 ps-4 my-2">
+                    <input class="input" placeholder="Address" type="text" name="add">
+                  </div>
+                  <div class="col-lg-6 col-md-6 p-2 ps-4 my-2">
+                    <input class="input" placeholder="Zipcode" type="text" name="zip">
+                  </div>            
+              </div>
+              <button type="submit" class="btn " style=" background-color: rgba(216, 37, 37, 1); color: white; border-style: none;display: block;margin:10px auto;"><b>Register Now</b></button>
+                   
+               <p style="margin:10px; color: rgb(178, 174, 174); text-align: center;">Already have an account ?<b style="color:  rgb(20, 20, 180);"> Login now</b></p>
+            </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <%- include('../partials/footer', {variant: 'compact' }); %>
+    </footer>
+</body>
+</html>
