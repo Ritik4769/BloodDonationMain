@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        /* .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        } */
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+        .heading{
+            width: 100%;
+            height: 150px;
+            margin: 10px 0;
+            background: url(images/foot.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .heading div .red{
+            width: 100px;
+            height: 2px;
+            background: #DF2443;
+            margin: 0 5px;
+        }
+        .heading div .black{
+            width: 100px;
+            height: 2px;
+            background: white;
+            /* margin: 0 5px; */
+        }
+        @media (max-width: 450px) {
+        .h-custom {
+            height: 100%;
+        }
+        }
+    </style>
+</head>
+<body>
+
+     <!-- navabr start -->
+     <header>
+      <%- include('../partials/header', {variant: 'compact' }); %>
+     </header>
+     <!-- navabr end ---->
+     <div class="heading">
+      <div class="p-1">
+         <h1>Blood Bank Login</h1>
+         <div class="d-flex justify-content-center align-items-center">
+             <div class="red"></div>
+             <div class="black"></div>
+         </div>
+      </div>
+     </div>
+    <section class="w-100 p-3" >
+        <div class="container-fluid h-custom">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+              <img src="images/donor1.jpg"   class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 p-5" style="background-color: rgb(243, 242, 242);">
+              <form >
+                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start py-2" >
+                  <p class="pb-2 me-3 h3" style="color: #DF2443;font-weight: bold;">Blood Bank Login</p>
+                </div>
+      
+                
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3" class="form-control form-control-lg"
+                    placeholder="Enter a valid email address" />
+                  <label class="form-label" for="form3Example3">Email address</label>
+                </div>
+      
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                  <input type="password" id="form3Example4" class="form-control form-control-lg"
+                    placeholder="Enter password" />
+                  <label class="form-label" for="form3Example4">Password</label>
+                </div>
+      
+                <div class="d-flex justify-content-between align-items-center">
+                  <!-- Checkbox -->
+                  <div class="form-check mb-0">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                    <label class="form-check-label" for="form2Example3">
+                      Remember me
+                    </label>
+                  </div>
+                  <a href="#!" class="text-body">Forgot password?</a>
+                </div>
+      
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <a type="button" class="btn btn-lg" href="/blood_bank_profile" style="padding-left: 2.5rem; padding-right: 2.5rem;background: #DF2443;color: white;">Login</a>
+                  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                      class="link-danger">Register</a></p>
+                </div>
+      
+              </form>
+            </div>
+          </div>
+        </div>        
+      </section>
+
+      <!-- footer  -->
+        <footer>
+          <%- include('../partials/footer', {variant: 'compact' }); %>
+        </footer>
+      <!-- footer end -->
+         
+</body>
+</html>
