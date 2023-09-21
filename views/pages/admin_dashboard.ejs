@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>        
+    #dashboard{
+        width:100%;
+        height: auto;
+        /* background: #000; */
+        margin-left: 240px;
+    }
+    #dashboard input,#dashboard select{
+          width: 75%;
+    }
+    @media (max-width:700px){
+        #dashboard input,#dashboard select{
+          width: 100%;
+    }
+    } 
+    /* dropdown end */
+</style>
+</head>
+
+<body>
+    <%- include('../partials/admin_navbar', {variant: 'compact' }); %>
+    
+     <section id="dashboard">
+         <div class="container px-5" style="background: #107ECB;">
+             <div class="row justify-content-start align-items-center">
+                <h1 class="text-light pt-4">Dashboard</h1>
+                <div class="row">
+                    <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
+                    <div style="width: 150px;height: 2px;background-color: black;margin: 5px;"></div>
+                </div>
+                <p class="text-light py-4" style="font-size: 20px;">Brief Overview</p>
+             </div>             
+         </div>
+
+         <div class="container p-2">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 p-5">
+                  <div style="background: #107ECB; padding: 10px 2px; border-radius: 12px;display: flex;justify-content: center;">
+                     <div class="p-2 d-flex justify-content-start align-items-center">
+                        <i class="fa-solid fa-eye fa-xl"></i>
+                     </div>
+                     <div>
+                         <h5 class="text-light"><b>Donors</b></h5>
+                         <h4 class="h5 text-light">22340</h4>
+                     </div>       
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 p-5">
+                    <div style="background: #D82525; padding: 10px 2px; border-radius: 12px;display: flex;justify-content: center;">
+                        <div class="p-2 d-flex justify-content-start align-items-center">
+                           <i class="fa-solid fa-eye fa-xl" ></i>
+                        </div>
+                        <div>
+                            <h5 class="text-light"><b>Blood Units</b></h5>
+                            <h4 class="h5 text-light">100000</h4>
+                        </div>       
+                     </div>
+                </div>
+                <div class="col-lg-3 col-md-6 p-5">
+                    <div style="background:#107ECB; padding: 10px 2px; border-radius: 12px;display: flex;justify-content: center;">
+                        <div class="p-2 d-flex justify-content-start align-items-center">
+                            <i class="fa-solid fa-building-columns fa-xl"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-light"><b>Blood Banks</b></h5>
+                            <h4 class="h5 text-light">10000</h4>
+                        </div>       
+                     </div>
+                </div>
+                <div class="col-lg-3 col-md-6 p-5">
+                    <div style="background: #D82525; padding: 10px 2px; border-radius: 12px;display: flex;justify-content: center;">
+                        <div class="p-2 d-flex justify-content-start align-items-center">
+                            <i class="fa-solid fa-tent fa-xl"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-light"><b>Blood Camps</b></h5>
+                            <h4 class="h5 text-light">10000</h4>
+                        </div>       
+                     </div>
+                </div>
+              </div>
+              <div class="container px-5 py-3 m-2" style="background: #107ECB;border-radius: 12px;">
+                     <h3 class="text-center">Manage Inventory of Blood Bank</h3>
+                     <div class="row p-2 justify-content-center">
+                        <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
+                        <div style="width: 150px;height: 2px;background: black;margin: 5px;"></div>
+                     </div>
+
+                     <div class="row py-3">
+                        <div class="col-lg-6 py-2 px-5 d-flex justify-content-center">
+                            <select name="" id="" class="p-3 border-0" style="outline: none;border-radius: 12px;">
+                                <option value="">Select Blood Group</option>
+                                <option value="">A+</option>
+                                <option value="">A-</option>
+                                <option value="">B+</option>
+                                <option value="">A-</option>
+                                <option value="">AB+</option>
+                                <option value="">AB-</option>
+                                <option value="">O+</option>
+                                <option value="">O-</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 py-2 px-5 d-flex justify-content-center">
+                               <input class=" p-3" style="border: none;outline: none;border-radius: 12px;" type="text" placeholder="No of Units">
+                        </div>
+
+                        <button class="btn d-block w-50 mx-auto my-3" style="background: #DF2443;color: white;font-size: 20px;">Add Stock</button>
+                     </div>
+              </div>
+         </div>
+     </section>
+
+    <footer style="width: 100%; padding: 10px; border-top: 1px solid rgba(0,0,0,0.3);margin-left: 240px;">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-lg-6 p-2">
+                    <p style="color: #000;">Copyrights all rights reserved</p>
+                </div>
+                <div class="col-lg-6 p-2">
+                    <p style="color: #000;">Designed by Techwizard</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+O8q3D6Ors2aT1l0cC+2g1/CeZzA/J5fet5pG2i5oV5z5e5bB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

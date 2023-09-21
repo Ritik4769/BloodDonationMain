@@ -3,10 +3,16 @@ var app = express();
 var port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-const userroute = require('./Routes/index');
-
-app.use('', userroute);
-
+const donorroute = require('./Routes/donor');
+const adminroute = require('./Routes/admin');
+const recipientroute = require('./Routes/Recipient');
+const organizationroute = require('./Routes/Organization');
+const bloodroute = require('./Routes/BloodBank');
+app.use('', donorroute);
+app.use('', adminroute);
+app.use('', recipientroute);
+app.use('', organizationroute);
+app.use('', bloodroute);
 app.listen(port, () => {
   console.log(`Server is listening on port : http://localhost:${port}`);
 });

@@ -272,7 +272,9 @@
   height: 80vh;
   position: relative;
   display: flex;
+  align-items: start;
   justify-content: center;
+  padding:100px 100px;
   flex-direction: column;
   background: rgba(0, 144, 255,0.959);
 }
@@ -281,7 +283,7 @@
   z-index:2;
   content: '';
   position: absolute;
-  background: rgba(251,3,3,0.034);
+  background: rgba(0,0,0,0.6);
   width: 100%;
   height: 100%;
   top: 0;
@@ -291,19 +293,32 @@
 #home .content{
   z-index: 3;
   color: #fff;
-  width: 70%;
-  margin-top: 50px;
+  width: 50%;
+  /* margin-top: 200px; */
   display: none;
+  /* display: flex; */
+  /* padding-top: 200px; */
+  justify-content: center;
+  align-items: start;
+  /* background: #000; */
+  flex-direction: column;
 }
 
 #home .content.active{
-   display: block;
+   display: flex;
 }
 
 #home .content h3{
-  text-align: center;
+  /* text-align: center; */
+  color: #DF2443;
+  z-index: 100;
+  font-size: 30px;  
+  padding: 30px 0;
 }
-
+#home .content p{
+  font-size: 20px;
+  padding: 0 0 30px 0;
+}
 #home img{
   /* z-index: ; */
   position: absolute;
@@ -316,14 +331,35 @@
 
 #home .slider-navigation{
   z-index: 888;
-  position: relative;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
+  width: 100%;
+  padding: 10px;
+  /* margin: 0 auto; */
+  /* margin-top: 200px; */
   justify-content: center;
   align-items: center;
-  transform: translateY(80px);
-  margin-bottom: 12px;
+  /* transform: translateY(80px); */
+  /* margin-bottom: 12px; */
 }
-
+#home .content a{
+  padding: 10px 30px;
+  background: #DF2443;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 1s;
+  /* font-weight: bold; */
+}
+#home .content a:hover{
+  background: white;
+  color: #DF2443;
+}
 #home .slider-navigation .nav-btn{
   width: 12px;
   height: 12px;
@@ -358,8 +394,58 @@
   .fact {
      margin-right: 0;
   }
+  #home .content{
+    width: 100%;
+  }
+  #home .content h3{
+    padding: 15px 0;
+    font-size: 20px;
+  }
+  #home .content p{
+    padding: 15px 0;
+    font-size: 15px;
+  }
+/* #blood_camp {
+  position: relative;
+  height: 800px;
+  width: 100%;
+  overflow: hidden;
+} */
+
+/* #blood_camp {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+} */
+
+/* swiper-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+} */
+
+/* swiper-slide {
+  height: 800px!important;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
 } 
 </style>  
+<!-- <link rel="stylesheet" href="home.css"> -->
 </head>
 
 <body>
@@ -374,13 +460,19 @@
         <img class="img-slide" src="images/slide2.jpg" alt="">
         <img class="img-slide" src="images/slide3.jpg" alt="">
         <div class="content">
-          <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi provident, illo architecto autem voluptatum at nulla rerum. Officiis beatae incidunt sint, magni quas iusto, vero pariatur nam optio nesciunt culpa!</h3>
+          <h3 class="">Give the gift of life: Donate blood, save a life</h3>
+          <p class="text-light ">Blood donation is a selfless act of kindness that has the power to save lives and make a significant impact on the health and well-being of others. Every day, countless individuals face medical emergencies, surgeries, and chronic illnesses that require blood transfusions. </p>
+          <a href="/donor_registration">Register for Donation</a>
         </div>
         <div class="content active">
-          <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi provident, illo architecto autem voluptatum at nulla rerum. Officiis beatae incidunt sint, magni quas iusto, vero pariatur nam optio nesciunt culpa!</h3>
+          <h3>A few minutes of your time can give someone a lifetime.</h3>
+          <p class="text-light ">Blood donation is a selfless act of kindness that has the power to save lives and make a significant impact on the health and well-being of others. Every day, countless individuals face medical emergencies, surgeries, and chronic illnesses that require blood transfusions. </p>
+          <a href="/donor_registration">Register for Donation</a>
         </div>
         <div class="content">
-          <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi provident, illo architecto autem voluptatum at nulla rerum. Officiis beatae incidunt sint, magni quas iusto, vero pariatur nam optio nesciunt culpa!</h3>
+          <h3>Donating blood is like giving a part of your heart.</h3>
+          <p class="text-light ">Blood donation is a selfless act of kindness that has the power to save lives and make a significant impact on the health and well-being of others. Every day, countless individuals face medical emergencies, surgeries, and chronic illnesses that require blood transfusions. </p>
+          <a href="/donor_registration">Register for Donation</a>
         </div>  
         <div class="slider-navigation">
           <div class="nav-btn active"></div>
@@ -544,8 +636,8 @@
           <div class="col-lg-7 col-md-12 text-center py-5">
             <div class="fact" >
                  <h3 style="color: #7c7c7c;font-size: 30px;">Some Facts</h3>
-                 <h2 class="p-2" style="font-size: 40px;">A most facts that you should have know about  it in India</h2>
-                 <p style="font-size: 25px;">A most facts that you should have know about  it in India</p>
+                 <h2 class="p-2" style="font-size: 30px;">A most facts that you should have know about  it in India</h2>
+                 <p style="font-size: 20px;">A most facts that you should have know about  it in India</p>
                  <div class="accordion accordion-flush my-5 p-2" id="accordionFlushExample" style="border: none;border-radius: 10px;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -586,11 +678,26 @@
 </section>
 <!-- --------------------------------------facts end---------------------------- -->
  
-
+<!-- --------------------------------Camp Slider Start -------------------------- -->
+<!-- <section id="bood_camp">
+      <swiper-container class="mySwiper" direction="vertical" pagination="true" pagination-clickable="true">
+        <swiper-slide><img src="images/" alt=""></swiper-slide>
+        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide> -->
+        <!-- <swiper-slide>Slide 4</swiper-slide>
+        <swiper-slide>Slide 5</swiper-slide>
+        <swiper-slide>Slide 6</swiper-slide>
+        <swiper-slide>Slide 7</swiper-slide>
+        <swiper-slide>Slide 8</swiper-slide>
+        <swiper-slide>Slide 9</swiper-slide> -->
+      <!-- </swiper-container> -->
+<!-- </section> -->
+<!-- ------------------------------ -->
   <!-- footer  -->
 <footer>
     <%- include('../partials/footer', {variant: 'compact' }); %>
 </footer>
+</body>
 <!-- footer end -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
 integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -603,11 +710,13 @@ integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6
 
 
 <!--  -->
+
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
   <!-- Initialize the slick slider -->
   <script>
     jQuery(document).ready(function () {
@@ -730,7 +839,15 @@ $('#number4').jQuerySimpleCounter({end: 200,duration: 2500});
         });
       });
   </script>
+   <script>
+    // Get all <swiper-slide> elements
+    var swiperSlides = document.querySelectorAll('swiper-slide');
 
-</body>
+    // Change the height of each <swiper-slide> element
+    swiperSlides.forEach(function (slide) {
+      slide.style.height = '400px'; // Change the height to your desired value (e.g., 400px)
+    });
+  </script>
+
 
 </html>
