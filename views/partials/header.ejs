@@ -1,9 +1,8 @@
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
 
   <style>
     #head{
@@ -28,9 +27,9 @@
   border-radius: 9px;
 }
 
-.navbar.sticky{
+pos-sticky{
   position: sticky!important;
-  /* top: 0!important; */
+  top: 0!important;
 }
 .fa{
   font-size: 20px;
@@ -80,7 +79,8 @@
   </section>
   
   
-<nav class="navbar navbar-expand-lg navbar-light d-flex align-items-center" id="navbar1" style="margin: 3px 0;background-color: white;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);">
+<div id="navbar1">
+<nav class="navbar navbar-expand-lg d-flex align-items-center"  style="margin: 3px 0;background-color: white;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);">
   <div style="max-width: 1400px;width: 100%; padding: 2px;margin:0 auto;margin-top: 5px; justify-content: space-around;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -130,6 +130,7 @@
 
 </div>
 </nav>
+</div>  
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -158,16 +159,15 @@
 </div>
 </body>
 <script>
-  $(document).ready(function(){   
-    $(window).scroll(function(){
-   var scrl= $(window).scrollTop();
-   if(scrl>=78){
-    console.log(scrl);
-    $(".navbar").addClass(".sticky");
+  $(document).ready(function() {
+  $(window).scroll(function() {
+    var scrl = $(window).scrollTop();
+    if (scrl >= 78) {
+      console.log(scrl);
+      $("#navbar1").addClass("pos-sticky");
+    } else {
+      $("#navbar1").removeClass("pos-sticky");
     }
-  else{
-    $(".navbar").removeClass(".sticky");
-  }
   });
-  });
+});
 </script>
