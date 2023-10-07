@@ -26,8 +26,10 @@
   border: none;
   border-radius: 9px;
 }
-
-pos-sticky{
+.dropdown-item:focus{
+  background: #EEEEEE!important;
+}
+.pos-sticky{
   position: sticky!important;
   top: 0!important;
 }
@@ -99,9 +101,9 @@ pos-sticky{
           Register
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-dark h6" href="/donor_registration">Donor Register</a>
-          <a class="dropdown-item text-dark h6" href="/blood_bank_registration">Blood Bank Register</a>          
-          <a class="dropdown-item text-dark h6" href="/Organization_registration">Organization Register</a>
+          <a class="dropdown-item text-dark h6" href="/user/user_registration">User Register</a>
+          <a class="dropdown-item text-dark h6" href="/blood_bank/blood_bank_registration">Blood Bank Register</a>          
+          <a class="dropdown-item text-dark h6" href="/organization/Organization_registration">Organization Register</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -109,17 +111,16 @@ pos-sticky{
           Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item text-dark h6" href="/donor_login" >Donor Login</a>
-          <a class="dropdown-item text-dark h6" href="/recipient_login" >Recipient Login</a>          
-          <a class="dropdown-item text-dark h6" href="/blood_bank_login" >Blood Bank Login</a>          
-          <a class="dropdown-item text-dark h6" href="/Organization_login">Organization Login</a>
+          <a class="dropdown-item text-dark h6" href="/user/user_login/user" >User Login</a>
+          <a class="dropdown-item text-dark h6" href="/blood_bank/blood_bank_login/bank" >Blood Bank Login</a>          
+          <a class="dropdown-item text-dark h6" href="/organization/Organization_login/camp">Organization Login</a>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark h6" href="/Camp">Camps</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark h6" href="/contact_us">Contact Us</a>
+        <a class="nav-link text-dark h6" href="/contact">Contact Us</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -151,7 +152,7 @@ pos-sticky{
           </div>
       </div>
       <div class="modal-footer m-auto d-flex">       
-        <p>Click on Register Now for 50% Discount</p><a class="mx-2" href="/recipient_registration" style="color: #1400FF;">Register Now</a>
+        <p>Click on Register Now for 50% Discount</p><a class="mx-2" href="/user/user_registration" style="color: #1400FF;">Register Now</a>
         
       </div>
     </div>

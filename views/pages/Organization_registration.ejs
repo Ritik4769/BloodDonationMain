@@ -76,128 +76,102 @@
        </div>
     <main>
         <section class="w-100 py-5">
+            <form action="/organization/register" method="post">
             <div class="container p-5" style="box-shadow: 0 0 10px rgba(0,0,0,0.3);border-radius: 20px;">
 
                 <div class="row" style="background-color: rgb(255, 255, 255); border-radius: 10px 10px 10px 10px; ">
-                    <center>
-                        <!-- <div class="p-3">
-                            <h1>Edit Profile</h1>
-                            <div class="d-flex justify-content-center">
-                                <div style="width: 140px;height: 2px;margin: 10px 10px;background: #df2443;box-shadow: 0 0 10px #df2443;"></div>
-                                <div style="width: 140px;height: 2px;margin: 10px 0;background: #000;box-shadow: 0 0 10px #000;"></div>
-                            </div>
-                        </div> -->
-                    </center>
-                    <!-- <div class="col col-lg-4 p-2 inp " style="background-color: yellow;  display: flex; align-items: center;">
-                       
-                    </div> -->
-                    <center>
-                        <div class="col-lg-10 my-2 p-2"  style=" display: flex; margin: auto;">
+                   
+                    <div class="d-flex justify-content-center">
+                        <div class="col-lg-6 my-2 p-2"  style=" display: flex; ">
                             <label class="mt-1">
-                                FullName
+                                Organization Name
                             </label>
-                            <input type="text" class="inp  form-control" placeholder="Full Name"
-                                style="margin-left: 50px;">
-                            <input type="text" class="inp  form-control" placeholder="Last Name"
+                            <input type="text" name="OrganizationName" class="inp  form-control" placeholder="Organization Name"
                                 style="margin-left: 50px;">
                         </div>
-                    </center>
-                    <center>
-                        <div class="col-lg-10 p-2  my-2 " style=" display: flex; margin: auto;">
-                            <p class="mt-1 me-5" style="margin-left: -35px;">
-                                PhoneNumber
-                            </p>
-                            <input type="text" class="inp  form-control" placeholder="Full Name">
+                        <div class="col-lg-6 my-2 p-2"  style=" display: flex; ">        
+                            <label class="mt-1">
+                                Organizer Name  
+                            </label>
+                            <input type="text" name="OrganizerName" class="inp  form-control" placeholder="Organizer Name"
+                                style="margin-left: 50px;">
                         </div>
-                    </center>
-                    <center>
-                        <div class="col-lg-10 p-2 my-2 " style=" display: flex; margin: auto;">
-                            <p class="" style="margin-left: 30px;">
-                                Email
-                            </p>
-                            <input type="text" class="inp  form-control" placeholder="Full Name"
-                                style="margin-left: 47px;">
+                </div>
+                    <div class="d-flex">
+                        <div class="col-lg-6 my-2 p-2"  style=" display: flex; ">
+                            <label class="mt-1">
+                                Organizer Contact Number
+                            </label>
+                            <input type="text" name="Contact" class="inp  form-control" placeholder="Organizer Contact Number"
+                                style="margin-left: 50px;">
                         </div>
-                    </center>
-                    <center>
-                        <div class="col-lg-10 p-2 my-2"style=" display: flex; margin: auto;">
-                            <p class="mt-1" style="margin-left: 10px;">
-                                Address
-                            </p>
-                            <!-- <input type="text" class="inp  form-control" placeholder="Full Name"
-                            style="margin-left: 47px;" > -->
-                            <textarea name="" id="" cols="50" rows="5" style="margin-left: 50px; border: 1px solid rgba(0,0,0,0.3);"></textarea>
-                            <div class="container">
-                            <div class="row ms-2">
-                                <div class="col-lg-6 p-2" >
-                                    <p class=" pe-4 para">
-                                        Age
-                                    </p>
-                                </div>  
-                                <div class="col-lg-6 p-2"> 
-                                    <input type="text" class="inp form-control" placeholder="Age"
-                                        style=" width: 100%; height: 40px;">
-                                </div>
-                                <div class="col-lg-6 p-2 ">
-                                    <p class=" pe-4 para">
-                                        BloodGroup
-                                    </p>
-                                </div>   
-                                <div class="col-lg-6 p-2">
-                                    <input type="text" class="inp  form-control" placeholder=" Blood Group"
-                                        style=" width: 100%; height: 40px;">
-                                </div>                                
-                            </div>
+                        <div class="col-lg-6 my-2 p-2"  style=" display: flex; ">        
+                            <label class="mt-1">
+                                Organizer Email  
+                            </label>
+                            <input type="email" name="email" class="inp form-control" placeholder="Organizer Email"
+                                style="margin-left: 50px;">
                         </div>
-                        </div>
-                    </center>
-                    <center>
+                    </div>
+                    <div class="d-flex">
                         <div class="col-lg-12 my-2 px-5 py-2">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-6 my-2 d-flex">
                                         <p class="mt-1" style="margin-left: 15px;">
-                                            District
+                                            Password
                                         </p>
-                                        <input type="text" class="inp form-control" placeholder="Enter District" style="margin-left: 50px; width: 100%; height: 40px;">
+                                        <input type="password" name="ppasword" class="inp form-control" placeholder="Enter City" style="margin-left: 50px; width: 100%; height: 40px;">
+                                    </div>
+                                    <div class="col-lg-6 my-2 d-flex ">
+                                        <p class="mt-1 ms-1">
+                                            Confirm Password
+                                        </p>
+                                    <input type="password" name="password" class="inp form-control" placeholder="Confirm Password" style="margin-left: 50px; width: 100%; height: 40px;">
+                                    </div>
+                                </div>              
+                            
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-lg-12 my-2 px-5 py-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 my-2 d-flex">
+                                        <p class="mt-1" style="margin-left: 15px;">
+                                            City
+                                        </p>
+                                        <input type="text" name="city" class="inp form-control" placeholder="Enter City" style="margin-left: 50px; width: 100%; height: 40px;">
                                     </div>
                                     <div class="col-lg-6 my-2 d-flex ">
                                         <p class="mt-1 ms-1">
                                             State
                                         </p>
-                                    <input type="text" class="inp  form-control" placeholder="Enter State" style="margin-left: 50px; width: 100%; height: 40px;">
+                                    <input type="text" name="state" class="inp  form-control" placeholder="Enter State" style="margin-left: 50px; width: 100%; height: 40px;">
                                     </div>
-                                </div>
-                            
+                                </div>  
                             
                                
                             </div>
                         </div>
-                    </center>
-                    <center>
+                    </div>
+                    <div class="d-flex">
                         <div class="col-lg-10 my-2 p-2" style=" display: flex; margin: auto;">
                             <p class="mt-1" style="margin-left: 10px;">
-                                Pincode
+                                Organizaton Description
                             </p>
-                            <input type="text" class="inp  form-control" placeholder=""
-                                style="margin-left: 50px; width: 100%;">
-                              
+                            <textarea type="text" name="description"  cols="10" rows="5" placeholder=""
+                                style="margin-left: 50px; width: 100%;border: 1px solid rgba(0,0,0,0.3);outline: none;"></textarea>                              
                         </div>
-                    </center>
-                    <center>
-                        <div class="col-lg-10 my-2 p-2" style=" display: flex; margin: auto;">
-                            <p class="mt-1" style="margin-left: -30px;">
-                                LastDonation 
-                            </p>
-                            <input type="date" class="inp  form-control" placeholder="Full Name"
-                                style="margin-left: 50px;">
-                            
-                        </div><br>
-                    </center>
-                    <center class="p-2"><button class="btn btn-danger">Submit</button></center>
+                    </div>
+                    
+                    <center class="p-2"><input type="submit" class="btn btn-danger" value="Submit"></center>
                 </div>
-
+            
             </div>
+        </form>
         </section>
     </main>
     <footer>

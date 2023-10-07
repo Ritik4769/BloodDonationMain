@@ -31,7 +31,9 @@
             bottom: 0;
             left: -250px;
             /* Initially hidden on larger screens */
-            padding: 58px 0 0;
+            padding: 58px 0 10px;
+            /* height: auto; */
+            overflow-y: scroll;
             /* Height of navbar */
             box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
             width: 240px;
@@ -67,10 +69,10 @@
         .sidebar-sticky {
             position: relative;
             top: 0;
-            height: calc(100vh - 48px);
+            height: auto;
             padding-top: 0.5rem;
             overflow-x: hidden;
-            overflow-y: auto;
+            /* overflow-y: scroll; */
             /* Scrollable contents if viewport is shorter than content. */
         }
 
@@ -105,10 +107,10 @@
     .sidebar-sticky {
         position: relative;
         top: 0;
-        height: calc(100vh - 48px);
+        height: auto;
         padding-top: 0.5rem;
         overflow-x: hidden;
-        overflow-y: auto;
+        /* overflow-y: scroll; */
         /* Scrollable contents if viewport is shorter than content. */
     }
     .sidebar .sidebar-toggler {
@@ -499,7 +501,7 @@
 
     .dark-light:checked~.sec-center .section-dropdown .for-dropdown-sub:hover {
         color: #ffeba7;
-        background-color: #102770;
+        background-color: #107ECB;
     }
 
     .section-dropdown-sub {
@@ -615,13 +617,12 @@
 
                     <div class="sec-center">
                         <input class="dropdown" type="checkbox" id="dropdown" name="dropdown" />
-                        <label class="for-dropdown" for="dropdown">Request
+                        <label class="for-dropdown" for="dropdown" style="background-color: #107ECB;">Request
                             <!-- <i class="fa fa-arrow-down"></i> -->
                             <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                         </label>
                         <div class="section-dropdown">
                             <a href="#" class="dropdown-btn" style="color: black;">Recipient Request<i class="fa fa-arrow-right"></i></a>
-                            <a href="#" class="dropdown-btn" style="color: black;">Blood Request<i class="fa fa-arrow-right"></i></a>
                             <a href="#" class="dropdown-btn" style="color: black;">Camp Request<i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -629,8 +630,6 @@
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
                     <i class="fa fa-chart-area fa-fw me-3"></i><span style="color: black;">Donor Profile</span>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action list-group-flush py-2 ripple ">
-                    <i class="fa fa-lock fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Recipient Profile</span></a>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                         class="fa fa-chart-line fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Register Blood Banks</span></a>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple">
@@ -641,21 +640,19 @@
                 <!-- <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-globe fa-fw me-3"></i><span style="color: black;"></span></a> -->
                         <div class="sec-center">
                             <input class="dropdown" type="checkbox" id="dropdown2" name="dropdown2" />
-                            <label class="for-dropdown" for="dropdown2">Blood Bank Inventory
+                            <label class="for-dropdown" for="dropdown2" style="background-color: #107ECB;">Blood Bank Inventory
                                 <!-- <i class="fa fa-arrow-down"></i> -->
                                 <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                             </label>
                             <div class="section-dropdown">
-                                <a href="#" class="dropdown-btn" style="color: black;">Own Blood Banks<i class="fa fa-arrow-right"></i></a>
-                                <a href="#" class="dropdown-btn" style="color: black;">Others Blood Banks<i class="fa fa-arrow-right"></i></a>
+                                <a href="/admin/admin_blood_inventory" class="dropdown-btn" style="color: black;">Own Blood Banks<i class="fa fa-arrow-right"></i></a>
+                                <a href="/admin/admin_blood_inventory" class="dropdown-btn" style="color: black;">Others Blood Banks<i class="fa fa-arrow-right"></i></a>
                                 <!-- <a href="#" style="color: black;">Camp Request<i class="fa fa-arrow-right"></i></a> -->
                             </div>
                         </div>
                     
-                    
 
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                        class="fa fa-building fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Registered Organization</span></a>
+                <a href="/admin/" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-building fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Registered Organization</span></a>                
                 
                     </div>
             </div>
@@ -690,21 +687,9 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link me-3 me-lg-0" href="#">
-                            <i class="fa fa-fill-drip"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item me-3 me-lg-0">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-github"></i>
-                        </a>
-                    </li> -->
+                    
                     <li class="nav-item dropdown">
-                        <!-- <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown"
-                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="united kingdom flag m-0"></i>
-                        </a> -->
+                        
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>
                                 <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
@@ -757,109 +742,6 @@
         <!-- Navbar -->
     </header>
     
-     <!-- <section id="dashboard">
-         <div class="container px-5" style="background: #107ECB;">
-             <div class="row justify-content-start align-items-center">
-                <h1 class="text-light pt-4">Dashboard</h1>
-                <div class="row">
-                    <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
-                    <div style="width: 150px;height: 2px;background-color: black;margin: 5px;"></div>
-                </div>
-                <p class="text-light py-4" style="font-size: 20px;">Brief Overview</p>
-             </div>             
-         </div>
-
-         <div class="container p-2">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 p-5">
-                  <div style="background: #107ECB; padding: 10px 2px; border-radius: 12px;display: flex;justify-content: center;">
-                     <div class="p-2 d-flex justify-content-start align-items-center">
-                        <i class="fa-solid fa-eye fa-xl"></i>
-                     </div>
-                     <div>
-                         <h5 class="text-light"><b>Donors</b></h5>
-                         <h4 class="h5 text-light">22340</h4>
-                     </div>       
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-6 p-5">
-                    <div style="background: #D82525; padding: 10px 2px; border-radius: 12px;display: flex;justify-content: center;">
-                        <div class="p-2 d-flex justify-content-start align-items-center">
-                           <i class="fa-solid fa-eye fa-xl" ></i>
-                        </div>
-                        <div>
-                            <h5 class="text-light"><b>Blood Units</b></h5>
-                            <h4 class="h5 text-light">100000</h4>
-                        </div>       
-                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 p-5">
-                    <div style="background:#107ECB; padding: 10px 2px; border-radius: 12px;display: flex;justify-content: center;">
-                        <div class="p-2 d-flex justify-content-start align-items-center">
-                            <i class="fa-solid fa-building-columns fa-xl"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-light"><b>Blood Banks</b></h5>
-                            <h4 class="h5 text-light">10000</h4>
-                        </div>       
-                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 p-5">
-                    <div style="background: #D82525; padding: 10px 2px; border-radius: 12px;display: flex;justify-content: center;">
-                        <div class="p-2 d-flex justify-content-start align-items-center">
-                            <i class="fa-solid fa-tent fa-xl"></i>
-                        </div>
-                        <div>
-                            <h5 class="text-light"><b>Blood Camps</b></h5>
-                            <h4 class="h5 text-light">10000</h4>
-                        </div>       
-                     </div>
-                </div>
-              </div>
-              <div class="container px-5 py-3 m-2" style="background: #107ECB;border-radius: 12px;">
-                     <h3 class="text-center">Manage Inventory of Blood Bank</h3>
-                     <div class="row p-2 justify-content-center">
-                        <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
-                        <div style="width: 150px;height: 2px;background: black;margin: 5px;"></div>
-                     </div>
-
-                     <div class="row py-3">
-                        <div class="col-lg-6 py-2 px-5 d-flex justify-content-center">
-                            <select name="" id="" class="p-3 border-0" style="outline: none;border-radius: 12px;">
-                                <option value="">Select Blood Group</option>
-                                <option value="">A+</option>
-                                <option value="">A-</option>
-                                <option value="">B+</option>
-                                <option value="">A-</option>
-                                <option value="">AB+</option>
-                                <option value="">AB-</option>
-                                <option value="">O+</option>
-                                <option value="">O-</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 py-2 px-5 d-flex justify-content-center">
-                               <input class=" p-3" style="border: none;outline: none;border-radius: 12px;" type="text" placeholder="No of Units">
-                        </div>
-
-                        <button class="btn d-block w-50 mx-auto my-3" style="background: #DF2443;color: white;font-size: 20px;">Add Stock</button>
-                     </div>
-              </div>
-         </div>
-     </section>
-
-    <footer style="width: 100%; padding: 10px; border-top: 1px solid rgba(0,0,0,0.3);margin-left: 240px;">
-        <div class="container p-3">
-            <div class="row">
-                <div class="col-lg-6 p-2">
-                    <p style="color: #000;">Copyrights all rights reserved</p>
-                </div>
-                <div class="col-lg-6 p-2">
-                    <p style="color: #000;">Designed by Techwizard</p>
-                </div>
-            </div>
-        </div>
-    </footer> -->
-    <!-- Bootstrap JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha384-KyZXEAg3QhqLMpG8r+O8q3D6Ors2aT1l0cC+2g1/CeZzA/J5fet5pG2i5oV5z5e5bB"
         crossorigin="anonymous"></script>
