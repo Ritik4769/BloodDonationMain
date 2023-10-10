@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            padding-bottom: 0!important;
+        }
+        #dashboard{
+        width:100%;
+        height: auto;        
+        margin-left: 245px;
+    }
+    #dashboard .btn1,#dashboard .btn2{
+        width: 200px;
+        padding: 15px 15px;
+        text-align: center;
+        border: none;
+        border-radius: 50px;
+        font-size: 30px;
+        text-decoration: none;
+        color: white;
+        display: inline;
+        margin: 0 10px;
+    }
+    #dashboard .btn1{
+        background: #107ECB;
+    }
+    #dashboard .btn2{
+        background: red;
+    }
+    #dashboard .container .row .col-md-6 img{
+        width: 50px;
+        height: 50px;
+    }
+    @media (max-width:900px){
+        #dashboard{
+            margin-left: 0;
+        }
+        footer{
+        margin-left: 0;
+    }
+    }
+    </style>
+</head>
+<body>
+    <%- include('../partials/admin_navbar', {variant: 'compact' }); %>
+
+    <section id="dashboard">
+        <div class="container px-5" style="background: #107ECB;">
+            <div class="row justify-content-start align-items-center">
+               <h1 class="text-light pt-4">Camp Request</h1>
+               <div class="row">
+                   <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
+                   <div style="width: 150px;height: 2px;background-color: black;margin: 5px;"></div>
+               </div>
+               <p class="text-light py-4" style="font-size: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+            </div>             
+        </div>
+        <div class="contaier py-4 px-2 d-flex justify-content-center">
+                <button href="#" class="btn1"><i class="fa fa-bars px-3" style="color: black;"></i> All</button>    
+                <button href="#" class="btn2"><i class="fa fa-bars px-3" style="color: black;"></i>Uread</button>           
+        </div>
+        <div class="container p-5">
+            <div class="row p-5" style="border: none;border-radius: 30px;background: #107ECB;">
+                <div class="col-md-6 d-flex justify-content-start align-items-center py-3 px-2" style="border-bottom: 1px solid white;">
+                    <div class="p-2">
+                        <img src="images/tent2.png" alt="">
+                    </div>
+                    <div class="pt-4">
+                        <h3>Blood Source</h3>
+                        <p class="text-dark">Sent You a Reqest</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-center px-3 py-3" style="border-bottom: 1px solid white;">
+                   <p class="fs-4 fw-light">1 hr Ago</p>
+                </div>
+                <div class="col-md-6 d-flex justify-content-start align-items-center py-3 px-2" style="border-bottom: 1px solid white;">
+                  <div class="p-2">
+                    <img src="images/tent2.png" alt="">
+                  </div>
+                    <div class="pt-4">
+                        <h3>Blood Source</h3>
+                        <p class="text-dark">Sent You a Reqest</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-center px-3 py-3" style="border-bottom: 1px solid white;">
+                   <p class="fs-4 fw-light">1 hr Ago</p>
+                </div>
+                <div class="col-md-6 d-flex justify-content-start align-items-center py-3 px-2" style="border-bottom: 1px solid white;">
+                  <div class="p-2">
+                    <img src="images/tent2.png" alt="">
+                  </div>
+                    <div class="pt-4">
+                        <h3>Blood Source</h3>
+                        <p class="text-dark">Sent You a Reqest</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-center px-3 py-3" style="border-bottom: 1px solid white;">
+                   <p class="fs-4 fw-light">1 hr Ago</p>
+                </div>
+            </div>
+        </div>      
+
+    </section>
+
+    <footer style="width: 100%; padding: 10px; border-top: 1px solid rgba(0,0,0,0.3);margin-left: 240px;">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-lg-6 p-2">
+                    <p style="color: #000;">Copyrights all rights reserved</p>
+                </div>
+                <div class="col-lg-6 p-2">
+                    <p style="color: #000;">Desi\gned by Techwizard</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+O8q3D6Ors2aT1l0cC+2g1/CeZzA/J5fet5pG2i5oV5z5e5bB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

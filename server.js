@@ -1,49 +1,29 @@
-var express = require('express');
+import express from 'express';
+import connection from './model/connection.js';
+import bodyparser from 'body-parser';
+import cookieparser from 'cookie-parser';
+import indexroute from './Routes/home.js';
+import adminroute from './Routes/admin.js';
+import userroute  from './Routes/user.js';
+import organizationroute from './Routes/Organization.js';
+import bloodroute from './Routes/BloodBank.js';
+import loginroute from './Routes/login.js';
 var app = express();
 var port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-const donorroute = require('./Routes/donor');
-const adminroute = require('./Routes/admin');
-const recipientroute = require('./Routes/Recipient');
-const organizationroute = require('./Routes/Organization');
-const bloodroute = require('./Routes/BloodBank');
-app.use('', donorroute);
-app.use('', adminroute);
-app.use('', recipientroute);
-app.use('', organizationroute);
-app.use('', bloodroute);
+app.use(cookieparser());
+
+app.use(bodyparser.urlencoded({extended:true}));
+app.use('/',indexroute);
+app.use('/admin', adminroute);
+app.use('/user', userroute);
+app.use('/organization', organizationroute);
+app.use('/blood_bank', bloodroute);
+app.use('/login',loginroute);
 app.listen(port, () => {
   console.log(`Server is listening on port : http://localhost:${port}`);
+  console.log("connection ",connection);
 });
 
-// set the view engine to ejs
 
-// use res.render to load up an ejs view file
-// index page
-// app.get('/', function (req, res) {
-//   res.render('pages/index');
-// });
-
-// about page
-// app.get('/about', function (req, res) {
-//   res.render('pages/about');
-// });
-
-
-// app.get('/services', function (req, res) {
-//   res.render('pages/services');
-// });
-
-// app.get('/DonorProfile', function (req, res) {
-//   res.render('pages/DonorProfile');
-// });
-// app.get('/RecipientProfile', function (req, res) {
-//   res.render('pages/RecipientProfile');
-// });
-// app.get('/RegistrationForm', function (req, res) {
-//   res.render('pages/RegistrationForm');
-// });
-// app.get('/OrganisationProfile', function (req, res) {
-//   res.render('pages/OrganisationProfile');
-// });

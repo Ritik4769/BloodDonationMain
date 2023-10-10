@@ -158,8 +158,11 @@ thead tr:nth-child(3) th {
 
 .cell {
   border: 1px solid #BDBDBD;
-  margin: 2px;
   cursor: pointer;
+  outline: none;
+  margin: 0 10px;
+  width: 130px;
+  text-align: center;
 }
 
 .cell:hover {
@@ -167,8 +170,7 @@ thead tr:nth-child(3) th {
 }
 
 .cell.select {
-  background-color: #3D5AFE;
-  color: #fff;
+  background-color: #EEEEEE;
 }
 
 .fa-calendar {
@@ -188,20 +190,7 @@ thead tr:nth-child(3) th {
 
    <!-- modal start -->
 
-   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header" style="text-align: center;">
-          <h5 class="modal-title" id="exampleModalToggleLabel" style="text-align: center;">John Doe</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Your appointment has been scheduled <br> at Friday 15 Septembar 2023 <br> 14:00</p>
-        </div>
-        
-      </div>
-    </div>
-  </div>
+   
   
   
 
@@ -218,15 +207,22 @@ thead tr:nth-child(3) th {
         </div>
     </div>
     <div class="container-fluid pt-5 px-5">
-        <div class="my-3">
+        <div class="mt-1 mb-5">
             <h1 class="px-3">Booking Calendar</h1>
             <p class="px-3" style="color: #606060;">Use the simple appointment scheduling system below</p>
         </div>
-        <div class="book my-4" style="border: 1px solid rgba(0, 0, 0, 0.2);">
-            <span>Choose Appointment</span>
-        </div>
-        <div class="container my-3 px-0 px-sm-4 mx-auto" style="box-shadow: 3px 4px 8px rgba(0,0,0,0.3);border-radius: 20px;">
-            <div class="row justify-content-center mx-0 p-2" >              
+        <form action="/user/appointment" method="get">
+        <div class="container my-3 px-0 px-sm-4 mx-auto" style="background-color: rgb(243, 242, 242);border-radius: 20px;">
+            <div class="row justify-content-center mx-0 p-2" >
+                        <div class="col-lg-6 my-3 px-3">
+                          <label for="">Last Donation Date</label>
+                           <input type="date" name="last_donation_date" id="" class="form-control">
+                        </div>              
+                        <div class="col-lg-6 my-3 px-3">
+                          <label for="">Disease</label>
+                          <input type="text" name="disease" id="" placeholder="Enter Disease" class="form-control">
+                        </div>
+                    
                         <div class="col-lg-6 ">                          
                             <div class="p-3 my-5 row justify-content-center bg-light rounded-2 px-1">
                               <input type="text" id="dp1" class="inp datepicker" placeholder="Pick Date" name="date"  readonly><span class="fa fa-calendar" style="color: black;"></span>
@@ -235,42 +231,47 @@ thead tr:nth-child(3) th {
                         <div class="col-lg-6">
                           <div class="card-body p-3 p-sm-5">
                             <div class="row text-center mx-0">
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">9:00AM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">9:30AM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">9:45AM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">10:00AM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">10:30AM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">10:45AM</div></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
                             </div>
                             <div class="row text-center mx-0">
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">11:00AM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">11:30AM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">11:45AM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">12:00PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">12:30PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">12:45PM</div></div>
-                            </div>
-                            <div class="row text-center mx-0">
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">1:00PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">1:30PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">1:45PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">2:00PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">2:30PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">2:45PM</div></div>
-                            </div>
-                            <div class="row text-center mx-0">
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">3:00PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">3:30PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">4:15PM</div></div>
-                              <div class="col-md-4 col-6 my-1 px-2"><div class="cell py-1">5:00PM</div></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input class="cell py-1 px-2 " value="9:00AM" readonly></div>
                             </div>
                           </div>
                         </div>                      
             </div>
           </div>
-        <div class="p-5">
-                <button class="btn" data-bs-toggle="modal" href="#exampleModalToggle" role="button" style="display: block; margin: auto; background: #DF2443;color: white;font-size: 25px;padding: 10px 20px;">Confirm Appointment</button>
+        
+          <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header" style="text-align: center;">
+                  <h5 class="modal-title" id="exampleModalToggleLabel" style="text-align: center;">John Doe</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Your appointment has been scheduled <br> at Friday 15 Septembar 2023 <br> 14:00</p>
+                </div>
+                <div class="modal-footer">
+                  <input type="submit" value="Confirm" name="" id="" class="btn btn-danger text-light">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 d-flex justify-content-center">
+                <a class="btn" data-bs-toggle="modal" href="#exampleModalToggle" role="button"  style=" background: #DF2443;color: white;font-size: 18px;padding: 10px 20px;" >Get Appointment</a>
+              </div>
         </div>
+      </form>
     </div>
 
     <footer>
