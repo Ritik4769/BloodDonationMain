@@ -26,9 +26,10 @@ export const blood_bank_AddController =async (req,res)=>{
         bloodBankAddress:bloodBankAddress,
         city:city,
         state: state,
-        zipcode:zipcode
+        zipcode:zipcode,
+        role:"BloodBank"
       });
-      res.render("pages/blood_bank_profile",{newBloodBank:newBloodBank});
+      res.render("pages/blood_bank_profile",{user:newBloodBank});
     }   
     
   } catch (error) {
@@ -38,7 +39,7 @@ export const blood_bank_AddController =async (req,res)=>{
 }
 export const ViewUserController = async (req,res)=>{
   try {
-      const result = await Registration.find()
+      const result = await BloodBankRegistration.find()
       // console.log(result);
       res.render("viewuser",{userrecord:result});
   } catch (error) {

@@ -7,7 +7,7 @@ export const registercontroller=async (req,res)=>{
          const existinguser=await usermodel.findOne({email:email});         
          console.log(existinguser);
          if(existinguser){            
-            console.log(password);
+            // console.log(password);
             res.render("pages/user_registration",{email:"this email allready exist",con:"contact number already exist"});
          }
          else{
@@ -20,7 +20,8 @@ export const registercontroller=async (req,res)=>{
                 password:hashpassword,
                 mobile:contact,
                 city:city,
-                state:state
+                state:state,
+                role:"User"
             });
             console.log('password : ',newuser.password);
             res.render("pages/user_profile",{user:newuser});

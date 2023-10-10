@@ -31,6 +31,10 @@ const organization=mongoose.Schema({
     Description:{
         type:String,
         required:true
+    },
+    role:{
+        type:String,
+        require:true
     }
 });
 export const organization1=mongoose.model("organization",organization);

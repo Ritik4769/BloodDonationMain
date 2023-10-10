@@ -31,6 +31,10 @@ var schema=mongoose.Schema({
     mobile:{
         type:Number,
         required:true
+    },
+    role:{
+        type:String,
+        require:true
     }
 });
 export const usermodel=mongoose.model("user",schema);

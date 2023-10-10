@@ -18,7 +18,8 @@ try {
         Password:hashpassword,
         City:city,
         State:state,
-        Description:description
+        Description:description,
+        role:"Camp"
   });    
    //   console.log(result);
      console.log("Data inserted Successfully");   
