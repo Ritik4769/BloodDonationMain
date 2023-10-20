@@ -35,11 +35,14 @@
             background: white;
             /* margin: 0 5px; */
         }
+<<<<<<< HEAD
         select{
             width: 100%;
             border: 1px solid rgba(0, 0, 0, 0.3);
             border-radius: 12px;
         }
+=======
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
 
   </style>
 </head>
@@ -79,8 +82,12 @@
             <h2 class="text-center my-4" style="color: rgb(244, 69, 69);"><%=wrongotp%></h2>
             <%}else{%>            
         <h2 class="text-center my-4" style="color: rgb(244, 69, 69);">Blood Bank Registration</h2>
+<<<<<<< HEAD
             <%}%>
         <form method="post" action="/blood_bank/verifyemail">
+=======
+        <form method="post" action="bloodBank_reg">
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
             <div class="row">
                 <!-- First Column -->
                 <div class="col-md-6 p-3 my-5" style="border: 1px solid rgba(0, 0, 0, 0.2);box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);">
@@ -128,9 +135,12 @@
                     <div class="form-group">
                         <label for="bloodBankEmail">Blood Bank Email</label>
                         <input type="email" class="form-control" id="bloodBankEmail" name="bloodBankEmail" placeholder="Enter Blood Bank Email" required>
+<<<<<<< HEAD
                        <% if(email){%>
                             <span style="color: rgba(244, 69, 69);"><%=email%></span>
                        <%}%>
+=======
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                     </div>
                     <div class="form-group">
                         <label for="bloodBankpass">Password</label>
@@ -147,6 +157,7 @@
                     <div class="form-group">
                         <label for="bloodBankAddress">Blood Bank Address</label>
                         <input type="text" class="form-control" id="bloodBankAddress" name="bloodBankAddress" placeholder="Enter Blood Bank Address" required>
+<<<<<<< HEAD
                     </div>
                     <div class="form-group">
                         <label for="state">State</label>
@@ -163,6 +174,16 @@
                             <option value="Madhya Pradesh">Indore</option>
                             <option value="Maharashtra">Ratlam</option>
                         </select>
+=======
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="Enter City" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" name="state" placeholder="Enter State" required>
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                     </div>
                     <div class="form-group">
                         <label for="zipcode">Zipcode</label>

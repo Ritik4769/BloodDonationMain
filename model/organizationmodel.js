@@ -31,6 +31,7 @@ const organization=mongoose.Schema({
     Description:{
         type:String,
         required:true
+<<<<<<< HEAD
     }
 });
 export const campmodel=mongoose.model('camp',organization);
@@ -49,3 +50,12 @@ var campdataschema=mongoose.Schema({
 });
 export const organization1=mongoose.model("organization",organization);
 export const camp1=mongoose.model("campmodel",campdataschema);
+=======
+    },
+    role:{
+        type:String,
+        require:true
+    }
+});
+export const organization1=mongoose.model("organization",organization);
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4

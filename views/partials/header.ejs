@@ -33,10 +33,15 @@
   background: #EEEEEE!important;
 }
 .pos-sticky{
+<<<<<<< HEAD
   position: fixed!important;
   top: 0!important;
   z-index: 10;
   width: 100%;
+=======
+  position: sticky!important;
+  top: 0!important;
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
 }
 .fa{
   font-size: 20px;
@@ -87,7 +92,11 @@
   
   
 <div id="navbar1">
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg d-flex align-items-center"  style="background-color: white;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);">
+=======
+<nav class="navbar navbar-expand-lg d-flex align-items-center"  style="margin: 3px 0;background-color: white;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);">
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
   <div style="max-width: 1400px;width: 100%; padding: 2px;margin:0 auto;margin-top: 5px; justify-content: space-around;">
   <button class="navbar-toggler text-danger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fa fa-bars fs-5 text-danger"></i>
@@ -116,9 +125,15 @@
           Login
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
           <a class="dropdown-item text-dark h6" href="/user/login/user" >User Login</a>
           <a class="dropdown-item text-dark h6" href="/blood_bank/login/bank" >Blood Bank Login</a>          
           <a class="dropdown-item text-dark h6" href="/organization/login/camp">Organization Login</a>
+=======
+          <a class="dropdown-item text-dark h6" href="/user/user_login/user" >User Login</a>
+          <a class="dropdown-item text-dark h6" href="/blood_bank/blood_bank_login/bank" >Blood Bank Login</a>          
+          <a class="dropdown-item text-dark h6" href="/organization/Organization_login/camp">Organization Login</a>
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
         </div>
       </li>
       <li class="nav-item">
@@ -128,14 +143,22 @@
         <a class="nav-link text-dark h6" href="/contact">Contact Us</a>
       </li>
     </ul>
+<<<<<<< HEAD
     
       <a class="btn my-2 my-sm-0 px-4"  style="background-color: #DF2443;color: white;border-radius: 8px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Search For Blood</a>
     
+=======
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mx-2" type="search" placeholder="Search for blood" aria-label="Search" style="box-shadow: 0 0 4px rgb(35, 34, 34);">
+      <a class="btn my-2 my-sm-0 px-4"  style="background-color: #DF2443;color: white;border-radius: 8px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Search</a>
+    </form>
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
   </div>
 
 </div>
 </nav>
 </div>  
+<<<<<<< HEAD
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -178,6 +201,30 @@
                       
           </div>
         </div>
+=======
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header m-auto d-flex justify-content-center flex-column align-items-center">
+        <h5 class="text-center" id="staticBackdropLabel">Availability of Blood </h5>
+        <div class="row">
+          <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
+          <div style="width: 150px;height: 2px;background-color: black;margin: 5px;"></div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center align-items-center">
+          <div class="py-2 px-5 fs-3" style="background-color: #DF2443;color: white;">
+               A
+          </div>
+          <div class="p-2 d-flex justify-content-start align-items-center" style="color: rgb(166, 166, 166);">
+               : Blood is Available Now
+          </div>
+      </div>
+      <div class="modal-footer m-auto d-flex">       
+        <p>Click on Register Now for 50% Discount</p><a class="mx-2" href="/user/user_registration" style="color: #1400FF;">Register Now</a>
+        
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
       </div>
     </div>
 </body>

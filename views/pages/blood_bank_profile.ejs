@@ -4,14 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
   
+=======
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        .profile-name{
+          width: 100%;
+          padding: 10px;
+          border: none;
+          border-radius: 12px;
+          box-shadow: 0 4px 50px 3px rgba(0, 0, 0, 0.3);
+          margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
     <header>
         <%- include('../partials/header', {variant: 'compact' }); %>
     </header>
 
+<<<<<<< HEAD
     
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -85,6 +116,8 @@
       <%}%> -->
 
     <!-- modal end -->
+=======
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
     <!-- Profile Section -->
     <section id="profile">
         <div class="container">
@@ -92,6 +125,7 @@
                 <div class="col-md-8">
                     <!-- Profile Details -->
                     <div class="profile-details">
+<<<<<<< HEAD
                       <div class="profile-name py-4 px-4 d-flex justify-content-between align-items-center">
                         <h3><%=bloodbank.bloodBankname%></h3>
                       <div>
@@ -192,6 +226,124 @@
 
              
           </div>
+=======
+                      <div class="profile-name py-5 px-4 d-flex justify-content-between align-items-center">
+                        <h1><b><%=user.bloodBankname%></b></h1>
+                        <a href="/edit_profile" class="btn btn-danger" type="button">EDIT PROFILE</a>
+                        <!-- Add your profile details here -->
+                       </div>  
+                        <div class="container" style="margin: 5% 0; background-color:white; border-radius: 13px; padding: 10px;box-shadow: 0 4px 50px 3px rgba(0, 0, 0, 0.3);">
+                            <div class="row">                             
+                                 
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                     <div> <h6>BloodBank-Name</h6></div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=user.bloodBankname%></div>
+                                 
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                    <div>  
+                                      <h6>Owner-Name</h6>
+                                    </div>  
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=user.ownerNamename%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                        <h6>  bloodBank-Email </h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=user.bloodBankEmail%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                      <h6>licenseNumber</h6>
+                                      </div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=user.licenseNumber%></div>
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                      <h6>bloodBank-Category</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=user.bloodBankCategory%></div>
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                      <h6>parentHospital</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=user.parentHospital%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                    <div>
+                                      <h6>Opening-Time</h6>
+                                    </div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=user.openingTime%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                       <h6>closing-Time</h6>
+                                      </div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=user.closingTime%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom" >
+                                      <div>
+                                       <h6>Owner-ContactNo</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=user.ownerContactNo%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                        <h6> BloodBank-Address</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=user. bloodBankAddress%></div>
+                                </div>
+                                </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-2">
+                    <!-- Blood Donation History -->
+                    <div style="border: none;border-radius: 12px;box-shadow: 0 4px 50px 5px rgba(0, 0, 0, 0.3);padding: 10px;">
+                    <!-- <div class="blood-donation-history">
+                        <h2>Blood Donation History</h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Blood Unit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>13 Dec 2020</td>
+                                    <td>120</td>
+                                </tr>
+                                <tr>
+                                    <td>28 Nov 2020</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>04 Nov 2020</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <td>15 Oct 2020</td>
+                                    <td>310</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+                    <!-- Appointment Button -->
+                    <a href="/blood_inventory" class="btn btn-danger btn-block mt-4">Add Unit</a>
+                    <!-- See Report Button -->
+                    <a href="/index1" class="btn btn-danger btn-block mt-4">Back</a>
+                </div>
+              </div>
+            </div>
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
         </div>
     </section>
 

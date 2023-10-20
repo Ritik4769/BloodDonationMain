@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { times } from "async";
 import { Timestamp } from "bson";
+=======
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
 import mongoose from "mongoose";
 var schema=mongoose.Schema({
     name:{
@@ -34,6 +37,7 @@ var schema=mongoose.Schema({
         type:Number,
         required:true
     },
+<<<<<<< HEAD
     bloodgroup:{
         type:String
     },
@@ -71,3 +75,11 @@ var bloodReqSchema = mongoose.Schema({
     }
   }) ;
 export const bloodReqModel = mongoose.model("resipient",bloodReqSchema);
+=======
+    role:{
+        type:String,
+        require:true
+    }
+});
+export const usermodel=mongoose.model("user",schema);
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4

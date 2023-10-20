@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
@@ -107,12 +108,47 @@
       <%= msg %>
     </div>
     <%}%>
+=======
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        .profile-name{
+          width: 100%;
+          padding: 10px;
+          border: none;
+          border-radius: 12px;
+          box-shadow: 0 4px 50px 3px rgba(0, 0, 0, 0.3);
+          margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header', {variant: 'compact' }); %>
+    </header>
+
+    <!-- Profile Section -->
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
     <section id="profile">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <!-- Profile Details -->
                     <div class="profile-details">
+<<<<<<< HEAD
                       <div class="profile-name py-4 px-4 d-flex justify-content-between align-items-center">
                         <h2><%=user.name%></h2>
                         <div>
@@ -122,6 +158,14 @@
                         <!-- Add your profile details here -->
                        </div>  
                         <div class="container" style="margin: 5% 0; background-color:white; border-radius: 13px; padding: 10px;box-shadow: 0 4px 20px 3px rgba(0, 0, 0, 0.1);">
+=======
+                      <div class="profile-name py-5 px-4 d-flex justify-content-between align-items-center">
+                        <h1><%=user.name%></h1>
+                        <a href="/user/edit_profile/<%=user.email%>" class="btn btn-danger" type="button">EDIT PROFILE</a>
+                        <!-- Add your profile details here -->
+                       </div>  
+                        <div class="container" style="margin: 5% 0; background-color:white; border-radius: 13px; padding: 10px;box-shadow: 0 4px 50px 3px rgba(0, 0, 0, 0.3);">
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                             <div class="row">                              
                                  
                                     <div class="col-6 p-2 d-flex justify-content-center border-bottom">
@@ -163,21 +207,40 @@
                                        <h6>Blood Group</h6>
                                       </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="col-6 p-2 border-bottom"><%=user.bloodgroup%></div>
+=======
+                                    <div class="col-6 p-2 border-bottom">A+</div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom" >
+                                      <div>
+                                       <h6>Address</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom">123 Main Street, Sample City</div>
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                                     
                                     <div class="col-6 p-2 d-flex justify-content-center border-bottom">
                                       <div>
                                         <h6>Last Donation Date</h6>
                                       </div>
                                     </div>  
+<<<<<<< HEAD
                                     <div class="col-6 p-2 border-bottom"><%=user.last_donation_date%></div>
+=======
+                                    <div class="col-6 p-2 border-bottom">January 15, 2023</div>
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                                 </div>
                                 </div>
                     </div>
                 </div>
                 <div class="col-md-4 p-2">
                     <!-- Blood Donation History -->
+<<<<<<< HEAD
                     <div style="border: none;border-radius: 12px;box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.1);padding: 10px;">
+=======
+                    <div style="border: none;border-radius: 12px;box-shadow: 0 4px 50px 5px rgba(0, 0, 0, 0.3);padding: 10px;">
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                     <div class="blood-donation-history">
                         <h2>Blood Donation History</h2>
                         <table class="table">
@@ -209,11 +272,19 @@
                     </div>
                     <!-- Appointment Button -->
                     <div class="p-2 d-flex justify-content-around flex-wrap" >
+<<<<<<< HEAD
                     <a href="/user/appointment/<%=user._id%>" class=" btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">Appointment</a>
                     <!-- See Report Button -->
                     <a href="/user/seereport/<%=user._id%>" class="btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">See Report</a>
                     <a href="/user/blood_request/<%=user._id%>" class=" btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">Blood Request</a>
                     <a href="/" class="btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">Back</a>
+=======
+                    <a href="/user/appointment" class=" btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">Appointment</a>
+                    <!-- See Report Button -->
+                    <a class=" btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">See Report</a>
+                    <a href="/user/blood_request" class=" btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">Blood Request</a>
+                    <a href="/index1" class="btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">Back</a>
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                   </div>
                 </div>
               </div>

@@ -2,6 +2,7 @@ import { usermodel } from '../model/usermodel.js';
 import { organization1 } from "../model/organizationmodel.js";
 import Registration from "../model/blood_bankregistration.js";
 import bcrypt from "bcrypt";
+<<<<<<< HEAD
 import jwt from 'jsonwebtoken';
 import {transporter} from '../model/emailmodel.js';
 import randomstring from 'randomstring';
@@ -14,16 +15,34 @@ const logincontroller = async (req, res) => {
     const {email, password, role} = req.body;
     console.log('email '+email);
     try {
+=======
+import crypto from 'crypto';
+import jwt from "jsonwebtoken";
+const maxAge = 3 * 24 * 60 * 60;
+// const SECRET_KEY = crypto.randomBytes(32).toString('hex');
+// const SECRET_KEY = crypto.randomBytes(32).toString('hex');
+const SECRET_KEY = "crypto.randomBytes(32).toString('hex')";
+let token;
+
+const logincontroller = async (req, res) => {
+    const { email, password, role } = req.body;
+    try {
+        console.log("ffdfdfdfd");
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
         const payload = {};
         const expiryTime = {
             expiresIn: '1d'
         }
         if (role == "user") {
+<<<<<<< HEAD
             console.log('userlogin');
+=======
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
             const exist = await usermodel.findOne({ email: email });
             if (exist) {
                 const pass = await bcrypt.compare(password, exist.password);
                 if (pass) {
+<<<<<<< HEAD
                     user={
                         data:exist,
                         role:"User"
@@ -32,6 +51,13 @@ const logincontroller = async (req, res) => {
                     console.log(payload.user);
                     token = jwt.sign(payload, SECRET_KEY, expiryTime);
                     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
+=======
+
+                    payload.user = exist;
+                    console.log(payload.user);
+                    token = jwt.sign(payload, SECRET_KEY, expiryTime);
+                    res.cookie('jwt', token, { httpOnly: true, maxAge: 86400*1000 });
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                     res.redirect("user_profile");
                 } else {
                     res.render("pages/user_login", { email: "", pass: "password not matched", role: role });
@@ -42,6 +68,7 @@ const logincontroller = async (req, res) => {
             }
         }
         else if (role == "bank") {
+<<<<<<< HEAD
             console.log('banklogin');
             const exist = await Registration.findOne({ bloodBankEmail: email });
             
@@ -53,18 +80,32 @@ const logincontroller = async (req, res) => {
                         role:"BloodBank"
                     }
                     payload.user=user;
+=======
+            const exist = await Registration.findOne({ bloodBankEmail: email });
+
+            if (exist) {
+
+                const pass = await bcrypt.compare(password, exist.password);
+                if (pass) {
+                    payload.user = exist;
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                     console.log(payload.user);
                     token = jwt.sign(payload, SECRET_KEY, expiryTime);
                     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
                     res.redirect("user_profile");
                 } else {
+<<<<<<< HEAD
                     res.render("pages/user_login", { email: "", pass: "password not matched", role: role });
+=======
+                    res.render("pages/user_login", { email: "", pass: "", role: role });
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                 }
             }
             else {
                 res.render("pages/user_login", { email: "email not found", pass: "", role: role });
             }
         }
+<<<<<<< HEAD
         else if (role=="camp") {
             console.log('orglogin');
             const exist = await organization1.findOne({Email: email });
@@ -80,6 +121,24 @@ const logincontroller = async (req, res) => {
                     token = jwt.sign(payload, SECRET_KEY, expiryTime);
                     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
                     res.redirect("user_profile");
+=======
+        else if (role == "camp") {
+            console.log("camp")
+            const exist = await organization1.findOne({ Email: email });
+            if (exist) {
+                console.log("camp1")
+
+                const pass = await bcrypt.compare(password, exist.Password);
+                if (pass) {
+                    console.log("camp2")
+                    payload.user = exist;
+                    console.log(payload.user);
+                    token = jwt.sign(payload, SECRET_KEY, expiryTime);
+                    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
+                    // res.render("pages/blood_bank_profile", { bank: exist });
+                    res.redirect("user_profile");
+
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
                 } else {
                     res.render("pages/user_login", { email: "", pass: "password not matched", role: role });
                 }
@@ -93,19 +152,29 @@ const logincontroller = async (req, res) => {
     }
 }
 
+<<<<<<< HEAD
 const authenticateJWT = (request,response,next) => {
+=======
+
+const authenticateJWT = (request, response, next) => {
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
     console.log("authenticateJWT : ");
     const token = request.cookies.jwt;
     if (!token) {
         response.json({ message: "Error Occured while dealing with Token inside authenticateJWT" });
     }
+<<<<<<< HEAD
     jwt.verify(token,SECRET_KEY,(err, payload)=>{
+=======
+    jwt.verify(token, SECRET_KEY, (err, payload) => {
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
         if (err)
             response.json({ message: "Error Occured while dealing with Token during verify" });
         request.payload = payload;
         next();
     });
 }
+<<<<<<< HEAD
 const authorizeUser = (request,response,next) => {
     console.log("authorizeUser : ");
     console.log(request.payload.user.data)
@@ -267,3 +336,22 @@ export const update_password=async(req,res)=>{
     }
 }
 export {logincontroller,authenticateJWT,authorizeUser,jwt,SECRET_KEY};
+=======
+
+const authorizeUser = (request, response, next) => {
+    console.log("authorizeUser : ");
+    console.log(request.payload.user)
+    if (request.payload.user.role == "User") {
+        response.render("pages/user_profile", { user: request.payload.user });
+    } else if (request.payload.user.role == "BloodBank") {
+        console.log("blood....");
+        response.render("pages/blood_bank_profile", { user: request.payload.user });
+    } else {
+        console.log("camppppp")
+        response.render("pages/index1");
+    }
+    next();
+}
+
+export { logincontroller, authenticateJWT, authorizeUser, jwt, SECRET_KEY };
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4

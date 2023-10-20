@@ -1,4 +1,5 @@
 import Registration from "../model/blood_bankregistration.js";
+<<<<<<< HEAD
 import {blood_bank_inventory} from '../model/adminBloodinventory.js';
 import bcrypt from 'bcrypt';
 import {transporter} from '../model/emailmodel.js';
@@ -14,6 +15,17 @@ export const blood_bank_AddController =async (req,res)=>{
     const exist=await Registration.findOne({bloodBankEmail:bloodBankEmail});
     if(exist){
       res.render("pages/blood_bank_registration",{email:"email allready exist",otp:"",wrongotp:""});
+=======
+import bcrypt from 'bcrypt';
+export const blood_bank_AddController =async (req,res)=>{
+   
+  try {
+    console.log("reqbodey",req.body);
+    const {bloodBankname,ownerNamename,bloodBankCategory,licenseNumber,parentHospital,openingTime,closingTime,days,bloodBankEmail,password,ownerContactNo, bloodBankAddress,city, state,zipcode} = req.body
+    const exist=await Registration.findOne({bloodBankEmail:bloodBankEmail});
+    if(exist){
+      res.render("pages/blood_bank_registration",{msg:"email aready exist"});
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
     }
     else{
       const hashpassword=await bcrypt.hash(password,10);
@@ -32,14 +44,22 @@ export const blood_bank_AddController =async (req,res)=>{
         bloodBankAddress:bloodBankAddress,
         city:city,
         state: state,
+<<<<<<< HEAD
         zipcode:zipcode
       });
       res.render("pages/blood_bank_profile",{bloodbank:newBloodBank});
+=======
+        zipcode:zipcode,
+        role:"BloodBank"
+      });
+      res.render("pages/blood_bank_profile",{user:newBloodBank});
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
     }   
     
   } catch (error) {
     console.log(error)
   }
+<<<<<<< HEAD
  }else{
   res.render("pages/blood_bank_registration",{email:"",otp:"",wrongotp:"Wrong Otp Register Again"});
  }
@@ -72,12 +92,20 @@ export const verifyemail=async(req,res)=>{
 export const ViewUserController = async (req,res)=>{
   try {
       const result = await Registration.find()
+=======
+ 
+}
+export const ViewUserController = async (req,res)=>{
+  try {
+      const result = await BloodBankRegistration.find()
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
       // console.log(result);
       res.render("viewuser",{userrecord:result});
   } catch (error) {
    
   }
 }
+<<<<<<< HEAD
 export const update_Controller = async (req, res) => {
   console.log("hello");
   try {
@@ -184,5 +212,8 @@ export const update_bloodbankController = async (req, res,) => {
     console.log("Error adding/updating blood unit", error);
   }
 }
+=======
+
+>>>>>>> e5182a55fa75377ae5ad85b9a989111fd8ca8ac4
 
 
