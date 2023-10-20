@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }        
+        th,td{
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th 
+        {
+            background-color: #f2f2f2;
+        }
+        .profile-name
+        {
+          width: 100%;
+          padding: 10px;
+          border: none;
+          border-radius: 12px;
+          box-shadow: 0 4px 50px 3px rgba(0, 0, 0, 0.3);
+          margin: 10px 0;
+        }
+        .hidden {
+           display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header', {variant: 'compact' }); %>
+    </header>
+    <div class="container p-5">
+        <div class="row p-5" style="border: none;border-radius: 30px;background: #107ECB;">
+            <% data.forEach(image => { %>
+            <div class="col-md-6 d-flex justify-content-start align-items-center py-3 px-2" style="border-bottom: 1px solid white;">
+              <div class="p-2">
+                <img src="/uploads/<%=image%>" width="300" height="200" alt="">
+              </div>
+                <div class="pt-4">
+                    <h3> blood Report</h3>
+                  
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-center px-3 py-3" style="border-bottom: 1px solid white;">
+               <button id="openImage">Open</button>
+               <button id="closeImage">Close</button>
+            </div>
+            <div id="imageContainer" class="hidden">
+                <img src="/uploads/<%=image%>" alt="Image" style="width: 600px; height: 500px;">
+                </div>
+                <%})%>
+        </div>
+    </div>     
+   
+    <footer>
+        <%- include('../partials/footer', {variant: 'compact'});%>
+    </footer>
+    <script>
+        document.getElementById('openImage').addEventListener('click', function() {
+      document.getElementById('imageContainer').classList.remove('hidden');
+    });
+    document.getElementById('closeImage').addEventListener('click', function() {
+      document.getElementById('imageContainer').classList.add('hidden');
+    });  
+    </script>
+
+</body>
+</html>

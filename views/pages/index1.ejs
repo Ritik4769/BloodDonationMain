@@ -17,349 +17,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp'>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-#head{
-  padding: 1px;
-  background: white;
-  display: flex;
-  align-items: center;
-
-}
-.nav-item{
-  padding: 0 12px;
-}
-.container1{
-  max-width: 1200px;
-  padding: 2px;
-  margin: auto;
-}
-.nav-item:hover{
-  transition: 0.5s!important;
-  background: #EEEEEE;
-  border: none;
-  border-radius: 9px;
-}
-#process{
-  padding: 10px;
-  background: white;  
-  /* box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.3); */
-  margin: 30px 0px;
-}
-#process .container .row .col-lg-4 .image1,#process .container .row .col-lg-4 .image2,#process .container .row .col-lg-4 .image3{
-  width: 100%;
-  height: 450px;
-  position: relative;
-  background: url(images/donor_process2.jpeg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repea
-}
-#process .container .row .col-lg-4 .image2{
-  background: url(images/dropimg.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-#process .container .row .col-lg-4 .image3{
-  background: url(images/donor_process4.avif);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repea
-}
-#process .container .row .col-lg-4 .image1 .donor_process,#process .container .row .col-lg-4 .image3 .donor_process,#process .container .row .col-lg-4 .image2 .donor_process{
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 95%;
-    height: 0;
-    bottom: 0;
-    color: #ffffff;
-    right: 30px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    opacity: 0;
-    position: absolute;
-    transition: all 0.8s ease-out 0.30s;
-    text-align: center;
-    padding: 0 38px 0;
-    z-index: 1;
-}
-#process .container .row .col-lg-4 .image1 .donor_process h4,#process .container .row .col-lg-4 .image3 .donor_process h4,#process .container .row .col-lg-4 .image2 .donor_process h4{
-  color: white;
-  font-size: 30px;
-  padding: 5px;
-  border-bottom: 2px solid #F5A200;
-}
-#process .container .row .col-lg-4 .image1 .donor_process ul li,#process .container .row .col-lg-4 .image3 .donor_process ul li,#process .container .row .col-lg-4 .image2 .donor_process ul li{
-   color: white;
-   padding: 5px 0px;
-   text-align: start;
-   font-weight: bold;
-}
-#process .container .row .col-lg-4 .image1 h2,#process .container .row .col-lg-4 .image2 h2,#process .container .row .col-lg-4 .image3 h2{
-  color: white;
-  transition: all 0.5s ease-out 0.15s;
-}
-#process .container .row .col-lg-4 .image1:hover h2,#process .container .row .col-lg-4 .image2:hover h2,#process .container .row .col-lg-4 .image3:hover h2{
-  display: none;
-}
-#process .container .row .col-lg-4 .image1:hover .donor_process,#process .container .row .col-lg-4 .image2:hover h2,#process .container .row .col-lg-4 .image2:hover .donor_process,#process .container .row .col-lg-4 .image2:hover h2,#process .container .row .col-lg-4 .image3:hover .donor_process{
-  z-index: 1;
-  opacity: 1;  
-  height: 95%;
-  cursor: pointer;
-}
-#mission{
-  padding: 10px;
-  background: #C7E7FD;
-  margin: 20px 0;
-  /* box-shadow: 0 10px 4px rgba(0, 0, 0, 0.3); */
-}
-#mission .container .row .col-lg-4 .mission1{
-  width: 100%;
-  height: 400px;
-  position: relative;
-  border-radius: 40px 40px 40px 40px; 
-  background: white;
-  box-shadow: 5px 10px 4px rgba(0, 0, 0, 0.3);
-  padding: 30px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-#mission .container .row .col-lg-4 .mission1 p{
-  font-weight: 500;
-}
-#mission .container .row .col-lg-4 .mission1 .line{
-  width: 200px;
-  height: 3px;
-  background: #000;
-}
-#mission .container .row .col-lg-4 .mission1::before{
-  position: absolute;
-  content: '';
-  width: 100px;
-  height: 100px;
-  border: 20px solid rgba(255, 230, 1, 0.76);
-  background: white;
-  border-radius: 50%;
-  top: -10%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-#projectFacts{
-  padding: 1px;
-  background: url(images/foot.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  margin: 10px 0;
-  /* box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3); */
-}
-.sectionClass {
-  padding: 20px 0px 50px 0px;
-  position: relative;
-  display: block;
-  background: rgba(0, 0, 0, 0.);
-}
-
-.fullWidth {
-  width: 100% !important;
-  display: table;
-  float: none;
-  padding: 0;
-  min-height: 1px;
-  height: 100%;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-.sectiontitle {
-  background-position: center;
-  margin: 30px 0 0px;
-  text-align: center;
-  min-height: 20px;
-}
-.sectiontitle h2 {
-  font-size: 30px;
-  color: #222;
-  margin-bottom: 0px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-.headerLine {
-  width: 160px;
-  height: 2px;
-  display: inline-block;
-}
-.projectFactsWrap{
-    display: flex;
-  margin-top: 30px;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-#projectFacts .fullWidth{
-  padding: 0;
-}
-
-.projectFactsWrap .item{
-  width: 25%;
-  height: 100%;
-  padding: 50px 0px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.projectFactsWrap .item p.number{
-  font-size: 40px;
-  padding: 0;
-  font-weight: bold;
-}
-
-.projectFactsWrap .item p{
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 18px;
-  margin: 0;
-  padding: 10px;
-  font-family: 'Open Sans';
-}
-
-.projectFactsWrap .item span{
-  width: 60px;
-  background: rgba(255, 255, 255, 0.8);
-  height: 2px;
-  display: block;
-  margin: 0 auto;
-}
-
-.projectFactsWrap .item i{
-  vertical-align: middle;
-  font-size: 50px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.projectFactsWrap .item:hover i, .projectFactsWrap .item:hover p{
-  color: white;
-}
-
-.projectFactsWrap .item:hover span{
-  background: white;
-}
-
-#facts{
-  padding: 10px;
-  background: white;
-  border-top: 1px solid rgba(0, 0, 0, 0.3); 
-  margin: 20px 0;
-  /* box-shadow: 0 10px 5px rgba(0, 0, 0, 0.3); */
-}
-
-@media (max-width: 786px){
-  .projectFactsWrap .item {
-     flex: 0 0 50%;
-  }
-}
-
-#home{
-  width: 100%;
-  height: 80vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background: rgba(0, 144, 255,0.959);
-}
-
-#home::before{
-  z-index:2;
-  content: '';
-  position: absolute;
-  background: rgba(251,3,3,0.034);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-#home .content{
-  z-index: 3;
-  color: #fff;
-  width: 70%;
-  margin-top: 50px;
-  display: none;
-}
-
-#home .content.active{
-   display: block;
-}
-
-#home .content h3{
-  text-align: center;
-}
-
-#home img{
-  /* z-index: ; */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-#home .slider-navigation{
-  z-index: 888;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateY(80px);
-  margin-bottom: 12px;
-}
-
-#home .slider-navigation .nav-btn{
-  width: 12px;
-  height: 12px;
-  background: #fff;
-  border-radius: 50%;
-  margin: 20px;
-  cursor: pointer;
-  box-shadow: rgba(255, 255, 255, 0.5);
-  transition: 0.3 ease;
-}
-#home .slider-navigation .nav-btn.active{
-  background: #09a6d4;
-}
-#home .slider-navigation .nav-btn:hover{
-  transform: scale(1.2);
-}
-.img-slide{
-  position: absolute;
-  width: 100%;
-  clip-path: circle(0% at 0 50%);
-}
-.img-slide.active{
-  clip-path: circle(150% at 0 50%);
-  transition: 2s ease;
-  transition-property: clip-path;
-}
-.fact{
-  margin-right: 200px;
-  margin-top: 50px;
-}
-@media (max-width: 906px){
-  .fact {
-     margin-right: 0;
-  }
-} 
-</style>  
+  
+<link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
@@ -370,17 +29,23 @@
   <!-- navbar end -->
   <!-- ------------------------slider start---------------------- -->
     <div id="home">
-        <img class="img-slide active" src="images/slide1.jpeg" alt="">
-        <img class="img-slide" src="images/slide2.jpg" alt="">
-        <img class="img-slide" src="images/slide3.jpg" alt="">
+        <img class="img-slide active" src="/images/slide1.jpeg" alt="">
+        <img class="img-slide" src="/images/slide2.jpg" alt="">
+        <img class="img-slide" src="/images/slide3.jpg" alt="">
         <div class="content">
-          <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi provident, illo architecto autem voluptatum at nulla rerum. Officiis beatae incidunt sint, magni quas iusto, vero pariatur nam optio nesciunt culpa!</h3>
+          <h3 class="">Give the gift of life: Donate blood, save a life</h3>
+          <p class="text-light ">Blood donation is a selfless act of kindness that has the power to save lives and make a significant impact on the health and well-being of others. Every day, countless individuals face medical emergencies, surgeries, and chronic illnesses that require blood transfusions. </p>
+          <a href="/user/user_registration">Register</a>
         </div>
         <div class="content active">
-          <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi provident, illo architecto autem voluptatum at nulla rerum. Officiis beatae incidunt sint, magni quas iusto, vero pariatur nam optio nesciunt culpa!</h3>
+          <h3>A few minutes of your time can give someone a lifetime.</h3>
+          <p class="text-light ">Blood donation is a selfless act of kindness that has the power to save lives and make a significant impact on the health and well-being of others. Every day, countless individuals face medical emergencies, surgeries, and chronic illnesses that require blood transfusions. </p>
+          <a href="/user/user_registration">Register Here</a>
         </div>
         <div class="content">
-          <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi provident, illo architecto autem voluptatum at nulla rerum. Officiis beatae incidunt sint, magni quas iusto, vero pariatur nam optio nesciunt culpa!</h3>
+          <h3>Donating blood is like giving a part of your heart.</h3>
+          <p class="text-light ">Blood donation is a selfless act of kindness that has the power to save lives and make a significant impact on the health and well-being of others. Every day, countless individuals face medical emergencies, surgeries, and chronic illnesses that require blood transfusions. </p>
+          <a href="/user/user_registration">Register Here</a>
         </div>  
         <div class="slider-navigation">
           <div class="nav-btn active"></div>
@@ -451,7 +116,7 @@
             <h1 style="color: white;font-weight: bold;font-size: 50px;">Our Mission</h1>
             <p style="color: #616161;font-size: 23px;">At Our Blood bank we are on a mission to save lives through the power of your generosity.</p>
             <div class="row pt-3">
-              <div class="col-lg-4 p-3">
+              <div class="col-lg-4 p-3 my-2">
                 <div class="mission1">
                      <h1>Mission</h1>
                      <p>We empower our donors to be the heroes in someone's story. Your blood donation is not just a gift; it's an act of compassion, selflessness, and community.</p>
@@ -459,7 +124,7 @@
                      <h3 class="py-4">01</h3>
                 </div>
               </div>
-              <div class="col-lg-4 p-3">
+              <div class="col-lg-4 p-3 my-2">
                 <div class="mission1">
                   <h1>Vision</h1>
                   <p>We empower our donors to be the heroes in someone's story. Your blood donation is not just a gift; it's an act of compassion, selflessness, and community.</p>
@@ -467,7 +132,7 @@
                   <h3 class="py-4">02</h3>
                 </div>
               </div>
-              <div class="col-lg-4 p-3">
+              <div class="col-lg-4 p-3 my-2">
                 <div class="mission1">
                   <h1>Goals</h1>
                   <p>We empower our donors to be the heroes in someone's story. Your blood donation is not just a gift; it's an act of compassion, selflessness, and community.</p>
@@ -486,40 +151,40 @@
         <div class="projectFactsWrap ">
             <div class="item wow fadeInUpBig animated animated" data-number="12" style="visibility: visible;">
                 <div class="p-2">
-                  <img src="images/blood-donation.png" alt="" style="width: 70px;height: 70px;">
+                  <img src="/images/blood-donation.png" alt="" >
                 </div>
                 <div class="p-2">
-                  <p id="number1" class="number">12</p>
+                  <p id="number1" class="number">0</p>
                   <span></span>
                   <p>Donor Registered</p>
                 </div>
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="55" style="visibility: visible;">
                 <div class="p-2">
-                    <img src="images/blood.png" alt="" style="width: 70px;height: 70px;">
+                    <img src="/images/blood.png" alt="" >
                 </div>
                 <div class="p-2">
-                <p id="number2" class="number">55</p>
+                <p id="number2" class="number">0</p>
                 <span></span>
                 <p>Blood Units</p>
               </div>
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="359" style="visibility: visible;">
                 <div class="p-2">
-                  <img src="images/tent.png" alt="" style="width: 70px;height: 70px;">
+                  <img src="/images/tent.png" alt="" >
                 </div>
                 <div class="p-2">
-                <p id="number3" class="number">359</p>
+                <p id="number3" class="number">0</p>
                 <span></span>
                 <p>Blood Camps</p>
               </div>
             </div>
             <div class="item wow fadeInUpBig animated animated" data-number="246" style="visibility: visible;">
                 <div class="p-2">
-                   <img src="images/blood-bank.png" alt="" style="width: 70px;height: 70px;">
+                   <img src="/images/blood-bank.png" alt="" >
                 </div>
                 <div class="p-2">
-                <p id="number4" class="number">246</p>
+                <p id="number4" class="number">0</p>
                 <span></span>
                 <p>Blood Bank Registered</p>
               </div>
@@ -537,15 +202,15 @@
                   <div style="padding-left: 100px; width: 800px;height: 650px;background: #FF0000;position: relative;overflow: hidden;padding: 10px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
                      <div style="width: 50%;height: 100%;background: white;">                        
                      </div>
-                     <img src="images/girl.jpg" alt="" style="width: 75%;height: 100%;position: absolute;top: 5%;left: 5%;">
+                     <img src="/images/girl.jpg" alt="" style="width: 75%;height: 100%;position: absolute;top: 5%;left: 5%;">
                   </div>
                   <div style="background-color: white;position: absolute;width: 50%;left: 50%;top: -10%;height: 200%;transform: rotate(15deg);transform: translateX();"></div>
           </div>
           <div class="col-lg-7 col-md-12 text-center py-5">
             <div class="fact" >
                  <h3 style="color: #7c7c7c;font-size: 30px;">Some Facts</h3>
-                 <h2 class="p-2" style="font-size: 40px;">A most facts that you should have know about  it in India</h2>
-                 <p style="font-size: 25px;">A most facts that you should have know about  it in India</p>
+                 <h2 class="p-2" style="font-size: 30px;">A most facts that you should have know about  it in India</h2>
+                 <p style="font-size: 20px;">A most facts that you should have know about  it in India</p>
                  <div class="accordion accordion-flush my-5 p-2" id="accordionFlushExample" style="border: none;border-radius: 10px;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -586,11 +251,92 @@
 </section>
 <!-- --------------------------------------facts end---------------------------- -->
  
+<!-- --------------------------------Camp Slider Start -------------------------- -->
+<!-- <section id="bood_camp" class="py-3">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/blood_camp1.avif" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/blood_camp2.avif" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/blood_camp3.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</section> -->
 
+<% if(available || notavailable){ %>
+  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header m-auto d-flex justify-content-center flex-column align-items-center">
+          <h5 class="text-center" id="staticBackdropLabel">Availability for Blood </h5>
+          <div class="row">
+            <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
+            <div style="width: 150px;height: 2px;background-color: black;margin: 5px;"></div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex justify-content-center align-items-center">
+            <div class="container">              
+              <div class="row">
+                <div class="col-md-6 p-3">
+                    <div style="width: 200px;height: 70px;padding: 20px;background-color: #DF2443;text-align: center;color: white;font-size: 20px;font-weight: 500;">
+                      <p><%=bloodgroup%> : </p>
+                    </div>
+                </div>
+                <div class="col-md-6 p-3">
+                  <div style=" padding: 20px;text-align: center;color: white;font-size: 20px;font-weight: 500;">
+                    <% if(available){ %>
+                        <p style="color: black;"><%=available%></p>
+                      <%}else{%>
+                        <p style="color: black;"><%=notavailable%></p>
+                      <%}%>
+                  </div>
+                </div>                
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer m-auto d-flex">       
+                <%if(available){%>    
+                  <p style="color: rgba(0, 0, 0, 0.5);">For getting 30% discount on Blood <a href="/user/user_registration" style="color: #DF2443;margin: 0 10px;">Register Now</a> </p>
+                  <%}else{%>
+                  <p style="color: rgba(0, 0, 0, 0.5);">Blood Not available <a href="#" style="color: #DF2443;margin: 0 10px;">Search for Other Blood Bank</a></p>
+                  <%}%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+      $(document).ready(function(){
+        $('#staticBackdrop1').modal("show");
+      });
+  </script>
+<%}%>
+
+<!-- ------------------------------ -->
   <!-- footer  -->
 <footer>
     <%- include('../partials/footer', {variant: 'compact' }); %>
 </footer>
+</body>
 <!-- footer end -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
 integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -603,11 +349,13 @@ integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6
 
 
 <!--  -->
+
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
   <!-- Initialize the slick slider -->
   <script>
     jQuery(document).ready(function () {
@@ -730,7 +478,15 @@ $('#number4').jQuerySimpleCounter({end: 200,duration: 2500});
         });
       });
   </script>
+   <script>
+    // Get all <swiper-slide> elements
+    var swiperSlides = document.querySelectorAll('swiper-slide');
 
-</body>
+    // Change the height of each <swiper-slide> element
+    swiperSlides.forEach(function (slide) {
+      slide.style.height = '400px'; // Change the height to your desired value (e.g., 400px)
+    });
+  </script>
+  
 
 </html>

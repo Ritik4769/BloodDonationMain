@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <script src="/js/scriptuser.js"></script>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+    <header>
+        <%- include('../partials/header', {variant: 'compact' }); %>
+    </header>
+    <div class="heading">
+        <div class="p-1">
+            <h1> Registration</h1>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="red"></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+    <section id="recipient" class="p-2">
+        <div class="form-container" style="background-color: rgba(247, 247, 247, 1);">
+            <%if(otp){%>
+                <!-- <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"></h1> -->
+                <form action="/user/verifyotp" method="post">
+                    <div class="container text-center">
+                        <h3 style="color: rgba(216, 37, 37, 1);">Enter OTP to Register</h3>
+                        <div class="row">
+                            <div class="mx-auto col-lg-4 p-2 d-flex justify-content-center align-item-center">
+                               <input type="text" class="input" placeholder="Enter Otp" name="userotp" id="">
+                            </div>
+                            <div class="col-lg-12 p-2">
+                                <input type="submit" class="btn" style="background-color: rgba(216, 37, 37, 1); color: white; border-style: none;display: block;margin:10px auto;" value="Verify Otp" name="" id="">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            <%}else{%>    
+                <%if(wrongotp){%>
+            <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"> <%=wrongotp%> </h1>
+                <%}else{%>
+            <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"> Registeration </h1>        
+                    <%}%>
+            <form action="/user/sendOtp" method="post" onsubmit="return validateform()">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6  ps-4 mb-2">
+                            <input onkeyup="validateName()" class="input" placeholder="Name" type="text" value="<%=userdata.name%>" name="name" id="name"><br>
+                            <span id="Name_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6  ps-4 mb-2">
+                            <input onkeyup="validateEmail()" class="input" placeholder="Email" type="email" value="<%=userdata.email%>" name="email" id="email"><br>
+                            <span id="Email_display" style="color:red">*<%=email%> </span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6  ps-4 my-2">
+                            <input onkeyup="validatePassword()" class="input" placeholder="Password" type="password" value="<%=userdata.pass%>" name="pass" id="pass"><br>
+                            <span id="Pass_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6  ps-4 my-2">
+                            <input onkeyup="validateConfirmPassword()" class="input" placeholder="Confirm Password" type="password" value="<%=userdata.cpass%>" name="cpass" id="cpass"> <br>
+                            <span id="Cpass_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6  ps-4 my-2">
+                            <input onkeyup="validateAge()" class="input" placeholder="Enter Age" type="text" value="<%=userdata.age%>" name="age" id="age"><br>
+                            <span id="age_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6 d-flex  ps-4 my-2">
+                            <input class="mx-2 "  type="radio" name="gender" value="Male" id="male" onclick="validateGender()"><span class="mt-4">Male</span> <br>
+                            <input class="mx-2 " type="radio" name="gender" value="Female" id="female" onclick="validateGender()"><span class="mt-4">Female</span> <br>
+                            <span id="gen_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6  ps-4 my-2">
+                            <input onkeyup="validateContact()" class="input" placeholder="Contact" value="<%=userdata.contact%>" type="text" name="contact" id="contact"><br>
+                            <span id="Con_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6  ps-4 my-2">
+                            <label for="">Last Blood Donation Date</label>
+                            <input onkeyup="validateContact()" class="input" placeholder="Enter Last Donation Date" value="<%=userdata.last_donation_date%>" type="date" name="last_donation_date" id="date"><br>
+                            <span id="Con_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6  ps-4 my-2">
+                            <select name="state" id="state" style="outline: none;border: none;padding: 10px;" onchange="validateState()"> <br>
+                                <option value="">Select State</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                            </select>
+                            <span id="state_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-6 col-md-6 ps-4 my-2">
+                            <select name="city" id="city" style="width: 100%; outline: none;" onchange="validateCity()"> <br>
+                                <option value="">Select City</option>
+                                <option value="Indore">Indore</option>
+                                <option value="Gwalior">Gwalior</option>
+                            </select>
+                            <span id="city_display" style="color:red">*</span><br>
+                        </div>
+                        <div class="col-lg-12 col-md-12 ps-4 my-2">
+                            <select name="blood_group" id="city" style="width: 100%; outline: none;" onchange="validateCity()"> <br>
+                                <option value="">Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="NA">NA</option>
+                            </select>
+                            <span id="city_display" style="color:red">*</span><br>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn" style="background-color: rgba(216, 37, 37, 1); color: white; border-style: none;display: block;margin:10px auto;" value="Send Otp"></input>
+                    <p style="margin:10px; color: rgb(178, 174, 174); text-align: center;">Already have an account ?<b style="color: rgb(20, 20, 180);"> Login now</b></p>
+                </div>
+            </form>
+            <%}%>
+        </div>
+    </section>
+    <footer>
+        <%- include('../partials/footer', {variant: 'compact' }); %>
+    </footer>
+</body>
+</html>
