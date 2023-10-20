@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <style>  
+    body{
+            padding-bottom: 0!important;
+        }      
+    #dashboard{
+        width:100%;
+        /* height: auto;         */
+        margin-left: 255px;
+    }
+    #dashboard input,#dashboard select{
+          width: 75%;
+    }
+    table tbody tr:nth-child(odd){
+        position: relative;
+    }
+    table tbody tr:nth-child(even) td .container{
+        display: none;   
+        transition: 1s;
+    }
+    table tr th,table tr td{
+        border-right: 1px solid white;
+        border-bottom: none;
+    }
+    .fa-arrow-circle-o-down{
+        color: black;
+    }
+    @media (max-width:1000px){
+         #dashboard{
+            margin-left: 0;
+         }
+    }
+    @media (max-width:900px){
+        #dashboard{
+            margin-left: 0;
+          }
+        footer{
+        margin-left: 0;
+         }
+    }
+    /* dropdown end */
+    
+</style>
+</head>
+
+<body>
+    <%- include('../partials/admin_navbar', {variant: 'compact' }); %>
+    
+     <section id="dashboard">
+        <% if(msg){%>
+              <div class="container py-2 px-5" style="background: #107ECB;">
+                 <div class="row justify-content-center align-content-center">
+                   <h3><%=msg%></h3>
+                 </div>
+              </div>
+        <%}else{%>    
+         <div class="container py-2 px-5" style="background: #107ECB;">
+             <div class="row justify-content-start align-items-center">
+                <h1 class="text-light pt-4">Organization Detail</h1>
+                <div class="row">
+                    <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
+                    <div style="width: 150px;height: 2px;background-color: black;margin: 5px;"></div>
+                </div>
+                <p class="text-light py-4" style="font-size: 20px;">Brief Overview</p>
+
+                <div style="margin-top: -70px; width: 60vw;height: 2px;background: whitesmoke;"></div>
+             </div>             
+         </div>
+
+        <div class="my-2 mx-3 container p-5" >
+         <div class="py-2 px-4" style="border-radius: 12px;background: #107ECB;margin: auto;">
+            <div class="row pt-2 pb-3 justify-content-start align-items-center" style="border-bottom: 1px solid white;">
+              <h2 class="text-light">All Organization</h2>
+              <div class="row px-3">
+                <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
+                <div style="width: 150px;height: 2px;background: #000;margin: 5px;"></div>
+              </div>
+            </div>
+        <div class="table-responsive" style="height: 600px;overflow-y: scroll;">
+            <table id="myTable" >
+                <thead>
+                    <tr>
+                        <th style="color: white;">
+                         <div class="d-flex justify-content-center align-items-center">
+                            <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div>
+                             <h4 class="px-2 pt-2">Organization Name</h4>
+                         </div>
+                        </th>
+                        
+                        <th style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                               <!-- <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div> -->
+                                <h4 class="px-2">Organizer Name</h4>
+                            </div>
+                        </th>
+                        <th style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                               <!-- <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div> -->
+                                <h4 class="px-2">Email</h4>
+                            </div>
+                        </th>
+                        <th style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                               <!-- <span style="width: 20px; height: 20px;background: white;border-radius: 5px;"></span> -->
+                                <h4 class="px-2 pt-2">Contact</h4>
+                            </div>
+                        </th>
+                        
+                        <th style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                               <!-- <span style="width: 20px; height: 20px;background: white;border-radius: 5px;"></span> -->
+                                <h4 class="px-2 pt-2">City</h4>
+                            </div>
+                        </th>
+                        <th style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                               <!-- <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div> -->
+                                <h4 class="px-2 pt-2">State</h4>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <% existingUser.forEach((user) => { %>                       
+                    <tr>
+                        <td style="color: white;">
+                            <div class="d-flex align-items-center">
+                               <div style="width: 20px; height: 20px;background: white;border-radius: 5px;margin: 0 15px;"></div>
+                               <%=user.OrganizationName%>
+                            </div>
+                        </td>
+                        
+                        <td style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                               <!-- <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div> -->
+                                <p><%= user.OrganizerName%></p>
+                            </div>
+                        </td>
+                        <td style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                               <!-- <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div> -->
+                                <p><%=user.Email%></p>
+                            </div>
+                        </td>
+                        <td style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                               <!-- <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div> -->
+                                <p><%= user.ContactNumber %></p>
+                            </div>
+                        </td>
+                        <td style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <!-- <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div> -->
+                                 <p><%= user.City %></p>
+                             </div>
+                        </td>
+                        <td style="color: white;">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <!-- <div style="width: 20px; height: 20px;background: white;border-radius: 5px;"></div> -->
+                                 <p><%= user.State %></p>
+                             </div>
+                        </td>
+                    </tr>
+                    
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+        </div>  
+        </div>
+          <%}%>    
+     </section>
+
+    <footer style="width: 100%; padding: 10px; border-top: 1px solid rgba(0,0,0,0.3);margin-left: 240px;">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-lg-6 p-2">
+                    <p style="color: #000;">Copyrights all rights reserved</p>
+                </div>
+                <div class="col-lg-6 p-2">
+                    <p style="color: #000;">Designed by Techwizard</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+O8q3D6Ors2aT1l0cC+2g1/CeZzA/J5fet5pG2i5oV5z5e5bB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        
+
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('active');
+            }
+    </script>
+    <script>
+        $(document).ready(function () {
+          $("#myTable").DataTable();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <header>
+        <%- include('../partials/header', {variant: 'compact' }); %>
+    </header>
+    
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span class="text-danger">Cancel</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div style="width: 100%; border-radius: 10px; background-color: rgba(247, 247, 247, 1);padding: 10px;">
+                   <h4 class="text-danger text-center">Camp Request</h4>
+                   <form  action="/organization/camprequest" method="post">
+                    <div class="container m-2">
+                   <div class="row justify-content-center">    
+                     <div class="col-lg-6 d-none col-md-12 mb-2 py-3">
+                       <input type="text" placeholder="Camp Name" class="input" name="id" value="<%=organization._id %>" id="">
+                     </div>                    
+                     <div class="col-lg-6 col-md-12 mb-2 py-3">
+                       <input type="text" placeholder="Camp Name" class="input" name="campName" id="">
+                     </div>
+                     <div class="col-lg-6 col-md-12 mt-3">
+                       <input type="text" class="input" placeholder="Enter Contact Person Name" name="Personname" id="">
+                     </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <input type="text" class="input" placeholder="Enter Contact Number" name="contact" id="">
+                     </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <input type="date" class="input"  name="date" id="">
+                     </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <label for="">Start Time</label>
+                       <input type="time" class="input" placeholder="Enter Contact Person Name" name="startTime" id="">
+                     </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <label for="">End Time</label>
+                       <input type="time" class="input" placeholder="Enter Contact Person Name" name="endTime" id="">
+                     </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <input type="number" class="input" placeholder="Number of Days of Camp" name="days" id="">
+                     </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <textarea type="text" class="input" placeholder="Enter Address of Camp" name="Address" id=""></textarea>
+                     </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <select name="city" class="input" id="">
+                         <option value="">Select City</option>
+                         <option value="Indore">Indore</option>
+                         <option value="Bhopal">Bhopal</option>
+                       </select>
+                     </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <select name="state" class="input" id="">
+                         <option value="">Select State</option>
+                         <option value="Madhya Pradesh">Madhya Pradesh</option>
+                         <option value="Maharashtra">Maharashtra</option>
+                       </select>
+                     </div>
+                     <div class="col-lg-12 mb-2 d-flex justify-content-center py-3">
+                       <input type="submit" value="Request" name="" id="" class="btn btn-danger px-4">
+                     </div>
+                   </div>
+                 </div>
+               </form>
+             </div> 
+         </div>
+        </div>
+      </div>
+    </div>
+    <!-- <button type="button" class="btn btn-primary" >Large modal</button>     -->
+    <!-- modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">             -->
+          <div class="d-flex justify-content-end" style="border-bottom: 1px solid rgba(0, 0, 0, 0.3);">
+            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="m-2 btn btn-danger text-white" >Close</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <section id="recipient" class="p-4">
+              <div class="form-container" style="background-color: rgba(247, 247, 247, 1);">
+                  <h3 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-3"> Update Form</h3>
+                  <form action="/organization/updatedata" method="post" onsubmit="return validateform()">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-lg-12 col-md-12  ps-4 my-2">
+                                  <input onkeyup="validateName()" class="input" placeholder="Blood Bank Name" type="text" name="organizationkname" id="name" value="<%=organization.OrganizationName%>"><br>
+                                  <!-- <span id="Name_display"  style="color: red;">*</span><br> -->
+                              </div>                          
+                              <div class="col-lg-12 col-md-12  ps-4 my-2">
+                                  <input onkeyup="validateAge()" class="input" placeholder="Owner Name" type="text" name="Organizername" id="age" value="<%=organization.OrganizerName%>"><br>
+                                  <!-- <span id="age_display" style="color:red">*</span><br> -->
+                              </div>
+                              <div class="col-lg-12 col-md-12 d-flex ps-4 my-2">
+                                <input onkeyup="validateAge()" class="input" placeholder="Owner Contact No" type="text" name="Contact" id="age" value="<%=organization.ContactNumber%>"><br>
+                                  <!-- <span id="gen_display" style="color:red">*</span><br> -->
+                              </div>
+                              <div class="col-lg-12 col-md-12 d-none ps-4 my-2">
+                                <input onkeyup="validateAge()" class="input" placeholder="Owner Contact No" type="text" name="email" id="age" value="<%=organization.Email%>"><br>
+                                  <!-- <span id="gen_display" style="color:red">*</span><br> -->
+                              </div>
+                              <div class="col-lg-12 col-md-12  ps-4 my-2">
+                                  <select name="state" id="state" style="outline: none;border: none;padding: 10px;" onchange="validateState()"> <br>
+                                      <option value="<%=organization.State%>"><%=organization.State%></option>
+                                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                      <option value="Maharashtra">Maharashtra</option>
+                                  </select>
+                                  <!-- <span id="state_display" style="color:red">*</span><br> -->
+                              </div>
+                              <div class="col-lg-12 col-md-12 ps-4 my-2">
+                                  <select name="city" id="city" style="width: 100%; outline: none;" onchange="validateCity()"> <br>
+                                      <option value="<%=organization.City%>"><%=organization.City%></option>
+                                      <option value="Indore">Indore</option>
+                                      <option value="Gwalior">Gwalior</option>
+                                  </select>
+                                  <!-- <span id="city_display" style="color:red">*</span><br> -->
+                              </div>
+                              
+                          </div>
+                          <input type="submit" class="btn" style="background-color: rgba(216, 37, 37, 1); color: white; border-style: none;display: block;margin:10px auto;" value="Update"></input>
+                          <!-- <p style="margin:10px; color: rgb(178, 174, 174); text-align: center;">Already have an account ?<b style="color: rgb(20, 20, 180);"> Login now</b></p> -->
+                      </div>
+                  </form>
+              </div>
+          </section>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- modal end -->
+    <!-- Camp Request- -->
+    <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          
+          
+          
+        </div>
+      </div>
+    </div> -->
+    
+    <!-- Camp Request End -->
+    <!-- Profile Section -->
+    
+    <% if(msg){%>
+      <div class="alert alert-primary text-center">
+        <%=msg %>
+      </div>
+      <%}%>
+
+    <section id="profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Profile Details -->
+                    <div class="profile-details">
+                      <div class="profile-name py-4 px-4 d-flex justify-content-between align-items-center">
+                        <h3><%=organization.OrganizationName%></h3>
+                    <div>
+                        <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button">Edit Profile</a>
+                        <a href="/organization/logout/<%=organization.Email%>" class="btn btn-danger mx-2">Logout</a>          
+                    </div>
+                        <!-- Add your profile details here -->
+                       </div>  
+                        <div class="container" style="margin: 5% 0; background-color:white; border-radius: 13px; padding: 10px;box-shadow: 0 4px 20px 3px rgba(0, 0, 0, 0.1);">
+                            <div class="row">                             
+                                 
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                     <div> <h6>Organizer Name</h6></div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=organization.OrganizerName%></div>
+                                 
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                    <div>  
+                                      <h6>Email</h6>
+                                    </div>  
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=organization.Email%></div>                                    
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                        <h6>City</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=organization.City%></div>
+
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                        <h6>State</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=organization.State%></div>
+
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                      <h6>Contact Number</h6>
+                                      </div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=organization.ContactNumber%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                    <div>
+                                      <h6>Description</h6>
+                                    </div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=organization.Description%></div>                                                             
+                                  </div>
+                                </div>
+                    </div>
+                </div>            
+
+
+                <div class="col-md-4 p-3 my-3">
+                  <!-- <div style="width: 500px; border-radius: 10px; background-color: rgba(247, 247, 247, 1);padding: 10px;">
+                    <h4 class="text-danger text-center">Camp Request</h4>
+                    <form  action="/blood_bank/add_unit" method="post">
+                     <div class="container m-2">
+                    <div class="row justify">                      
+                      <div class="col-lg-12 col-md-12 mb-2 py-3">
+                        <input type="text" placeholder="Camp Name" class="input" name="" id="">
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <input type="text" class="input" placeholder="Enter Contact Person Name" name="Blood_unit" id="">
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <input type="text" class="input" placeholder="Enter Contact Number" name="Blood_unit" id="">
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <input type="date" class="input"  name="Blood_unit" id="">
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <label for="">Start Time</label>
+                        <input type="time" class="input" placeholder="Enter Contact Person Name" name="Blood_unit" id="">
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <label for="">End Time</label>
+                        <input type="time" class="input" placeholder="Enter Contact Person Name" name="Blood_unit" id="">
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <input type="number" class="input" placeholder="Number of Days of Camp" name="Blood_unit" id="">
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <textarea type="text" class="input" placeholder="Enter Address of Camp" name="Blood_unit" id=""></textarea>
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <select name="city" class="input" id="">
+                          <option value="">Select City</option>
+                          <option value="Indore">Indore</option>
+                          <option value="Bhopal">Bhopal</option>
+                        </select>
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <select name="city" class="input" id="">
+                          <option value="">Select State</option>
+                          <option value="Madhya Pradesh">Madhya Pradesh</option>
+                          <option value="Maharashtra">Maharashtra</option>
+                        </select>
+                      </div>
+                      <div class="col-lg-12 mb-2 d-flex justify-content-center py-3">
+                        <input type="submit" value="Request" name="" id="" class="btn btn-danger px-4">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div> -->
+
+              <input class="btn btn-danger text-white" type="button" data-toggle="modal" data-target=".bd-example-modal-lg" value="Camp Request">
+            </div>
+
+             
+          </div>
+        </div>
+    </section>
+
+    <footer>
+        <%- include('../partials/footer', {variant: 'compact'});%>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
+
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    #head{
+  padding: 1px;
+  background: white;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+.nav-item{
+  padding: 0 12px;
+}
+.container1{
+  max-width: 1200px;
+  padding: 2px;
+  margin: auto;
+}
+.nav-item:hover{
+  transition: 0.5s!important;
+  background: #EEEEEE;
+  border: none;
+  border-radius: 9px;
+}
+.dropdown-item:focus{
+  background: #EEEEEE!important;
+}
+.pos-sticky{
+  position: fixed!important;
+  top: 0!important;
+  z-index: 10;
+  width: 100%;
+}
+.fa{
+  font-size: 20px;
+  font-weight: bold;
+}
+.para,.para1{
+  font-size: 15px;
+}
+@media screen and (max-width:560px){  
+  .fa{
+    font-size: 15px;
+  }
+}
+  </style>
+</head>
+<body>
+  <section id="head" style="border-bottom: 1px solid rgba(0, 0, 0, 0.3);z-index: 2;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 col-6 d-flex justify-content-center my-1" >
+          <img src="/images/blood_logo3.png" alt="" style="width: 100px;height: 70px;">
+          <!-- <span class="pt-4 h4" style="color: #5C5C5C;"> Bank</span> -->
+        </div>
+        <div class="col-md-3 pt-3 col-6 d-flex justify-content-center my-1">
+          <i class="fa fa-phone pt-3"></i>
+        <div class="px-1">
+          <p class="para" style="color: #606060;">+92936428433</p>
+          <p class="para1" style="color: #606060;margin-top: -20px;">blood@gmail.com</p>
+        </div>
+        </div>
+        <div class="col-md-3 pt-3 col-6 d-flex justify-content-center my-1">
+          <i class="fa fa-map-marker pt-3" ></i>
+        <div class="px-1">
+          <p class="para" style="color: #606060;">442/2 Saket Nagar</p>
+          <p class="para1" style="color: #606060;margin-top: -20px;">Near Palasiya Indore</p>
+        </div>
+        </div>
+        <div class="col-md-3 pt-3 col-6 d-flex justify-content-center my-1">
+          <i class="fa fa-clock pt-3" ></i>
+        <div class="px-1">
+          <p class="para" style="color: #606060;">9:00 am - 10:00 pm</p>
+          <p class="para1" style="color: #606060;font-weight: 450;margin-top: -20px;">Monday - Friday</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+<div id="navbar1">
+<nav class="navbar navbar-expand-lg d-flex align-items-center"  style="background-color: white;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);">
+  <div style="max-width: 1400px;width: 100%; padding: 2px;margin:0 auto;margin-top: 5px; justify-content: space-around;">
+  <button class="navbar-toggler text-danger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars fs-5 text-danger"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 5px;">
+    <ul class="navbar-nav mr-auto text-dark">
+      <li class="nav-item active">
+        <a class="nav-link text-dark h6" href="/index1">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark h6" href="/about">About Us</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link text-dark dropdown-toggle h6" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Register
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-dark h6" href="/user/user_registration">User Register</a>
+          <a class="dropdown-item text-dark h6" href="/blood_bank/blood_bank_registration">Blood Bank Register</a>          
+          <a class="dropdown-item text-dark h6" href="/organization/Organization_registration">Organization Register</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link text-dark dropdown-toggle h6" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Login
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-dark h6" href="/user/login/user" >User Login</a>
+          <a class="dropdown-item text-dark h6" href="/blood_bank/login/bank" >Blood Bank Login</a>          
+          <a class="dropdown-item text-dark h6" href="/organization/login/camp">Organization Login</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark h6" href="/Camp">Camps</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark h6" href="/contact">Contact Us</a>
+      </li>
+    </ul>
+    
+      <a class="btn my-2 my-sm-0 px-4"  style="background-color: #DF2443;color: white;border-radius: 8px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Search For Blood</a>
+    
+  </div>
+
+</div>
+</nav>
+</div>  
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header m-auto d-flex justify-content-center flex-column align-items-center">
+            <h5 class="text-center" id="staticBackdropLabel">Search for Blood </h5>
+            <div class="row">
+              <div style="width: 150px;height: 2px;background: #DF2443;margin: 5px;"></div>
+              <div style="width: 150px;height: 2px;background-color: black;margin: 5px;"></div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex justify-content-center align-items-center">
+              <div class="container">
+                <form action="/user/searchblood" method="get">
+                <div class="row">
+                  <div class="col-md-12 p-3">
+                    <select name="bloodgroup" id="" style="width: 100%;padding: 10px;border: 1px solid rgba(0, 0, 0, 0.3);outline: none;border-radius: 12px;">
+                      <option value="">Select Blood Group</option>
+                      <option value="A_plus_unit">A+</option>
+                      <option value="A_minus_unit">A-</option>
+                      <option value="B_plus_unit">B+</option>
+                      <option value="B_minus_unit">B-</option>
+                      <option value="AB_plus_unit">AB+</option>
+                      <option value="AB_minus_unit">AB-</option>
+                      <option value="O_plus_unit">O+</option>
+                      <option value="O_minus_unit">O-</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12 p-3">
+                    <input type="number" name="unit" id="" style="width: 100%; border: 1px solid rgba(0, 0, 0, 0.3);border-radius: 8px;padding: 10px;" placeholder="Enter number of unit">
+                  </div>
+                  <div class="col-md-12 p-3">
+                    <input type="submit" name="" style="background-color: #DF2443;border-radius: 12px;border: none;padding:10px 20px;color: white;font-weight: 500; margin: auto;" value="Search" id="">
+                  </div>
+                </div>
+              </form>
+              </div>
+          </div>
+          <div class="modal-footer m-auto d-flex">       
+                      
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<script>
+  $(document).ready(function() {
+  $(window).scroll(function() {
+    var scrl = $(window).scrollTop();
+    if (scrl >= 78) {
+      console.log(scrl);
+      $("#navbar1").addClass("pos-sticky");
+    } else {
+      $("#navbar1").removeClass("pos-sticky");
+    }
+  });
+});
+</script>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+  
+    <header>
+        <%- include('../partials/header', {variant: 'compact' }); %>
+    </header>
+
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- <div class="modal-header">             -->
+          <div class="d-flex justify-content-end" style="border-bottom: 1px solid rgba(0, 0, 0, 0.3);">
+            <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="m-2 btn btn-danger text-white" >Close</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <section id="recipient" class="p-4">
+              <div class="form-container" style="background-color: rgba(247, 247, 247, 1);">
+                  <h3 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-3"> Update Form</h3>
+                  <form action="/blood_bank/updatedata" method="post" onsubmit="return validateform()">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-lg-12 col-md-12  ps-4 my-2">
+                                  <input onkeyup="validateName()" class="input" placeholder="Blood Bank Name" type="text" name="bloodbankname" id="name" value="<%=bloodbank.bloodBankname%>"><br>
+                                  <!-- <span id="Name_display"  style="color: red;">*</span><br> -->
+                              </div>                          
+                              <div class="col-lg-12 col-md-12  ps-4 my-2">
+                                  <input onkeyup="validateAge()" class="input" placeholder="Owner Name" type="text" name="Ownername" id="age" value="<%=bloodbank.ownerNamename%>"><br>
+                                  <!-- <span id="age_display" style="color:red">*</span><br> -->
+                              </div>
+                              <div class="col-lg-12 col-md-12 d-flex ps-4 my-2">
+                                <input onkeyup="validateAge()" class="input" placeholder="Owner Contact No" type="text" name="Ownercontact" id="age" value="<%=bloodbank.ownerContactNo%>"><br>
+                                  <!-- <span id="gen_display" style="color:red">*</span><br> -->
+                              </div>
+                              <div class="col-lg-12 col-md-12  ps-4 my-2">
+                                  <input onkeyup="validateContact()" class="input" placeholder="Blood Bank Address" type="text" name="address" id="contact" value="<%=bloodbank.bloodBankAddress%>"><br>
+                                  <!-- <span id="Con_display" style="color:red">*</span><br> -->
+                              </div>
+                              <div class="col-lg-12 col-md-12  ps-4 my-2">
+                                  <select name="state" id="state" style="outline: none;border: none;padding: 10px;" onchange="validateState()"> <br>
+                                      <option value="<%=bloodbank.state%>"><%=bloodbank.state%></option>
+                                      <option value="">Madhya Pradesh</option>
+                                      <option value="Maharashtra">Maharashtra</option>
+                                  </select>
+                                  <!-- <span id="state_display" style="color:red">*</span><br> -->
+                              </div>
+                              <div class="col-lg-12 col-md-12 d-none  ps-4 my-2">
+                                <input onkeyup="validateName()" class="input" placeholder="Blood Bank Name" type="text" name="email" id="name" value="<%=bloodbank.bloodBankEmail%>"><br>
+                                <!-- <span id="Name_display"  style="color: red;">*</span><br> -->
+                            </div>                          
+                              <div class="col-lg-12 col-md-12 ps-4 my-2">
+                                  <select name="city" id="city" style="width: 100%; outline: none;" onchange="validateCity()"> <br>
+                                      <option value="<%=bloodbank.city%>"><%=bloodbank.city%></option>
+                                      <option value="Indore">Indore</option>
+                                      <option value="Gwalior">Gwalior</option>
+                                  </select>
+                                  <!-- <span id="city_display" style="color:red">*</span><br> -->
+                              </div>
+                              
+                          </div>
+                          <input type="submit" class="btn" style="background-color: rgba(216, 37, 37, 1); color: white; border-style: none;display: block;margin:10px auto;" value="Update"></input>
+                          <!-- <p style="margin:10px; color: rgb(178, 174, 174); text-align: center;">Already have an account ?<b style="color: rgb(20, 20, 180);"> Login now</b></p> -->
+                      </div>
+                  </form>
+              </div>
+          </section>
+          </div>          
+        </div>
+      </div>
+    </div>
+    
+    <!-- <% if(msg){%>
+      <div class="alert alert-primary text-center">
+        <%= msg %>
+      </div>
+      <%}%> -->
+
+    <!-- modal end -->
+    <!-- Profile Section -->
+    <section id="profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Profile Details -->
+                    <div class="profile-details">
+                      <div class="profile-name py-4 px-4 d-flex justify-content-between align-items-center">
+                        <h3><%=bloodbank.bloodBankname%></h3>
+                      <div>
+                        <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button">Edit Profile</a>
+                        <a href="/bloodbank/logout/:bloodbank.bloodBankEmail" class="btn btn-danger mx-2">Logout</a>          
+                      </div>
+                        <!-- Add your profile details here -->
+                       </div>  
+                        <div class="container" style="margin: 5% 0; background-color:white; border-radius: 13px; padding: 10px;box-shadow: 0 4px 20px 3px rgba(0, 0, 0, 0.1);">
+                            <div class="row">                             
+                                 
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                     <div> <h6>Owner Name</h6></div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=bloodbank.ownerNamename%></div>
+                                 
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                    <div>  
+                                      <h6>Email</h6>
+                                    </div>  
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=bloodbank.bloodBankEmail%></div>
+
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom" >
+                                      <div>
+                                       <h6>Address</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=bloodbank.bloodBankAddress%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                        <h6>City</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=bloodbank.city%></div>
+
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                        <h6>State</h6>
+                                      </div>
+                                    </div>  
+                                    <div class="col-6 p-2 border-bottom"><%=bloodbank.state%></div>
+
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                      <div>
+                                      <h6>Contact Number</h6>
+                                      </div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=bloodbank.ownerContactNo%></div>
+                                    
+                                    <div class="col-6 p-2 d-flex justify-content-center border-bottom">
+                                    <div>
+                                      <h6>Category</h6>
+                                    </div>
+                                    </div>
+                                    <div class="col-6 p-2 border-bottom"><%=bloodbank.bloodBankCategory%></div>                                                             
+                                  </div>
+                                </div>
+                    </div>
+                </div>            
+
+
+                <!-- <div class="col-md-4 p-3 my-3">
+                  <div style="width: 500px; border-radius: 10px; background-color: rgba(247, 247, 247, 1);padding: 10px;">
+                    <h4 class="text-danger text-center">Add Unit</h4>
+                    <form  action="/blood_bank/add_unit" method="post">
+                     <div class="container m-2">
+                    <div class="row justify">                      
+                      <div class="col-lg-12 col-md-12 mb-2 py-3">
+                        <select name="Blood_type" id="" style="display: block;">
+                          <option value="">Select Blood Group</option>
+                          <option value="A+">A+</option>
+                          <option value="B+">B+</option>
+                          <option value="AB+">AB+</option>
+                          <option value="O+">O+</option>
+                          <option value="A-">A-</option>
+                          <option value="B-">B-</option>
+                          <option value="AB-">AB-</option>
+                          <option value="O-">O-</option>
+                        </select>    
+                      </div>
+                      <div class="col-lg-12 col-md-12 mb-2">
+                        <input type="text" class="input" placeholder="Enter Blood Unit" name="Blood_unit" id="">
+                      </div>
+                      <div class="col-lg-12 mb-2 d-flex justify-content-center py-3">
+                        <input type="submit" value="Add" name="" id="" class="btn btn-danger px-4">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div> -->
+
+              <div class="w-100 p-2"> 
+                <a href="/blood_bank/blood_inventory/<%=bloodbank.bloodBankEmail%>" class="btn btn-danger mt-4 mx-3">Add Unit</a>          
+               </div>                
+            </div>
+
+             
+          </div>
+        </div>
+    </section>
+
+    <footer>
+        <%- include('../partials/footer', {variant: 'compact'});%>
+    </footer>
+</body>
+</html>

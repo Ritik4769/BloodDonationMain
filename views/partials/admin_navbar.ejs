@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+        body {
+            background-color: #fbfbfb;
+        }
+
+        @media (min-width: 991.98px) {
+            main {
+                padding-left: 240px;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: -250px;
+            /* Initially hidden on larger screens */
+            padding: 58px 0 10px;
+            /* height: auto; */
+            overflow-y: scroll;
+            /* Height of navbar */
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+            width: 240px;
+            z-index: 600;
+            transition: all 0.3s;
+        }
+
+        /* Show sidebar on larger screens */
+        @media (min-width: 992px) {
+            .sidebar {
+                left: 0;
+            }
+        }
+
+        /* Hamburger icon for smaller screens */
+        .sidebar-toggler {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            cursor: pointer;
+            display: none;
+            /* Initially hidden on larger screens */
+        }
+
+        /* Rest of your CSS remains the same */
+
+        .sidebar .active {
+            border-radius: 5px;
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+            /* color: black; */
+        }
+
+        .sidebar-sticky {
+            position: relative;
+            top: 0;
+            height: auto;
+            padding-top: 0.5rem;
+            overflow-x: hidden;
+            /* overflow-y: scroll; */
+            /* Scrollable contents if viewport is shorter than content. */
+        }
+
+        .main-content {
+            margin-left: 0;
+            transition: all 0.3s;
+        }
+
+        @media (min-width: 991.98px) {
+            .main-content {
+                margin-left: 240px;
+            }
+        }
+    
+     
+    @media (max-width: 991.98px) {
+        .sidebar {
+            left: -100%;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+    }
+
+    .sidebar .active {
+        border-radius: 5px;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+        /* color: black; */
+    }
+
+    .sidebar-sticky {
+        position: relative;
+        top: 0;
+        height: auto;
+        padding-top: 0.5rem;
+        overflow-x: hidden;
+        /* overflow-y: scroll; */
+        /* Scrollable contents if viewport is shorter than content. */
+    }
+    .sidebar .sidebar-toggler {
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        cursor: pointer;
+    }
+    .sidebar .sidebar-toggler i {
+        font-size: 24px;
+        color: white;
+    }
+    .sidebar .list-group-item {
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .main-content {
+        margin-left: 0;
+        transition: all 0.3s;
+    }
+
+    @media (min-width: 991.98px) {
+        .main-content {
+            margin-left: 240px;
+        }
+    }
+
+    /* dropdown start */
+
+
+    /* Please ❤ this if you like it! */
+
+
+   
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.4;
+        color: #fff;
+        background-color: white;
+        overflow-x: hidden;
+        /* background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+        background-position: center;
+        background-repeat: repeat;
+        background-size: 4%; */
+        width: 100%;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-top: 100px;
+        padding-bottom: 300px;
+    }
+
+    .sec-center {
+        position: relative;
+        max-width: 100%;
+        text-align: center;
+        z-index: 200;
+    }
+
+    [type="checkbox"]:checked,
+    [type="checkbox"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .dark-light:checked+label,
+    .dark-light:not(:checked)+label {
+        position: fixed;
+        top: 40px;
+        right: 40px;
+        z-index: 20000;
+        display: block;
+        border-radius: 50%;
+        width: 46px;
+        height: 46px;
+        cursor: pointer;
+        transition: all 200ms linear;
+        box-shadow: 0 0 25px rgba(255, 235, 167, .45);
+    }
+
+    .dark-light:checked+label {
+        transform: rotate(360deg);
+    }
+
+    .dark-light:checked+label:after,
+    .dark-light:not(:checked)+label:after {
+        position: absolute;
+        content: '';
+        top: 1px;
+        left: 1px;
+        overflow: hidden;
+        z-index: 2;
+        display: block;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        background-color: #102770;
+        background-image: url('https://assets.codepen.io/1462889/moon.svg');
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all 200ms linear;
+        opacity: 0;
+    }
+
+    .dark-light:checked+label:after {
+        opacity: 1;
+    }
+
+    .dark-light:checked+label:before,
+    .dark-light:not(:checked)+label:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 1;
+        display: block;
+        border-radius: 50%;
+        width: 46px;
+        height: 46px;
+        background-color: #48dbfb;
+        background-image: url('https://assets.codepen.io/1462889/sun.svg');
+        background-size: 25px 25px;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all 200ms linear;
+    }
+
+    .dark-light:checked+label:before {
+        background-color: #000;
+    }
+
+    .light-back {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: #fff;
+        overflow: hidden;
+        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+        background-position: center;
+        background-repeat: repeat;
+        background-size: 4%;
+        height: 100%;
+        width: 100%;
+        transition: all 200ms linear;
+        opacity: 0;
+    }
+
+    .dark-light:checked~.light-back {
+        opacity: 1;
+    }
+
+    .dropdown:checked+label,
+    .dropdown:not(:checked)+label {
+        position: relative;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 2;
+        height: 50px;
+        transition: all 200ms linear;
+        border-radius: 4px;
+        width: 220px;
+        letter-spacing: 1px;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        text-align: center;
+        border: none;
+        background-color: #107ECB;
+        cursor: pointer;
+        color: #fff;
+        box-shadow: 0 12px 35px 0 rgba(255, 235, 167, .15);
+    }
+
+    .dark-light:checked~.sec-center .for-dropdown {
+        background-color: #102770;
+        color: #ffeba7;
+        box-shadow: 0 12px 35px 0 rgba(16, 39, 112, .25);
+    }
+
+    .dropdown:checked+label:before,
+    .dropdown:not(:checked)+label:before {
+        position: fixed;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        cursor: auto;
+        pointer-events: none;
+    }
+
+    .dropdown:checked+label:before {
+        pointer-events: auto;
+    }
+
+    .dropdown:not(:checked)+label .fa {
+        font-size: 24px;
+        margin-left: 10px;
+        transition: transform 200ms linear;
+    }
+
+    .dropdown:checked+label .fa {
+        transform: rotate(180deg);
+        font-size: 24px;
+        margin-left: 10px;
+        transition: transform 200ms linear;
+    }
+
+    .section-dropdown {
+        position: absolute;
+        padding: 5px;
+        background-color: white;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        border-radius: 4px;
+        display: block;
+        box-shadow: 0 14px 35px 0 rgba(9, 9, 12, 0.4);
+        z-index: 2;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(20px);
+        transition: all 200ms linear;
+    }
+
+    .dark-light:checked~.sec-center .section-dropdown {
+        background-color: #fff;
+        box-shadow: 0 14px 35px 0 rgba(7, 7, 255, 0.15);
+    }
+
+    .dropdown:checked~.section-dropdown {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .section-dropdown:before {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        content: '';
+        display: block;
+        z-index: 1;
+    }
+
+    .section-dropdown:after {
+        position: absolute;
+        top: -7px;
+        left: 30px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #111;
+        content: '';
+        display: block;
+        z-index: 2;
+        transition: all 200ms linear;
+    }
+
+    .dark-light:checked~.sec-center .section-dropdown:after {
+        border-bottom: 8px solid #fff;
+    }
+
+    a {
+        position: relative;
+        color: #fff;
+        transition: all 200ms linear;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        border-radius: 2px;
+        padding: 5px 0;
+        padding-left: 20px;
+        padding-right: 15px;
+        margin: 2px 0;
+        text-align: left;
+        text-decoration: none;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        justify-content: space-around;
+        -ms-flex-pack: distribute;
+    }
+
+    .dark-light:checked~.sec-center .section-dropdown a {
+        color: #102770;
+    }
+
+    .list-group-item:hover {
+        color: #102770;
+        background-color: #fbf2d5;
+    }
+
+    .dark-light:checked~.sec-center .section-dropdown a:hover {
+        color: #fff;
+        background-color: #107ECB;
+    }
+
+    a .fa {
+        font-size: 22px;
+    }
+
+    .dropdown-sub:checked+label,
+    .dropdown-sub:not(:checked)+label {
+        position: relative;
+        color: #fff;
+        transition: all 200ms linear;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        border-radius: 2px;
+        padding: 5px 0;
+        padding-left: 20px;
+        padding-right: 15px;
+        text-align: left;
+        text-decoration: none;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        justify-content: space-between;
+        -ms-flex-pack: distribute;
+        cursor: pointer;
+    }
+
+    .dropdown-sub:checked+label .fa,
+    .dropdown-sub:not(:checked)+label .fa {
+        font-size: 22px;
+    }
+
+    .dropdown-sub:not(:checked)+label .fa {
+        transition: transform 200ms linear;
+    }
+
+    .dropdown-sub:checked+label .fa {
+        transform: rotate(135deg);
+        transition: transform 200ms linear;
+    }
+
+    .dropdown-sub:checked+label:hover,
+    .dropdown-sub:not(:checked)+label:hover {
+        color: #102770;
+        background-color: #ffeba7;
+    }
+
+    .dark-light:checked~.sec-center .section-dropdown .for-dropdown-sub {
+        color: #102770;
+    }
+
+    .dark-light:checked~.sec-center .section-dropdown .for-dropdown-sub:hover {
+        color: #ffeba7;
+        background-color: #107ECB;
+    }
+
+    .section-dropdown-sub {
+        position: relative;
+        display: block;
+        width: 100%;
+        pointer-events: none;
+        opacity: 0;
+        max-height: 0;
+        padding-left: 10px;
+        padding-right: 3px;
+        overflow: hidden;
+        transition: all 200ms linear;
+    }
+
+    .dropdown-sub:checked~.section-dropdown-sub {
+        pointer-events: auto;
+        opacity: 1;
+        max-height: 999px;
+    }
+
+    .section-dropdown-sub a {
+        font-size: 14px;
+    }
+
+    .section-dropdown-sub a .fa {
+        font-size: 20px;
+    }
+
+    .logo {
+        position: fixed;
+        top: 50px;
+        left: 40px;
+        display: block;
+        z-index: 11000000;
+        background-color: transparent;
+        border-radius: 0;
+        padding: 0;
+        transition: all 250ms linear;
+    }
+
+    .logo:hover {
+        background-color: transparent;
+    }
+
+    .same:hover {
+        background-color: transparent;
+    }
+
+    .logo img {
+        height: 26px;
+        width: auto;
+        display: block;
+        transition: all 200ms linear;
+    }
+
+    .dark-light:checked~.logo img {
+        filter: brightness(10%);
+    }
+    .dropdown-btn:hover{
+        transition: 0.6s;
+        color: #FFFFFF;
+        background-color:#107ECB;
+    }
+    @media screen and (max-width: 991px) {
+        .logo {
+            top: 30px;
+            left: 20px;
+        }
+
+        .dark-light:checked+label,
+        .dark-light:not(:checked)+label {
+            top: 20px;
+            right: 20px;
+        }
+    }
+    #sidebar .container .row .col-lg-12 .card .img{
+        width: 100px;
+        height: 100px;
+        border: none;
+        border-radius: 50%;
+        display: block;
+        margin: auto;
+    }
+    
+    /* dropdown end */
+</style>
+</head>
+
+<body>
+    <header>
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar" >
+            <div class="container mt-5">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="card" style="border: none;border-bottom: 1px solid rgba(0,0,0,0.4);">
+                        <img src="images/adminimg.jpg" class="img" alt="">
+                        <div class="card-body text-center">
+                           <h3 style="color: black;">John Doe</h3>
+                           <h5 style="color: #484848;">Blood Bank Admin</h5>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="sidebar-toggler" onclick="toggleSidebar()">
+                <!-- <i class="fa fa-bars"></i> -->
+            </div>
+            <div class="sidebar-sticky" style="background-color: white;">
+                <div class="list-group list-group-flush mx-3 mt-4">
+                    
+
+                    <div class="sec-center">
+                        <input class="dropdown" type="checkbox" id="dropdown" name="dropdown" />
+                        <label class="for-dropdown" for="dropdown" style="background-color: #107ECB;">Request
+                            <!-- <i class="fa fa-arrow-down"></i> -->
+                            <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+                        </label>
+                        <div class="section-dropdown">
+                            <a href="/admin/blood_request" class="dropdown-btn" style="color: black;">Recipient Request<i class="fa fa-arrow-right"></i></a>
+                            <a href="/admin/admin_camp_request" class="dropdown-btn" style="color: black;">Camp Request<i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/admin/admin_user_detail" class="list-group-item list-group-item-action py-2 ripple ">
+                    <i class="fa fa-chart-area fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">User Detail</span>
+                </a>
+                <a href="/admin/blood_bank" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa fa-chart-line fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Register Blood Banks</span></a>
+                <a href="/admin/admin_donor_detail" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="fa fa-chart-pie fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Donor Appointments</span>
+                </a>
+                <a href="/admin/admin_upload_report" class="list-group-item list-group-item-action py-2 ripple " ><i
+                        class="fa fa-chart-bar fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Donors Reports</span></a>
+                        <a href="/admin/blood_inventory" class="list-group-item list-group-item-action py-2 ripple " ><i
+                            class="fa fa-chart-bar fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Blood Inventory</span></a>        
+                <!-- <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-globe fa-fw me-3"></i><span style="color: black;"></span></a> -->
+                        
+                            
+                                
+                                
+                                <!-- <a href="#" style="color: black;">Camp Request<i class="fa fa-arrow-right"></i></a> -->
+                           
+                        </div>
+                    
+
+                <a href="/admin/admin_organization" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-building fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Registered Organization</span></a>                
+                
+                    </div>
+            </div>
+            </div>
+        </nav>
+        <!-- Sidebar -->
+
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <div class="container-fluid ">
+                <button class="navbar-toggler" type="button" onclick="toggleSidebar()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="/images/blood_logo3.png" style="margin-left: 50%;width: 180px;height: 70px;" alt="" loading="lazy" />
+                </a>
+                <!-- <form class="d-md-flex input-group w-auto my-auto" style="margin-left: 20%;">
+                    <input type="search" class="form-control rounded" placeholder='Search Something'
+                        style="max-width: 225px" />
+                    <span class="input-group-text border-0"><i class="fa fa-search"></i></span>
+                </form> -->
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#"
+                            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-bell"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Some news</a></li>
+                            <li><a class="dropdown-item" href="#">Another news</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
+                                    <i class="fa fa-check text-success ms-2"></i> kdfkee</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="russia flag"></i>Русский</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
+                            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+                                height="22" alt="" loading="lazy" />
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">My profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+O8q3D6Ors2aT1l0cC+2g1/CeZzA/J5fet5pG2i5oV5z5e5bB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
+
+
+

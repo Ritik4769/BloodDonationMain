@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .heading {
+            width: 100%;
+            height: 150px;
+            margin: 10px 0;
+            background: url(/images/foot.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .heading div .red {
+            width: 100px;
+            height: 2px;
+            background: #DF2443;
+            margin: 0 5px;
+        }
+
+        .heading div .black {
+            width: 100px;
+            height: 2px;
+            background: white;
+            /* margin: 0 5px; */
+        }
+
+        .container-fluid .book {
+            /* padding: 10px; */
+            background: #D9D9D9;
+        }
+
+        .container-fluid .book span {
+            font-size: 20px;
+            text-align: center;
+            background-color: white;
+            padding: 10px 200px 10px 20px;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border: none;
+        }
+
+        .card {
+  box-shadow: 0px 4px 8px 0px #7986CB;
+}
+
+.inp {
+    padding: 10px 20px !important;
+    border: 1px solid white !important;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #616161 !important;
+    color: black !important;
+    font-size: 16px;
+    letter-spacing: 1px;
+    width: 180px;
+}
+
+.inp:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #512DA8;
+    outline-width: 0;
+}
+
+::placeholder {
+    color: black;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: black;
+}
+
+::-ms-input-placeholder {
+    color: black;
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0;
+}
+
+.datepicker {
+  background-color: white !important;
+  color: #000 !important;
+  border: none;
+  padding: 10px !important;
+}
+
+.datepicker-dropdown:after {
+  border-bottom: 6px solid #000;
+}
+
+thead tr:nth-child(3) th {
+  color: #fff !important;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.dow, .old-day, .day, .new-day {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 0px !important;
+}
+
+.old-day:hover, .day:hover, .new-day:hover, .month:hover, .year:hover, .decade:hover, .century:hover {
+  border-radius: 6px !important;
+  background-color: #eee;
+  color: #000;
+}
+
+.active1 {
+  border-radius: 6px !important;
+  background-image: linear-gradient(#90CAF9, #64B5F6) !important;
+  color: #000 !important;
+}
+
+.disabled {
+  color: #616161 !important;
+}
+
+.prev, .next, .datepicker-switch {
+  border-radius: 0 !important;
+  padding: 20px 10px !important;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: black !important;
+  opacity: 0.8;
+}
+
+.prev:hover, .next:hover, .datepicker-switch:hover {
+  background-color: inherit !important;
+  opacity: 1;
+}
+
+.cell {
+  border: 1px solid #BDBDBD;
+  cursor: pointer;
+  outline: none;
+  margin: 0 10px;
+  width: 130px;
+  text-align: center;
+}
+
+.cell:hover {
+  border: 1px solid #3D5AFE;
+}
+
+.cell.select {
+  background-color: #EEEEEE;
+}
+
+.fa-calendar {
+  color: #fff;
+  font-size: 30px;
+  padding-top: 8px;
+  padding-left: 5px;
+  cursor: pointer;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header', {variant: 'compact' }); %>
+    </header>
+
+   <!-- modal start -->
+   
+   <!-- <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="text-align: center;">
+          <h5 class="modal-title" id="exampleModalToggleLabel" style="text-align: center;">John Doe</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="data">Your appointment has been scheduled <br> at Friday 15 Septembar 2023 <br> 14:00</p>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" value="Confirm" name="" id="" class="btn btn-danger text-light">
+        </div>
+      </div>
+    </div>
+  </div> -->
+  
+
+   <!-- modal end -->
+
+
+    <div class="heading">
+        <div class="p-1">
+            <h1>Book an Appointment</h1>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="red"></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="container-fluid pt-5 px-5">
+        <div class="mt-1 mb-5">
+            <h1 class="px-3">Booking Calendar</h1>
+            <p class="px-3" style="color: #606060;">Use the simple appointment scheduling system below</p>
+        </div>
+
+        <% if (successMessages) { %>
+          <div class="alert alert-primary text-center">
+            <%= successMessages %>
+          </div>
+        <% }else if(decline){ %>
+          <div class="alert alert-danger text-center">
+            <%= decline %>
+          </div>
+          <%}%>
+
+        <form action="/user/appointment" method="post">
+        <div class="container my-3 px-0 px-sm-4 mx-auto" style="background-color: rgb(243, 242, 242);border-radius: 20px;">
+            <div class="row justify-content-center mx-0 p-2" >
+                         <input type="text" name="id" value="<%=id%>" style="display: none;" id="">
+                      
+                        <div class="col-lg-12 my-3 px-3">
+                          <label for="">Disease</label>
+                          <input type="text" name="disease" id="" placeholder="Enter Disease" class="form-control" value="">
+                        </div>
+                    
+                        <div class="col-lg-6 ">                          
+                            <div class="p-3 my-5 row justify-content-center bg-light rounded-2 px-1">
+                              <input type="date" id="dp1" class="inp datepicker" min="2023-10-19" placeholder="Select Appointment Date" name="date" ><span class="fa fa-calendar" style="color: black;"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="card-body p-3 p-sm-5">
+                            <div class="row text-center mx-0">
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2" value="9:00 AM" readonly>9:00 AM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2" value="10:00 AM" readonly>10:00 AM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2" value="11:00 AM" readonly>11:00 AM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2" value="12:00 PM" readonly>12:00 PM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2" value="2:00 PM" readonly>2:00 PM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2" value="3:00 AM" readonly>9:00 AM</div>
+                            </div>
+                            <div class="row text-center mx-0">
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2 " value="4:00 PM" readonly>4:00 PM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2 " value="5:00 PM" readonly>5:00 PM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" name="time" class="cell py-1 px-2 " value="6:00 PM" readonly>6:00 PM</div>
+                              <!-- <div class="col-md-4 col-6 my-1 px-2"><input type="radio" class="cell py-1 px-2 " value="9:00AM" readonly>9:00AM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" class="cell py-1 px-2 " value="9:00AM" readonly>9:00AM</div>
+                              <div class="col-md-4 col-6 my-1 px-2"><input type="radio" class="cell py-1 px-2 " value="9:00AM" readonly>9:00AM</div> -->
+                            </div>
+                          </div>
+                        </div>                      
+            </div>
+          </div>
+        
+          
+          <div class="p-5 d-flex justify-content-center">
+                <input class="btn btn-danger"  href="#exampleModalToggle"  type="submit"  style=" background: #DF2443;color: white;font-size: 18px;padding: 10px 20px;" value="Get Appointment">
+              </div>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+        <%- include('../partials/footer', {variant: 'compact' }); %>
+    </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
+   <script>
+    
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth() + 1; // Months are 0-based
+        const day = today.getDate();
+
+        const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+        document.getElementById("dp1").min = formattedDate;
+    
+  
+   </script> 
+</body>
+
+</html>

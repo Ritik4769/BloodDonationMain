@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp'>
+   <link rel="stylesheet" href="/css/Camp.css">
+</head>
+<body>
+    <header>
+        <%- include('../partials/header', {variant: 'compact' }); %>
+    </header>
+
+    <section>
+        <div class="container p-2">
+            <h1 style="color: black;font-size: 55;font-weight: bold;text-align: center;">Up Coming Camps</h1>
+            <div class="p-2 d-flex justify-content-center">
+                <p style="width: 100px;height: 2px;background: #DF2443;margin: 5px;"></p>
+                <p style="width: 100px;height: 2px;background: black;margin: 5px;"></p>
+            </div>
+        </div>
+        <div class="container">
+          <div class="row">
+                        <!-- camp1 -->
+              <div class="col-lg-12 p-2">
+                 <div class="accord py-5">
+                    <div class="date p-2 d-flex flex-column justify-content-center align-items-center">
+                        <h4>10</h4>
+                        <h4>Sep</h4>
+                        <h4>2023</h4>
+                    </div>
+                    <div class="accord_content">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-4 col-md-12" style="padding-right: 30px;">
+                              <p style="color: #DF2443;" class="py-4">9:00 am to 5:00pm</p>
+                              <h3 style="font-weight: bold;">Blood Donation for Good Day</h3>
+                            </div>
+                            <div class="col-lg-4 py-3 px-2">
+                              <div class="red"></div>
+                              <div class="black"></div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                            <div class="flex">
+                              <div class="p-2">
+                               <p style="padding: 5px;">Rajendra Nagar</p>
+                              </div>
+                              <div class="p-2">
+                               <button class="btn" id="btn1">View Details</button>
+                              </div>  
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="col-lg-12 my-2" id="none1">
+                  <div class="camp_head">
+                     <h4>Camp Details</h4>
+                     <h2>Blood Source Campain</h2>
+                     <p>10-Sep-23 to 14-Sep-23</p>
+                  </div>
+                  <div class="camp_content p-3">
+                    <h4>Organise by <span> : Helping Hands Org.</span></h4>
+                    <h4>Contact Person <span> : Manish Singh</span></h4>
+                    <h4>Contact Number <span> : 9893145001</span></h4>
+                    <h4>State <span> : Madhya Pradesh</span></h4>
+                    <h4>City <span> : Indore</span></h4>
+                    <h4>Address <span> : 42/3 Tilak Nagar near Palasiya </span></h4>
+                    <h4>Refreshment  <span> : Available</span></h4>
+                  </div>
+              </div>
+                 <!-- camp 1 end -->
+              <!-- camp 2 star -->
+              <div class="col-lg-12 p-2">
+                <div class="accord py-5">
+                   <div class="date p-2 d-flex flex-column justify-content-center align-items-center">
+                       <h4>10</h4>
+                       <h4>Sep</h4>
+                       <h4>2023</h4>
+                   </div>
+                   <div class="accord_content">
+                       <div class="container">
+                         <div class="row">
+                           <div class="col-lg-4 col-md-12" style="padding-right: 30px;">
+                             <p style="color: #DF2443;" class="py-4">9:00 am to 5:00pm</p>
+                             <h3 style="font-weight: bold;">Blood Donation for Good Day</h3>
+                           </div>
+                           <div class="col-lg-4 py-3 px-2">
+                             <div class="red"></div>
+                             <div class="black"></div>
+                           </div>
+                           <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                           <div class="flex">
+                             <div class="p-2">
+                              <p style="padding: 5px;">Rajendra Nagar</p>
+                             </div>
+                             <div class="p-2">
+                              <button class="btn" id="btn2">View Details</button>
+                             </div>  
+                           </div>
+                           </div>
+                         </div>
+                       </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-12 my-2" id="none2">
+              <div class="camp_head">
+                 <h4>Camp Details</h4>
+                 <h2>Blood Source Campain</h2>
+                 <p>10-Sep-23 to 14-Sep-23</p>
+              </div>
+              <div class="camp_content p-3">
+                <h4>Organise by <span> : Helping Hands Org.</span></h4>
+                <h4>Contact Person <span> : Manish Singh</span></h4>
+                <h4>Contact Number <span> : 9893145001</span></h4>
+                <h4>State <span> : Madhya Pradesh</span></h4>
+                <h4>City <span> : Indore</span></h4>
+                <h4>Address <span> : 42/3 Tilak Nagar near Palasiya </span></h4>
+                <h4>Refreshment  <span> : Available</span></h4>
+              </div>
+            </div>
+             <!-- camp 2 end -->
+                  <!-- camp 3 star -->
+                  <div class="col-lg-12 p-2">
+                    <div class="accord py-5">
+                      <div class="date p-2 d-flex flex-column justify-content-center align-items-center">
+                          <h4>10</h4>
+                          <h4>Sep</h4>
+                          <h4>2023</h4>
+                      </div>
+                      <div class="accord_content">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-lg-4 col-md-12" style="padding-right: 30px;">
+                                <p style="color: #DF2443;" class="py-4">9:00 am to 5:00pm</p>
+                                <h3 style="font-weight: bold;">Blood Donation for Good Day</h3>
+                              </div>
+                              <div class="col-lg-4 py-3 px-2">
+                                <div class="red"></div>
+                                <div class="black"></div>
+                              </div>
+                              <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                              <div class="flex">
+                                <div class="p-2">
+                                  <p style="padding: 5px;">Rajendra Nagar</p>
+                                </div>
+                                <div class="p-2">
+                                  <button class="btn" id="btn3">View Details</button>
+                                </div>  
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 my-2" id="none3">
+                  <div class="camp_head">
+                    <h4>Camp Details</h4>
+                    <h2>Blood Source Campain</h2>
+                    <p>10-Sep-23 to 14-Sep-23</p>
+                  </div>
+                  <div class="camp_content p-3">
+                    <h4>Organise by <span> : Helping Hands Org.</span></h4>
+                    <h4>Contact Person <span> : Manish Singh</span></h4>
+                    <h4>Contact Number <span> : 9893145001</span></h4>
+                    <h4>State <span> : Madhya Pradesh</span></h4>
+                    <h4>City <span> : Indore</span></h4>
+                    <h4>Address <span> : 42/3 Tilak Nagar near Palasiya </span></h4>
+                    <h4>Refreshment  <span> : Available</span></h4>
+                  </div>
+                </div>
+                <!-- camp 3 end -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <%- include('../partials/footer', {variant: 'compact' }); %>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+    $("#btn1").click(function(){
+      $("#none1").css("display","block");
+      $("#none2").css("display","none");
+      $("#none2").css("display","none");
+    });
+    $("#btn2").click(function(){
+      $("#none2").css("display","block");
+      $("#none1").css("display","none");
+      $("#none3").css("display","none");
+    });
+    $("#btn3").click(function(){
+      $("#none3").css("display","block");
+      $("#none1").css("display","none");
+      $("#none2").css("display","none");
+    });
+});
+</script>
+</body>
+</html>
