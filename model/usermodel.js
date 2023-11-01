@@ -50,24 +50,44 @@ var appDataSchema = mongoose.Schema({
     disease: String,
     time:String,
     appointment_date: Date,
-    reportImg : [String]
+    reportImg : [String],
+    otp:Number,
+    status:{
+        type:Boolean,
+        default:false
+    }
   });
 export const appDataModel = mongoose.model("donorappointment",appDataSchema);
 var bloodReqSchema = mongoose.Schema({
-     user_id:String,
+     user_id:{
+        type:String,
+        required:true
+     },
      patient_name:{
-     type:String,
-     required : true
-    },
-    disease:String,
-    bloodGroup:String,
-    dr_Prescription:String,
-    status:{
+        type:String,
+        required : true
+     },
+     disease:{
+        type:String,
+        required:true
+     },
+     bloodGroup:{
+        type:String,
+        required:true
+     },
+     doctorPrescriptionImage:{
+        type:String,
+        required:true
+     },
+     otp:{
+        type:Number
+     },
+     unit:{
+        type:Number
+     },
+     status:{
         type:String,
         default:"Pending"
-    },
-    otp:{
-        type:Number
-    }
-  }) ;
+     }
+  });
 export const bloodReqModel = mongoose.model("resipient",bloodReqSchema);

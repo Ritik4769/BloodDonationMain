@@ -9,7 +9,7 @@
 <body>
   
     <header>
-        <%- include('../partials/header', {variant: 'compact' }); %>
+        <%- include('../partials/header2', {variant: 'compact' }); %>
     </header>
 
     
@@ -78,11 +78,11 @@
       </div>
     </div>
     
-    <!-- <% if(msg){%>
+    <% if(msg){%>
       <div class="alert alert-primary text-center">
         <%= msg %>
       </div>
-      <%}%> -->
+      <%}%>
 
     <!-- modal end -->
     <!-- Profile Section -->
@@ -96,7 +96,7 @@
                         <h3><%=bloodbank.bloodBankname%></h3>
                       <div>
                         <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button">Edit Profile</a>
-                        <a href="/bloodbank/logout/:bloodbank.bloodBankEmail" class="btn btn-danger mx-2">Logout</a>          
+                        <a href="/login/logout/:bloodbank.bloodBankEmail" class="btn btn-danger mx-2">Logout</a>          
                       </div>
                         <!-- Add your profile details here -->
                        </div>  

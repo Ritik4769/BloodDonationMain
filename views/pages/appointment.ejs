@@ -185,7 +185,7 @@ thead tr:nth-child(3) th {
 
 <body>
     <header>
-        <%- include('../partials/header', {variant: 'compact' }); %>
+        <%- include('../partials/header2', {variant: 'compact' }); %>
     </header>
 
    <!-- modal start -->
@@ -277,8 +277,9 @@ thead tr:nth-child(3) th {
         
           
           <div class="p-5 d-flex justify-content-center">
-                <input class="btn btn-danger"  href="#exampleModalToggle"  type="submit"  style=" background: #DF2443;color: white;font-size: 18px;padding: 10px 20px;" value="Get Appointment">
-              </div>
+                <input class="btn"  href="#exampleModalToggle"  type="submit"  style=" background: #DF2443;color: white;font-size: 18px;padding: 10px 20px;" value="Get Appointment">
+                <a href="/user/user_profile/<%=id%>" class="btn btn-danger mx-3" style=" background: #DF2443;color: white;font-size: 18px;padding: 10px 20px;">Back</a>
+            </div>
         </div>
       </form>
     </div>

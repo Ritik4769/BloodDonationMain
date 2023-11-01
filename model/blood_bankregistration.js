@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 
 // Defining Schema
 const registrationSchema = new mongoose.Schema({
-   bloodBankname:{type:String,required:true,trim:true},
+   bloodBankname:{
+      type:String,
+      required:true,
+      trim:true
+   },
    ownerNamename:{type:String,required:true,trim:true},
    bloodBankCategory:{type:String,required:true,trim:true},
    licenseNumber:{type:String,required:true,unique:true,trim:true},
@@ -16,7 +20,9 @@ const registrationSchema = new mongoose.Schema({
    city:{type:String,required:true,trim:true},
    state:{type:String,required:true,trim:true},
    zipcode:{type:String,required:true,trim:true},
-
+   latitude:{type:String,required:true},
+   longitude:{type:String,required:true},
+   days:{type:String,required:true}
 });
 const Registration = mongoose.model("registrations",registrationSchema);
 

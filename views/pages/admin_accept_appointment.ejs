@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+    .profile-name {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 50px 3px rgba(0, 0, 0, 0.3);
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- -------------------------Modal Start------------------------ -->
+  <% if(msg) {%>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+        </div>
+        <div class="modal-body">
+            <%if(otp){%>
+                <form action="/admin/acceptappform" method="post">
+                  <h6 class="text-dark text-center">Enter OTP</h6>
+                  <div class="col-md-12 d-flex">
+                      <input class="form-control" placeholder="Enter OTP" type="text" name="appid" id="reqid">                
+                  </div>
+                  <input type="submit" class="btn" style="background-color:#107ECB; color: white; border-style: none;display: block;margin:10px auto;" value="Submit"></input>
+                </form>
+            <%}else{%>
+                  <p><%=msg%></p>
+            <%}%>
+        </div>
+        <div class="modal-footer">
+          <%if(otp){%>
+          <a href="/admin/blood_inventory" type="button" class="btn btn-primary">Close</a>
+          <%}else{%>
+            <a href="" type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</a>
+            <%}%>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      $("#exampleModal").modal("show");
+    })
+  </script>
+  <%}%>
+  <!-- -------------------------Modal End-------------------------- -->
+  <!-- Profile Section -->
+   
+    <section id="profile">
+      <div class="container">
+        <div class="row my-2" style="border-bottom: 1px solid rgba(0,0,0,0.3);">
+          <div class="col-md-3 p-2">
+              <img style="width: 150px;height: 100px;" src="/images/blood_logo3.png" alt="">
+          </div>
+          <div class="col-md-6 p-2 mt-3 ">
+              <h3 class="text-danger ms-5 ps-5">Blood Donation Management</h3>
+              <p class="ms-5" style="padding-left: 140px;">Together We Save Life</p>
+          </div>
+          <div class="col-md-3 text-right p-2 mt-3" >
+              <p style="margin:5px 0;">Email : BloodBank@gmail.com</p>
+              <p style="margin:5px 0;">Contact : 7898139220</p>
+              <p >Address : Saket Nagar near Palasiya,Indore</p>
+          </div>
+         </div>
+        <div class="row">
+          <div class="col-md-12 p-3 text-center bg-danger text-light">
+            <h3>Donor Detail</h3>
+          </div>
+          </div>
+          <div class="row p-4" style="border: 1px solid rgba(0, 0, 0, 0.3);">
+          <% if (existingUser){%>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                 <thead >
+                     <tr>
+                         <th>
+                             <h5>Property</h5>
+                         </th>
+                         <th>
+                             <h5>Values</h5>
+                         </th>
+                     </tr>
+                 </thead>
+                 <tbody >
+                     <tr>
+                         <td>
+                             <h6>Full Name</h6>
+                         </td>
+                         <td>
+                             <p><%=existingUser.name%></p>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>
+                             <h6>Email</h6>
+                         </td>
+                         <td>
+                             <p><%=existingUser.email%></p>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>
+                             <h6>Appointment Date</h6>
+                         </td>
+                         <td>
+                             <p>
+                              <script>
+                                document.write(new Date('<%=existingUser.appointment_date%>').getDate()+"-"+new Date('<%=existingUser.appointment_date%>').getMonth()+"-"+new Date('<%=existingUser.appointment_date%>').getFullYear());
+                              </script>
+                              </p>                              
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>
+                             <h6>Disease</h6>
+                         </td>
+                         <td>
+                             <p>
+                              <%=existingUser.disease%>
+                              </p>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>
+                             <h6>Time</h6>
+                         </td>
+                         <td>
+                             <p><%=existingUser.time%></p>
+                         </td>
+                     </tr>   
+                     <tr>
+                        <td>
+                            <h6>Contact</h6>
+                        </td>
+                        <td>
+                            <p><%=existingUser.contact%></p>
+                        </td>
+                  </tr> 
+                 </tbody>
+              </table>
+         </div>            
+            <div class="col-md-12 d-flex justify-content-center my-3 py-2">
+              <a href="/admin/successfulApp/<%=existingUser.otp%>" class="btn btn-danger text-light">Sucessful</a>
+            </div>
+            </div>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </section>
+       
+</body>
+
+</html>

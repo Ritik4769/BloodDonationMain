@@ -3,7 +3,7 @@ import { organization1 } from "../model/organizationmodel.js";
 import Registration from "../model/blood_bankregistration.js";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
-import {transporter} from '../model/emailmodel.js';
+import {mailer} from './mailer.js';
 import randomstring from 'randomstring';
 const maxAge = 3 * 24 * 60 * 60;
 const SECRET_KEY = "crypto.randomBytes(32).toString('hex')";
@@ -29,9 +29,10 @@ const logincontroller = async (req, res) => {
                         role:"User"
                     }
                     payload.user = user;
+                    
                     console.log(payload.user);
                     token = jwt.sign(payload, SECRET_KEY, expiryTime);
-                    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge });
+                    res.cookie('jwt', token , { httpOnly: true, maxAge: maxAge });
                     res.redirect("user_profile");
                 } else {
                     res.render("pages/user_login", { email: "", pass: "password not matched", role: role });
@@ -111,7 +112,7 @@ const authorizeUser = (request,response,next) => {
     console.log(request.payload.user.data)
     if (request.payload.user.role == "User") {
         console.log(request.payload.user.role);
-        response.render("pages/user_profile", {user:request.payload.user.data,msg:""});
+        response.render("pages/user_profile", {user:request.payload.user.data,msg1:""});
     } else if (request.payload.user.role == "BloodBank") {
         console.log(request.payload.user.role);
         console.log("blood....");
@@ -133,20 +134,29 @@ export const emailverify=async (req,res)=>{
                     length:4,
                     charset:'numeric',
                   });
-                  const mailOptions = {
-                    from: 'dabidipesh7898@gmail.com',
-                    to: req.body.email,
-                    subject: `OTP is ${otp}`,
-                    text: `Hello ${req.body.name}\n your one time Password is ${otp} enter this opt and register yourself`
-                  };
-                  transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                      console.error(error);
-                      res.render('pages/user_login',{email:"email not exist",pass:"",role:role});
-                    } else {
-                      res.render("pages/update_password",{email:req.body.email,otp:"opt sent",wrongotp:"",role:role});
+                  var message=`Hello <b>${user.name}</b><br>Your One Time Password is ${otp} enter this otp and Verify Email<br>Thank You 😊`;
+                  mailer(user.email,message,(info)=>{
+                    if(info){
+                        res.render("pages/update_password",{email:req.body.email,otp:"opt sent",wrongotp:"",role:role});
+                    }
+                    else{
+                        res.render('pages/user_login',{email:"email not sent",pass:"",role:role});   
                     }
                   });
+                //   const mailOptions = {
+                //     from: 'dabidipesh7898@gmail.com',
+                //     to: req.body.email,
+                //     subject: `OTP is ${otp}`,
+                //     text: `Hello ${req.body.name}\n your one time Password is ${otp} enter this opt and register yourself`
+                //   };
+                //   transporter.sendMail(mailOptions, (error, info) => {
+                //     if (error) {
+                //       console.error(error);
+                //       res.render('pages/user_login',{email:"email not exist",pass:"",role:role});
+                //     } else {
+                //       res.render("pages/update_password",{email:req.body.email,otp:"opt sent",wrongotp:"",role:role});
+                //     }
+                //   });
             }
             else{
                 res.render("pages/user_login",{email:"email not found",pass:"",role:role});
@@ -160,24 +170,33 @@ export const emailverify=async (req,res)=>{
         try{
             const user=await Registration.findOne({bloodBankEmail:email});
             if(user){
-                otp=randomstring.generate({
+                  otp=randomstring.generate({
                     length:4,
                     charset:'numeric',
                   });
-                  const mailOptions = {
-                    from: 'dabidipesh7898@gmail.com',
-                    to: req.body.email,
-                    subject: `OTP is ${otp}`,
-                    text: `Hello ${req.body.name}\n your one time Password is ${otp} enter this opt and register yourself`
-                  };
-                  transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                      console.error(error);
-                      res.render('pages/user_login',{email:"email not exist",pass:"",role:role});
-                    } else {
-                      res.render("pages/update_password",{email:req.body.email,otp:"opt sent",wrongotp:"",role:role});
+                  var message=`Hello <b>${user.ownerNamename}</b><br>Your One Time Password is ${otp} enter this otp and register yourself<br>Thank You 😊`;
+                  mailer(user.bloodBankEmail,message,(info)=>{
+                    if(info){
+                        res.render("pages/update_password",{email:req.body.email,otp:"opt sent",wrongotp:"",role:role});
+                    }
+                    else{
+                        res.render('pages/user_login',{email:"email not sent",pass:"",role:role});   
                     }
                   });
+                //   const mailOptions = {
+                //     from: 'dabidipesh7898@gmail.com',
+                //     to: req.body.email,
+                //     subject: `OTP is ${otp}`,
+                //     text: `Hello ${req.body.name}\n your one time Password is ${otp} enter this opt and register yourself`
+                //   };
+                //   transporter.sendMail(mailOptions, (error, info) => {
+                //     if (error) {
+                //       console.error(error);
+                //       res.render('pages/user_login',{email:"email not exist",pass:"",role:role});
+                //     } else {
+                //       res.render("pages/update_password",{email:req.body.email,otp:"opt sent",wrongotp:"",role:role});
+                //     }
+                //   });
             }
             else{
                 res.render("pages/user_login",{email:"email not found",pass:"",role:role});
@@ -193,6 +212,15 @@ export const emailverify=async (req,res)=>{
                 otp=randomstring.generate({
                     length:4,
                     charset:'numeric',
+                  });
+                  var message=`Hello <b>${user.OrganizerName}</b><br>Your One Time Password is ${otp} enter this otp and register yourself<br>Thank You 😊`;
+                  mailer(user.Email,message,(info)=>{
+                    if(info){
+                        res.render("pages/update_password",{email:req.body.email,otp:"opt sent",wrongotp:"",role:role});
+                    }
+                    else{
+                        res.render('pages/user_login',{email:"email not sent",pass:"",role:role});   
+                    }
                   });
                   const mailOptions = {
                     from: 'dabidipesh7898@gmail.com',

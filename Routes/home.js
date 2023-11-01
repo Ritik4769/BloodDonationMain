@@ -1,4 +1,6 @@
 import express from 'express';
+import {upcomingcamp} from '../controller/usercontroller.js';
+//mport {deleteExpiredUnitsController} from '../controller/bloodbankController.js';
 const router = express.Router();
 var app=express();
 router.use(express.static('public'));
@@ -14,7 +16,5 @@ router.get('/about',(req,res)=>{
 router.get('/contact',(req,res)=>{
     res.render('pages/contact_us');
 });
-router.get('/camp',(req,res)=>{
-    res.render("pages/Camp");
-});
+router.get('/camp',upcomingcamp);
 export default router;

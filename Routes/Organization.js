@@ -62,10 +62,11 @@ router.post("/verifyotp",verifyotp);
 router.post("/camprequest",campRequestController);
 router.post("/updatedata",Organization_profileupdate);
 router.get("/logout/:email",(req,res)=>{
-    var token=req.cookies.jwt;
-    console.log(token);
-    token="";
-    res.cookie("jwt",token);
+    // var token=req.cookies.jwt;
+    // console.log(token);
+    // token="";
+    // res.cookie("jwt",token);
+    res.cookie("jwt",'');
     res.render("pages/index1");
-})
+});
 export default router;

@@ -1,11 +1,11 @@
 import express from "express";
-import {verifyemail,blood_bank_AddController,update_Controller,add_inventory_Controller,update_bloodbankController} from "../controller/bloodbankController.js";
+import {verifyemail,blood_bank_AddController,update_Controller,add_inventory_Controller,update_bloodbankController,getlocationController} from "../controller/bloodbankController.js";
 import  {jwt}  from '../controller/logincontroller.js';
 const router = express.Router();
 router.use(express.static('public'));
 
 router.get('/blood_bank_registration',(req,res)=>{
-    res.render('pages/blood_bank_registration',{email:"",otp:"",wrongotp:""});
+    res.render('pages/blood_bank_registration',{blood_bank:"",email:"",otp:"",wrongotp:""});
 });
 router.get('/login/:role',(req,res)=>{
     var role=req.params.role
@@ -45,6 +45,7 @@ router.post('/verifyemail', verifyemail);
 router.post('/verifyotp',blood_bank_AddController);
 router.get('/blood_inventory/:email',update_bloodbankController);
 router.post('/Addbloodunit/:email',add_inventory_Controller);
+router.get('/getlocation',getlocationController)
 //module.exports=router;
 
 export default router;

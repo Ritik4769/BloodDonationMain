@@ -6,6 +6,7 @@
     <title>User Registration</title>
     <script src="/js/scriptuser.js"></script>
     <link rel="stylesheet" href="/css/register.css">
+    <script src="/js/cities.js"></script>
 </head>
 <body>
     <header>
@@ -41,60 +42,60 @@
                 <%if(wrongotp){%>
             <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"> <%=wrongotp%> </h1>
                 <%}else{%>
-            <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"> Registeration </h1>        
+            <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"> Registration </h1>        
                     <%}%>
-            <form action="/user/sendOtp" method="post" onsubmit="return validateform()">
+            <form action="/user/sendOtp" method="post" onsubmit="return checkDetails()">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-6  ps-4 mb-2">
-                            <input onkeyup="validateName()" class="input" placeholder="Name" type="text" value="<%=userdata.name%>" name="name" id="name"><br>
-                            <span id="Name_display" style="color:red">*</span><br>
+                            <input onkeyup="checkUsername()" class="input" placeholder="Name" type="text" value="<%=userdata.name%>" name="name" id="name"><br>
+                            <small></small>
                         </div>
                         <div class="col-lg-6 col-md-6  ps-4 mb-2">
-                            <input onkeyup="validateEmail()" class="input" placeholder="Email" type="email" value="<%=userdata.email%>" name="email" id="email"><br>
-                            <span id="Email_display" style="color:red">*<%=email%> </span><br>
+                            <input onkeyup="checkEmail()" class="input" placeholder="Email" type="email" value="<%=userdata.email%>" name="email" id="email"><br>
+                            <small ><%=email%> </small>
                         </div>
                         <div class="col-lg-6 col-md-6  ps-4 my-2">
-                            <input onkeyup="validatePassword()" class="input" placeholder="Password" type="password" value="<%=userdata.pass%>" name="pass" id="pass"><br>
-                            <span id="Pass_display" style="color:red">*</span><br>
+                            <input onkeyup="checkPassword()" class="input" placeholder="Password" type="password" value="<%=userdata.pass%>" name="pass" id="pass"><br>
+                            <small></small>
                         </div>
                         <div class="col-lg-6 col-md-6  ps-4 my-2">
-                            <input onkeyup="validateConfirmPassword()" class="input" placeholder="Confirm Password" type="password" value="<%=userdata.cpass%>" name="cpass" id="cpass"> <br>
-                            <span id="Cpass_display" style="color:red">*</span><br>
+                            <input onkeyup="checkConfirmPassword()" class="input" placeholder="Confirm Password" type="password" value="<%=userdata.cpass%>" name="cpass" id="cpass"> <br>
+                            <small ></small>
                         </div>
                         <div class="col-lg-6 col-md-6  ps-4 my-2">
-                            <input onkeyup="validateAge()" class="input" placeholder="Enter Age" type="text" value="<%=userdata.age%>" name="age" id="age"><br>
-                            <span id="age_display" style="color:red">*</span><br>
+                            <input onkeyup="checkAge()" class="input" placeholder="Enter Age" type="number" value="<%=userdata.age%>" name="age" id="age"><br>
+                            <small></small>
                         </div>
                         <div class="col-lg-6 col-md-6 d-flex  ps-4 my-2">
-                            <input class="mx-2 "  type="radio" name="gender" value="Male" id="male" onclick="validateGender()"><span class="mt-4">Male</span> <br>
-                            <input class="mx-2 " type="radio" name="gender" value="Female" id="female" onclick="validateGender()"><span class="mt-4">Female</span> <br>
-                            <span id="gen_display" style="color:red">*</span><br>
+                            <input class="mx-2 "  type="radio" name="gender" value="Male" id="male" onclick="validateGender()"><small class="mt-4">Male</small> <br>
+                            <input class="mx-2 " type="radio" name="gender" value="Female" id="female" onclick="validateGender()"><small class="mt-4">Female</small> <br>
+                            <small></small><br>
                         </div>
                         <div class="col-lg-6 col-md-6  ps-4 my-2">
-                            <input onkeyup="validateContact()" class="input" placeholder="Contact" value="<%=userdata.contact%>" type="text" name="contact" id="contact"><br>
-                            <span id="Con_display" style="color:red">*</span><br>
+                            <input onkeyup="checkContact()" class="input" placeholder="Contact" value="<%=userdata.contact%>" type="text" name="contact" id="contact"><br>
+                            <small></small><br>
                         </div>
                         <div class="col-lg-6 col-md-6  ps-4 my-2">
-                            <label for="">Last Blood Donation Date</label>
+                            <label for="">Last Blood Donation Date(Optional)</label>
                             <input onkeyup="validateContact()" class="input" placeholder="Enter Last Donation Date" value="<%=userdata.last_donation_date%>" type="date" name="last_donation_date" id="date"><br>
-                            <span id="Con_display" style="color:red">*</span><br>
+                            <small></small><br>
                         </div>
                         <div class="col-lg-6 col-md-6  ps-4 my-2">
-                            <select name="state" id="state" style="outline: none;border: none;padding: 10px;" onchange="validateState()"> <br>
-                                <option value="">Select State</option>
+                            <select name="state" onchange="print_city('state', this.selectedIndex);" id="sts" style="outline: none;border: none;padding: 10px;" onchange="validateState()"> <br>
+                                <!-- <option value="">Select State</option>
                                 <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Maharashtra">Maharashtra</option> -->
                             </select>
-                            <span id="state_display" style="color:red">*</span><br>
+                            <small></small><br>
                         </div>
                         <div class="col-lg-6 col-md-6 ps-4 my-2">
-                            <select name="city" id="city" style="width: 100%; outline: none;" onchange="validateCity()"> <br>
-                                <option value="">Select City</option>
+                            <select name="city" id ="state" style="width: 100%; outline: none;" onchange="validateCity()"> <br>
+                                <!-- <option value="">Select City</option>
                                 <option value="Indore">Indore</option>
-                                <option value="Gwalior">Gwalior</option>
+                                <option value="Gwalior">Gwalior</option> -->
                             </select>
-                            <span id="city_display" style="color:red">*</span><br>
+                            <small></small><br>
                         </div>
                         <div class="col-lg-12 col-md-12 ps-4 my-2">
                             <select name="blood_group" id="city" style="width: 100%; outline: none;" onchange="validateCity()"> <br>
@@ -109,11 +110,11 @@
                                 <option value="O-">O-</option>
                                 <option value="NA">NA</option>
                             </select>
-                            <span id="city_display" style="color:red">*</span><br>
+                            <small></small><br>
                         </div>
                     </div>
                     <input type="submit" class="btn" style="background-color: rgba(216, 37, 37, 1); color: white; border-style: none;display: block;margin:10px auto;" value="Send Otp"></input>
-                    <p style="margin:10px; color: rgb(178, 174, 174); text-align: center;">Already have an account ?<b style="color: rgb(20, 20, 180);"> Login now</b></p>
+                    <p style="margin:10px; color: rgb(178, 174, 174); text-align: center;">Already have an account ?<a href="/user/login/user" style="color: rgb(20, 20, 180);"> Login now</b></a>
                 </div>
             </form>
             <%}%>
@@ -122,5 +123,6 @@
     <footer>
         <%- include('../partials/footer', {variant: 'compact' }); %>
     </footer>
+    <script language="javascript">print_state("sts");</script>
 </body>
 </html>

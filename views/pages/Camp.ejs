@@ -28,158 +28,82 @@
         <div class="container">
           <div class="row">
                         <!-- camp1 -->
-              <div class="col-lg-12 p-2">
-                 <div class="accord py-5">
-                    <div class="date p-2 d-flex flex-column justify-content-center align-items-center">
-                        <h4>10</h4>
-                        <h4>Sep</h4>
-                        <h4>2023</h4>
-                    </div>
-                    <div class="accord_content">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-lg-4 col-md-12" style="padding-right: 30px;">
-                              <p style="color: #DF2443;" class="py-4">9:00 am to 5:00pm</p>
-                              <h3 style="font-weight: bold;">Blood Donation for Good Day</h3>
+                        <% if(data) {%>
+                        <% data.forEach( camp =>{ %>
+                          <div class="col-lg-12 p-2">
+                            <div class="accord py-5">
+                               <div class="date p-2 d-flex flex-column justify-content-center align-items-center">
+                                   <h4> <script>
+                                     var date=new Date('<%=camp.Date%>').getDate();
+                                     document.write(date);
+                                   </script>   
+                                   </h4>
+                                   <h4>
+                                     <script>
+                                       var date=new Date('<%=camp.Date%>');
+                                       var month = date.toLocaleString('default', { month: 'short' });
+                                       document.write(month);  
+                                     </script>
+           
+                                   </h4>
+                                   <h4>
+                                     <script>
+                                       var date=new Date('<%=camp.Date%>').getFullYear();
+                                       document.write(date);
+             
+                                     </script>
+                                   </h4>
+                               </div>
+                               <div class="accord_content">
+                                   <div class="container">
+                                     <div class="row">
+                                       <div class="col-lg-4 col-md-12" style="padding-right: 30px;">
+                                         <p style="color: #DF2443;" class="py-4"><%=camp.startTime%> am to <%=camp.endTime%> pm</p>
+                                         <h3 style="font-weight: bold;">Blood Donation for Good Day</h3>
+                                       </div>
+                                       <div class="col-lg-4 py-3 px-2">
+                                         <div class="red"></div>
+                                         <div class="black"></div>
+                                       </div>
+                                       <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                                       <div class="flex">
+                                         <div class="p-2">
+                                          <p style="padding: 5px;"><%=camp.Address%></p>
+                                         </div>
+                                         <div class="p-2">
+                                          <button class="btn" id="<%=camp._id%>" onclick="showdetail('<%=camp._id%>')">View Details</button>
+                                         </div>  
+                                       </div>
+                                       </div>
+                                     </div>
+                                   </div>
+                               </div>
                             </div>
-                            <div class="col-lg-4 py-3 px-2">
-                              <div class="red"></div>
-                              <div class="black"></div>
-                            </div>
-                            <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                            <div class="flex">
-                              <div class="p-2">
-                               <p style="padding: 5px;">Rajendra Nagar</p>
-                              </div>
-                              <div class="p-2">
-                               <button class="btn" id="btn1">View Details</button>
-                              </div>  
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                 </div>
-              </div>
-              <div class="col-lg-12 my-2" id="none1">
-                  <div class="camp_head">
-                     <h4>Camp Details</h4>
-                     <h2>Blood Source Campain</h2>
-                     <p>10-Sep-23 to 14-Sep-23</p>
-                  </div>
-                  <div class="camp_content p-3">
-                    <h4>Organise by <span> : Helping Hands Org.</span></h4>
-                    <h4>Contact Person <span> : Manish Singh</span></h4>
-                    <h4>Contact Number <span> : 9893145001</span></h4>
-                    <h4>State <span> : Madhya Pradesh</span></h4>
-                    <h4>City <span> : Indore</span></h4>
-                    <h4>Address <span> : 42/3 Tilak Nagar near Palasiya </span></h4>
-                    <h4>Refreshment  <span> : Available</span></h4>
-                  </div>
-              </div>
-                 <!-- camp 1 end -->
-              <!-- camp 2 star -->
-              <div class="col-lg-12 p-2">
-                <div class="accord py-5">
-                   <div class="date p-2 d-flex flex-column justify-content-center align-items-center">
-                       <h4>10</h4>
-                       <h4>Sep</h4>
-                       <h4>2023</h4>
-                   </div>
-                   <div class="accord_content">
-                       <div class="container">
-                         <div class="row">
-                           <div class="col-lg-4 col-md-12" style="padding-right: 30px;">
-                             <p style="color: #DF2443;" class="py-4">9:00 am to 5:00pm</p>
-                             <h3 style="font-weight: bold;">Blood Donation for Good Day</h3>
-                           </div>
-                           <div class="col-lg-4 py-3 px-2">
-                             <div class="red"></div>
-                             <div class="black"></div>
-                           </div>
-                           <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                           <div class="flex">
-                             <div class="p-2">
-                              <p style="padding: 5px;">Rajendra Nagar</p>
-                             </div>
-                             <div class="p-2">
-                              <button class="btn" id="btn2">View Details</button>
-                             </div>  
-                           </div>
-                           </div>
                          </div>
-                       </div>
-                   </div>
-                </div>
-             </div>
-             <div class="col-lg-12 my-2" id="none2">
-              <div class="camp_head">
-                 <h4>Camp Details</h4>
-                 <h2>Blood Source Campain</h2>
-                 <p>10-Sep-23 to 14-Sep-23</p>
-              </div>
-              <div class="camp_content p-3">
-                <h4>Organise by <span> : Helping Hands Org.</span></h4>
-                <h4>Contact Person <span> : Manish Singh</span></h4>
-                <h4>Contact Number <span> : 9893145001</span></h4>
-                <h4>State <span> : Madhya Pradesh</span></h4>
-                <h4>City <span> : Indore</span></h4>
-                <h4>Address <span> : 42/3 Tilak Nagar near Palasiya </span></h4>
-                <h4>Refreshment  <span> : Available</span></h4>
-              </div>
-            </div>
-             <!-- camp 2 end -->
-                  <!-- camp 3 star -->
-                  <div class="col-lg-12 p-2">
-                    <div class="accord py-5">
-                      <div class="date p-2 d-flex flex-column justify-content-center align-items-center">
-                          <h4>10</h4>
-                          <h4>Sep</h4>
-                          <h4>2023</h4>
-                      </div>
-                      <div class="accord_content">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-lg-4 col-md-12" style="padding-right: 30px;">
-                                <p style="color: #DF2443;" class="py-4">9:00 am to 5:00pm</p>
-                                <h3 style="font-weight: bold;">Blood Donation for Good Day</h3>
-                              </div>
-                              <div class="col-lg-4 py-3 px-2">
-                                <div class="red"></div>
-                                <div class="black"></div>
-                              </div>
-                              <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                              <div class="flex">
-                                <div class="p-2">
-                                  <p style="padding: 5px;">Rajendra Nagar</p>
-                                </div>
-                                <div class="p-2">
-                                  <button class="btn" id="btn3">View Details</button>
-                                </div>  
-                              </div>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 my-2" id="none3">
-                  <div class="camp_head">
-                    <h4>Camp Details</h4>
-                    <h2>Blood Source Campain</h2>
-                    <p>10-Sep-23 to 14-Sep-23</p>
+                         <div class="col-lg-12 my-2" >
+                             <div class="camp_head">
+                                <h4>Camp Details</h4>
+                                <h2><%=camp.campName%></h2>
+                                <p>Start Date : <%=camp.Date%></p>
+                                <p>Days of Camp : <%=camp.days%> Days</p>
+                             </div>
+                             <div class="camp_content p-3">
+                               <!-- <h4>Organise by <span> : Helping Hands Org.</span></h4> -->
+                               <h4>Contact Person <span> : <%=camp.personName%> </span></h4>
+                               <h4>Contact Number <span> : <%=camp.Contact%></span></h4>
+                               <h4>State <span> : <%=camp.State%></span></h4>
+                               <h4>City <span> : <%=camp.City%></span></h4>
+                               <h4>Address <span> : <%=camp.Address%> </span></h4>
+                               <h4>Refreshment  <span> : Available</span></h4>
+                             </div>
+                         </div>
+                 
+                <%} )%>
+                <%}else{%>
+                  <div class="col-md-12">
+                     <h4 style="color: #DF2443;">No Camp Available</h4>
                   </div>
-                  <div class="camp_content p-3">
-                    <h4>Organise by <span> : Helping Hands Org.</span></h4>
-                    <h4>Contact Person <span> : Manish Singh</span></h4>
-                    <h4>Contact Number <span> : 9893145001</span></h4>
-                    <h4>State <span> : Madhya Pradesh</span></h4>
-                    <h4>City <span> : Indore</span></h4>
-                    <h4>Address <span> : 42/3 Tilak Nagar near Palasiya </span></h4>
-                    <h4>Refreshment  <span> : Available</span></h4>
-                  </div>
-                </div>
-                <!-- camp 3 end -->
+                  <%}%>
             </div>
         </div>
     </section>

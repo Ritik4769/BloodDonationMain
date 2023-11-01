@@ -1,6 +1,6 @@
 import {organization1,camp1} from "../model/organizationmodel.js";
 import bcrypt from 'bcrypt';
-import {transporter} from '../model/emailmodel.js';
+import {mailer} from './mailer.js';
 import randomstring from 'randomstring';
 var orgdata={};
 var otp="";
@@ -11,21 +11,16 @@ export const verifyemail=async(req,res)=>{
     length:4,
     charset:'numeric',
   });
-  const mailOptions = {
-    from: 'dabidipesh7898@gmail.com',
-    to: req.body.email,
-    subject: `OTP is ${otp}`,
-    text: `Hello ${req.body.name}\n your one time Password is ${otp} enter this opt and register yourself`
-  };
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error(error);
-      res.render('pages/Organization_registration',{organization1:"",email:"email not exist",otp:"",wrongotp:""});
-    } else {
-      console.log(otp);
+  console.log('otp',otp);
+  var message=`Hello <b>${req.body.OrganizationName}</b> <br>Your One time password is ${otp} enter the otp and register yourself in our Website<br>Thank You 😊`;
+  var email = req.body.email;
+  mailer(email,message,(info)=>{
+    if(info){
       res.render("pages/Organization_registration",{organization1:"",email:"",otp:"opt sent",wrongotp:""});
     }
+    res.render('pages/Organization_registration',{organization1:orgdata,email:"email not sent try again",otp:"",wrongotp:""});
   });
+  
 }
 export const verifyotp=async(req,res)=>{
   var orgotp=req.body.orgotp;
@@ -64,9 +59,10 @@ export const campRequestController = async(req,res)=>{
   try{
        const {id,campName,Personname,contact,date,startTime,endTime,days,Address,city,state} = req.body;
        console.log(req.body);
+       console.log(days);
        var data=await camp1.find({org_id:id});
        if(data.length==0){
-       var doc = new camp1({
+       var doc = await camp1.create({
           org_id:id,
           campName:campName,
           personName:Personname,
@@ -74,15 +70,15 @@ export const campRequestController = async(req,res)=>{
           Date: date,
           startTime:startTime,
           endTime:endTime,
-          day:days,
+          days:days,
           Address:Address,
           City:city,
-          State:state         
+          State:state,
+          unit:0         
        });       
-       const result = await doc.save();
-       const data = await organization1.findOne({_id:id});
+       console.log(doc);
+      //  const org_data = await organization1.findOne({_id:id});
        console.log(data);       
-       res.render("pages/Organization_profile",{organization:data,msg:"request sent sucessfully"});
       }
       else{
         var data=await camp1.updateOne({org_id:id},{$set:{
@@ -92,14 +88,18 @@ export const campRequestController = async(req,res)=>{
           Date: date,
           startTime:startTime,
           endTime:endTime,
-          day:days,
+          days:days,
           Address:Address,
           City:city,
-          State:state
+          State:state,
+          Status:"Pending",
+          unit:0
         }});
-        var org_data=await organization1.findOne({_id:id});
-        res.render("pages/Organization_profile",{organization:org_data,msg:"request sent sucessfully"});
+        console.log(data);        
+        // console.log('org_data',org_data);     
       }
+      var org_data=await organization1.findOne({_id:id});   
+      res.render("pages/Organization_profile",{organization:org_data,msg:"request sent sucessfully"});
   }
   catch(err)
   {
@@ -108,11 +108,10 @@ export const campRequestController = async(req,res)=>{
 }
 export const Organization_profileupdate = async (req, res) => {
   try {
-    const {organizationkname,Organizername,Contact,email,state,city} = req.body;
-
+    const {organizationname,Organizername,Contact,email,state,city} = req.body;
     // Here, you can assume there's only one organization record
     const updatedOrg = await organization1.updateOne({Email:email}, {$set:{
-      OrganizationName:organizationkname,
+      OrganizationName:organizationname,
       OrganizerName:Organizername,
       ContactNumber:Contact,
       State:state,

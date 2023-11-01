@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/cities.js"></script>
 </head>
 <body>
     <header>
-        <%- include('../partials/header', {variant: 'compact' }); %>
+        <%- include('../partials/header2', {variant: 'compact' }); %>
     </header>
     
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -40,7 +41,7 @@
                        <input type="text" class="input" placeholder="Enter Contact Number" name="contact" id="">
                      </div>
                      <div class="col-lg-6 col-md-12 mb-2">
-                       <input type="date" class="input"  name="date" id="">
+                       <input type="date" min="" class="input"  name="date" id="dp1">
                      </div>
                      <div class="col-lg-6 col-md-12 mb-2">
                        <label for="">Start Time</label>
@@ -57,19 +58,19 @@
                        <textarea type="text" class="input" placeholder="Enter Address of Camp" name="Address" id=""></textarea>
                      </div>
                      <div class="col-lg-6 col-md-12 mb-2">
-                       <select name="city" class="input" id="">
+                      <select name="state" id="sts" onchange="print_city('state', this.selectedIndex);" class="input" >
+                        <!-- <option value="">Select State</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option> -->
+                      </select>
+                    </div>
+                     <div class="col-lg-6 col-md-12 mb-2">
+                       <select name="city" class="input" id="state" onchange="validateCity()">
                          <option value="">Select City</option>
                          <option value="Indore">Indore</option>
                          <option value="Bhopal">Bhopal</option>
                        </select>
-                     </div>
-                     <div class="col-lg-6 col-md-12 mb-2">
-                       <select name="state" class="input" id="">
-                         <option value="">Select State</option>
-                         <option value="Madhya Pradesh">Madhya Pradesh</option>
-                         <option value="Maharashtra">Maharashtra</option>
-                       </select>
-                     </div>
+                     </div>                     
                      <div class="col-lg-12 mb-2 d-flex justify-content-center py-3">
                        <input type="submit" value="Request" name="" id="" class="btn btn-danger px-4">
                      </div>
@@ -101,7 +102,7 @@
                       <div class="container">
                           <div class="row">
                               <div class="col-lg-12 col-md-12  ps-4 my-2">
-                                  <input onkeyup="validateName()" class="input" placeholder="Blood Bank Name" type="text" name="organizationkname" id="name" value="<%=organization.OrganizationName%>"><br>
+                                  <input onkeyup="validateName()" class="input" placeholder="Blood Bank Name" type="text" name="organizationname" id="name" value="<%=organization.OrganizationName%>"><br>
                                   <!-- <span id="Name_display"  style="color: red;">*</span><br> -->
                               </div>                          
                               <div class="col-lg-12 col-md-12  ps-4 my-2">
@@ -177,7 +178,7 @@
                         <h3><%=organization.OrganizationName%></h3>
                     <div>
                         <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button">Edit Profile</a>
-                        <a href="/organization/logout/<%=organization.Email%>" class="btn btn-danger mx-2">Logout</a>          
+                        <a href="/login/logout/<%=organization.Email%>" class="btn btn-danger mx-2">Logout</a>          
                     </div>
                         <!-- Add your profile details here -->
                        </div>  
@@ -294,5 +295,19 @@
     <footer>
         <%- include('../partials/footer', {variant: 'compact'});%>
     </footer>
+
+    <script>
+    
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = today.getMonth() + 1; // Months are 0-based
+      const day = today.getDate()+1;
+
+      const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+      document.getElementById("dp1").min = formattedDate;
+  
+
+ </script> 
+ <script language="javascript">print_state("sts");</script>
 </body>
 </html>

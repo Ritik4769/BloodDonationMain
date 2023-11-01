@@ -12,28 +12,32 @@
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="/js/cities.js"></script>
 
     <style>
         
-        input{
+        input,select,textarea{
             border-radius: 30px;
+            width: 100%;
+            border: 1px solid rgba(0,0,0,0.3);
             padding: 10px;
             outline: none;
-        }
-        textarea{
-            border-radius: 13px;
-            outline: none;
+            
         }
         .para{
             text-align: end;
             margin-left: 0;
             margin-top: 6px;
         }
+
         @media (max-widht:900px){
             .para{
                 text-align: start;
                 margin-left: -50px;
             }
+            /* input{
+                margin-left: 20px;
+            } */
         }
         .heading{
             width: 100%;
@@ -64,7 +68,7 @@
 
 <body>
     <header>
-        <%- include('../partials/header', {variant: 'compact' }); %>
+        <%- include('../partials/header2', {variant: 'compact' }); %>
       </header>
       <div class="heading">
         <div class="p-1">
@@ -83,9 +87,10 @@
                         <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"></h1>
                         <form action="/organization/verifyotp" method="post">
                             <div class="container">
+                                <h4 style="color: rgba(216, 37, 37, 1);">Enter OTP </h4>
                                 <div class="row">
                                     <div class="col-lg-12 p-2 d-flex justify-content-center align-item-center">
-                                       <input type="text" class="input" placeholder="Enter Otp" name="orgotp" id="">
+                                       <input type="text" class="form-control" placeholder="Enter Otp" name="orgotp" id="">
                                     </div>
                                     <div class="col-lg-12 p-2">
                                         <input type="submit" class="btn" style="background-color: rgba(216, 37, 37, 1); color: white; border-style: none;display: block;margin:10px auto;" value="Verify Otp" name="" id="">
@@ -100,94 +105,149 @@
             <form action="/organization/sendotp" method="post">
             <div class="container p-5" style="box-shadow: 0 0 10px rgba(0,0,0,0.3);border-radius: 20px;">
                 <%if(wrongotp){%>
-                    <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"> <%=wrongotp%> </h1>
+                    <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-1"> <%=wrongotp%> </h1>
                         <%}else{%>
-                    <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-5"> Registeration </h1>        
+                    <h1 style="text-align: center; color: rgba(216, 37, 37, 1);" class="pb-1"> Registration </h1>        
                             <%}%>
-                <div class="row" style="background-color: rgb(255, 255, 255); border-radius: 10px 10px 10px 10px; ">
-                   
-                    <div class="d-flex justify-content-center">
-                        <div class="col-lg-6 my-2 p-2"  style=" display: flex; ">
-                            <label class="mt-1">
-                                Organization Name
-                            </label>
-                            <input type="text" name="OrganizationName" class="inp  form-control" placeholder="Organization Name"
-                                style="margin-left: 50px;">
-                        </div>
-                        <div class="col-lg-6 my-2 p-2"  style=" display: flex; ">        
-                            <label class="mt-1">
-                                Organizer Name  
-                            </label>
-                            <input type="text" name="OrganizerName" class="inp  form-control" placeholder="Organizer Name"
-                                style="margin-left: 50px;">
-                        </div>
-                </div>
+                    <div class="row" style="background-color: rgb(255, 255, 255); border-radius: 10px 10px 10px 10px; ">           
+                            <div class="col-lg-6 col-md-12 my-2 p-2">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="mt-1">
+                                                Organization Name
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="OrganizationName" class="inp  form-control" placeholder="Organization Name">
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>                       
+                            <div class="col-lg-6 col-md-12 my-2 p-2">        
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="mt-1">
+                                                Organizer Name  
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="OrganizerName" class="form-control" placeholder="Organizer Name">
+                                        </div>
+                                    </div>
+                                </div>                          
+                            </div>
+                    </div>        
                     <div class="row">
-                        <div class="col-lg-6 my-2 p-2"  style=" display: flex; ">
-                            <label class="mt-1">
-                                Organizer Contact Number
-                            </label>
-                            <input type="text" name="Contact" class="inp  form-control" placeholder="Organizer Contact Number"
-                                style="margin-left: 50px;">
+                        <div class="col-lg-6 col-md-12 my-2 p-2">
+                            <div class="container">
+                               <div class="row">
+                                  <div class="col-sm-4">
+                                    <label class="mt-1">
+                                        Contact Number
+                                    </label>
+                                  </div>
+                                  <div class="col-sm-8 d-flex justify-content-center">
+                                    <input type="text" name="Contact" class="form-control" placeholder="Organizer Contact Number">
+                                  </div>
+                               </div>
+                            </div>                           
                         </div>
-                        <div class="col-lg-6 my-2 p-2"  style=" display: flex; ">        
-                            <label class="mt-1">
-                                Organizer Email  
-                            </label>
-                            <input type="email" name="email" class="inp form-control" placeholder="Organizer Email"
-                                style="margin-left: 50px;">
+                        <div class="col-lg-6 col-md-12 my-2 p-2" >        
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <label class="mt-1">
+                                            Organizer Email  
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-8 d-flex justify-content-center">
+                                        <input type="email" name="email" class="form-control" placeholder="Organizer Email">
+                                    </div>
+                                </div>
+                            </div>                           
                         </div>
                     </div>                    
                     <div class="row">
-                        <div class="col-lg-6 my-2 d-flex">
-                            <p class="mt-1" style="margin-left: 15px;">
-                                Password
-                            </p>
-                            <input type="password" name="ppasword" class="inp form-control" placeholder="Enter Password" style="margin-left: 50px; width: 100%; height: 40px;">
+                        <div class="col-lg-6 col-md-12 my-2 p-2">
+                            <div class="container">
+                               <div class="row"> 
+                                  <div class="col-sm-4">
+                                    <label class="mt-1">
+                                        Password   
+                                    </label>
+                                  </div>
+                                  <div class="col-sm-8 d-flex justify-content-center">
+                                    <input type="password" name="ppassword" class="inp form-control" placeholder="Enter Password">
+                                  </div>
+                               </div>
+                            </div>                           
                         </div>
-                        <div class="col-lg-6 my-2 d-flex ">
-                            <p class="mt-1 ms-1">
-                                Confirm Password
-                            </p>
-                        <input type="password" name="password" class="inp form-control" placeholder="Confirm Password" style="margin-left: 50px; width: 100%; height: 40px;">
+                        <div class="col-lg-6 col-md-12 my-2 p-2" >        
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <label class="mt-1">
+                                           Confirm Password   
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-8 d-flex justify-content-center">
+                                        <input type="password" name="password" class="inp form-control" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                            </div>                           
                         </div>
-                    </div>              
+                    </div>    
                                    
                     <div class="row">
-                        <div class="col-lg-6 my-2 d-flex">
-                            <p class="mt-1" style="margin-left: 15px;">
-                                State
-                            </p>
-                            <select type="text" name="state" class="inp form-control" placeholder="Enter City" style="margin-left: 50px; width: 100%; height: 40px;">
-                                <option value="">Select State</option>
-                                <option value="Indore">Madhya Pradesh</option>
-                                <option value="Gwalior">Maharashtra</option>
-                            </select>
-
-                        </div>
-                        <div class="col-lg-6 my-2 d-flex ">
-                            <p class="mt-1 ms-1">
-                                City
-                            </p>
-                        <select type="text" name="city" class="inp  form-control" placeholder="Enter State" style="margin-left: 50px; width: 100%; height: 40px;">
-                            <option value="">Select City</option>
-                            <option value="Madhya Pradesh">Indore</option>
-                            <option value="Maharashtra">Gwalior</option>
-                        </select>
-                        </div>
-                    </div>  
+                        <div class="col-lg-6 col-md-12 my-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <label class="mt-1">
+                                            State   
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-8 d-flex justify-content-center">
+                                        <select type="text" name="state" class="inp form-control" onchange="print_city('state', this.selectedIndex);" id="sts" >
+                                        
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="col-lg-6 col-md-12 my-2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <label class="mt-1">
+                                            City   
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-8 d-flex justify-content-center">
+                                        <select type="text" name="city" class="inp form-control" id ="state" >
                             
-                    <div class="d-flex">
-                        <div class="col-lg-12 my-2 p-2" style=" display: flex; margin: auto;">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                           
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 my-2 p-2">
                             <p class="mt-1" style="margin-left: 10px;">
                                 Organizaton Description
                             </p>
-                            <textarea type="text" name="description"  cols="10" rows="5" placeholder="" style="margin-left: 50px; width: 100%;border: 1px solid rgba(0,0,0,0.3);outline: none;padding: 10px;"></textarea>                              
                         </div>
+                        <div class="col-lg-8 col-md-12 my-2 p-2">
+                            <textarea type="text" style="width: 100%;" name="description"  cols="10" rows="3" placeholder=""></textarea>                              
+                        </div>
+                    </div>                    
+                    <div class="row justify-content-center">
+                        <input type="submit" class="btn btn-danger" value="Send Otp">
                     </div>
-                    
-                    <center class="p-2"><input type="submit" class="btn btn-danger" value="Send Otp"></center>
-                </div>
+                
             
             </div>
         </form>
@@ -205,6 +265,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
+        <script language="javascript">print_state("sts");</script>
 </body>
 
 </html>

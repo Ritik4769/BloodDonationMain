@@ -33,7 +33,7 @@ const organization=mongoose.Schema({
         required:true
     }
 });
-export const campmodel=mongoose.model('camp',organization);
+export const organization1=mongoose.model("organization",organization);
 var campdataschema=mongoose.Schema({
     org_id:String,
     campName:String,
@@ -45,7 +45,15 @@ var campdataschema=mongoose.Schema({
     days:String,
     Address:String,
     City:String,
-    State:String
+    State:String,
+    Status:{
+        type:String,
+        default:"Pending"
+    },
+    unit:{
+        type:Number,
+        default:0
+    }
 });
-export const organization1=mongoose.model("organization",organization);
+
 export const camp1=mongoose.model("campmodel",campdataschema);

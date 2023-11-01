@@ -39,6 +39,7 @@
             width: 240px;
             z-index: 600;
             transition: all 0.3s;
+            background-color: white;
         }
 
         /* Show sidebar on larger screens */
@@ -314,11 +315,11 @@
         box-shadow: 0 12px 35px 0 rgba(255, 235, 167, .15);
     }
 
-    .dark-light:checked~.sec-center .for-dropdown {
+    /* .dark-light:checked~.sec-center .for-dropdown {
         background-color: #102770;
         color: #ffeba7;
         box-shadow: 0 12px 35px 0 rgba(16, 39, 112, .25);
-    }
+    } */
 
     .dropdown:checked+label:before,
     .dropdown:not(:checked)+label:before {
@@ -592,6 +593,9 @@
 </head>
 
 <body>
+
+     
+
     <header>
         <!-- Sidebar -->
         <nav id="sidebar" class="sidebar" >
@@ -601,8 +605,8 @@
                       <div class="card" style="border: none;border-bottom: 1px solid rgba(0,0,0,0.4);">
                         <img src="images/adminimg.jpg" class="img" alt="">
                         <div class="card-body text-center">
-                           <h3 style="color: black;">John Doe</h3>
-                           <h5 style="color: #484848;">Blood Bank Admin</h5>
+                           <h4 style="color: black;">Ritik Bhondwe</h4>
+                           <p style="color: #484848;">Blood Bank Admin</p>
                         </div>
                       </div>
                   </div>
@@ -617,7 +621,7 @@
 
                     <div class="sec-center">
                         <input class="dropdown" type="checkbox" id="dropdown" name="dropdown" />
-                        <label class="for-dropdown" for="dropdown" style="background-color: #107ECB;">Request
+                        <label class="for-dropdown" for="dropdown">Request
                             <!-- <i class="fa fa-arrow-down"></i> -->
                             <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                         </label>
@@ -628,28 +632,20 @@
                     </div>
                 </div>
                 <a href="/admin/admin_user_detail" class="list-group-item list-group-item-action py-2 ripple ">
-                    <i class="fa fa-chart-area fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">User Detail</span>
-                </a>
+                    <i class="fa fa-chart-area fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">User Detail</span></a>
                 <a href="/admin/blood_bank" class="list-group-item list-group-item-action py-2 ripple"><i
                         class="fa fa-chart-line fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Register Blood Banks</span></a>
                 <a href="/admin/admin_donor_detail" class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fa fa-chart-pie fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Donor Appointments</span>
-                </a>
-                <a href="/admin/admin_upload_report" class="list-group-item list-group-item-action py-2 ripple " ><i
-                        class="fa fa-chart-bar fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Donors Reports</span></a>
-                        <a href="/admin/blood_inventory" class="list-group-item list-group-item-action py-2 ripple " ><i
-                            class="fa fa-chart-bar fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Blood Inventory</span></a>        
-                <!-- <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-globe fa-fw me-3"></i><span style="color: black;"></span></a> -->
-                        
-                            
-                                
-                                
-                                <!-- <a href="#" style="color: black;">Camp Request<i class="fa fa-arrow-right"></i></a> -->
-                           
-                        </div>
-                    
-
+                    <i class="fa fa-chart-pie fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Donor Appointments</span></a>
+                <a href="/admin/donated_donor" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-building fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Donated Donor</span></a>                    
+                <a href="/admin/blood_inventory" class="list-group-item list-group-item-action py-2 ripple " > 
+                    <i class="fa fa-chart-bar fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Blood Inventory</span></a>                          
                 <a href="/admin/admin_organization" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-building fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Registered Organization</span></a>                
+                <a href="/admin/give_blood" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-building fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Give Blood</span></a>                
+                <a href="/admin/accept_camp" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-building fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Accepted Camp</span></a>                
+                <a href="/admin/viewcompletecamp" class="list-group-item list-group-item-action py-2 ripple"><i class="fa fa-building fa-fw me-3" style="visibility: hidden;"></i><span style="color: black;">Completed Camp</span></a>                        
+            </div>                
+
                 
                     </div>
             </div>
@@ -673,11 +669,11 @@
                 </form> -->
                 <ul class="navbar-nav ms-auto d-flex flex-row">
                     <li class="nav-item dropdown">
-                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#"
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="/admin/adminexpirynotification"
                             id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-bell"></i>
-                            <span class="badge rounded-pill badge-notification bg-danger"></span>
+                             <i class="fa fa-bell"></i>
                         </a>
+                        <span class="badge rounded-pill badge-notification "></span>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">Some news</a></li>
                             <li><a class="dropdown-item" href="#">Another news</a></li>
@@ -722,10 +718,9 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
-                            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <a href="/admin/updateform" class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" style="border: none; background-color: white;" type="button">
                             <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
-                                height="22" alt="" loading="lazy" />
+                                height="22" alt="" loading="lazy">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">My profile</a></li>
