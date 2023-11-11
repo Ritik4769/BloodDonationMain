@@ -1,7 +1,8 @@
 import express from 'express';
-import {verifyemail,verifyotp,campRequestController,Organization_profileupdate} from '../controller/organizatincontroller.js';
+import {verifyemail,verifyotp,campRequestController,Organization_profileupdate,org_reviewcontroller} from '../controller/organizatincontroller.js';
 //import { verifyemail } from '../controller/usercontroller.js';
 import  {jwt,SECRET_KEY}  from '../controller/logincontroller.js';
+import { reviewcontroller } from '../controller/usercontroller.js';
 const router = express.Router();
 router.use(express.static('public'));
 router.get('/', function (req, res) {
@@ -69,4 +70,5 @@ router.get("/logout/:email",(req,res)=>{
     res.cookie("jwt",'');
     res.render("pages/index1");
 });
+router.post('/review',org_reviewcontroller)
 export default router;

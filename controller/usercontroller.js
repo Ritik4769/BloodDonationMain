@@ -265,3 +265,15 @@ export const userprofile=async(req,res)=>{
     console.log('error',error);
   }
 }
+export const reviewcontroller=async(req,res)=>{
+  try{
+     const {id,review}=req.body;
+     await usermodel.updateOne({_id:id},{$set:{
+      review:review
+     }});
+     var user=await usermodel.findOne({_id:id});
+     res.render('pages/user_profile',{user:user,msg1:""})
+  }catch(error){
+    console.log('error ',error);
+  }
+}

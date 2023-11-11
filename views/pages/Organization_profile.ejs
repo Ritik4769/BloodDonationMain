@@ -160,6 +160,74 @@
     </div> -->
     
     <!-- Camp Request End -->
+
+
+    <!-- --------------------------------Modal Review ------------------->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Review Our Website</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-wrapper">  
+              <div class="container2 d-flex align-items-center justify-content-center">
+                <div class="row justify-content-center">    
+                  
+                  <!-- star rating -->
+                  <div class="d-flex justify-content-between align-items-center">
+                    
+                    <!-- star 5 -->
+                    <input type="radio" class="input2" id="1-star-rating" name="star-rating" value="5">
+                    <label for="1-star-rating" class="star-rating label">
+                      <i class="fa fa-star-o d-inline-block"></i>
+                    </label>
+                    
+                     <!-- star 4 -->
+                    <input type="radio" class="input2" id="2-star-rating" name="star-rating" value="4">
+                    <label for="2-star-rating" class="star-rating star label">
+                      <i class="fa fa-star-o d-inline-block"></i>
+                    </label>
+                    
+                     <!-- star 3 -->
+                    <input type="radio"class="input2"  id="3-star-rating" name="star-rating" value="3">
+                    <label for="3-star-rating" class="star-rating star label">
+                      <i class="fa fa-star-o d-inline-block"></i>
+                    </label>
+                    
+                    <!-- star 2 -->
+                    <input type="radio" class="input2" id="4-star-rating" name="star-rating" value="2">
+                    <label for="4-star-rating" class="star-rating star label">
+                      <i class="fa fa-star-o d-inline-block"></i>
+                    </label>
+                    
+                    <!-- star 1 -->
+                    <input type="radio" class="input2" id="5-star-rating" name="star-rating" value="1">
+                    <label for="5-star-rating" class="star-rating star label">
+                      <i class="fa fa-star-o d-inline-block"></i>
+                    </label>
+                    
+                   </div>
+                  
+                </div>
+              </div>
+            </div>
+             <form action="/organization/review" method="post">
+                <input type="hidden" name="id" value="<%=organization._id%>" id="">
+                <label for="">
+                  Give Your Thought For Us
+                </label>
+               <textarea name="review" id="" cols="30" rows="3" class="form-control rounded-3" placeholder="Enter your review"></textarea>
+               <input type="submit" class="my-2 btn btn-danger text-light" name="" id="" value="Submit">
+             </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>        </div>
+        </div>
+      </div>
+    </div>
+    <!-- --------------------------------Modal Review End --------------->
     <!-- Profile Section -->
     
     <% if(msg){%>
@@ -177,8 +245,8 @@
                       <div class="profile-name py-4 px-4 d-flex justify-content-between align-items-center">
                         <h3><%=organization.OrganizationName%></h3>
                     <div>
-                        <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" type="button">Edit Profile</a>
-                        <a href="/login/logout/<%=organization.Email%>" class="btn btn-danger mx-2">Logout</a>          
+                        <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary mb-2" type="button">Edit Profile</a>
+                        <a href="/login/logout/<%=organization.Email%>" class="btn btn-danger mx-2 mb-2 px-4">Logout</a>          
                     </div>
                         <!-- Add your profile details here -->
                        </div>  
@@ -285,6 +353,9 @@
               </div> -->
 
               <input class="btn btn-danger text-white" type="button" data-toggle="modal" data-target=".bd-example-modal-lg" value="Camp Request">
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                Give Review
+             </button>  
             </div>
 
              

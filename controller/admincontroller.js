@@ -4,6 +4,7 @@ import {usermodel,bloodReqModel,appDataModel} from '../model/usermodel.js';
 import {camp1,organization1} from '../model/organizationmodel.js';
 import Registration from '../model/blood_bankregistration.js';
 import {mailer} from './mailer.js';
+import bcrypt from 'bcrypt';
 import randomstring from 'randomstring';
 var otp="";
 export const adminViewBloodInventory = async (req,res)=>{
@@ -20,9 +21,11 @@ export const adminlogin=async (req,res,next)=>{
     const {email,password}=req.body;
     try{
       let admindata= await admin.findOne({email:email});
+      
       if(admindata){
+        let pass=await bcrypt.compare(password,admindata.password);
         console.log('admin login',admindata);
-        if(admindata.password===password){          
+        if(pass){          
           next();
         }
         else{
@@ -76,8 +79,9 @@ export const verifyotp=async(req,res)=>{
 export const updatepassword=async(req,res)=>{
   const {password}=req.body;
   try{
+    var hashpassword=await bcrypt.hash(password,10);
     await admin.updateOne({email:"dabidipesh7898@gmail.com"},{$set:{
-      password:password
+      password:hashpassword
     }});
     res.render("pages/admin_login",{email:"",pass:"",msg:"",otp:""});
   }

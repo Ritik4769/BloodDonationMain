@@ -3,55 +3,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
-  
-    <style>
-      *{
-        box-sizing: border-box;
-      }
-      #head{
-    padding: 1px;
-    background: white;
-    display: flex;
-    align-items: center;
-    z-index: 2;
-  }
-  .nav-item{
-    padding: 0 12px;
-  }
-  .container1{
-    max-width: 1200px;
-    padding: 2px;
-    margin: auto;
-  }
-  .nav-item:hover{
-    transition: 0.5s!important;
-    background: #EEEEEE;
-    border: none;
-    border-radius: 9px;
-  }
-  .dropdown-item:focus{
-    background: #EEEEEE!important;
-  }
-  .pos-sticky{
-    position: fixed!important;
-    top: 0!important;
-    z-index: 10;
-    width: 100%;
-  }
-  .fa{
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .para,.para1{
-    font-size: 15px;
-  }
-  @media screen and (max-width:560px){  
-    .fa{
-      font-size: 15px;
-    }
-  }
-    </style>
-  </head>
+    <link rel="stylesheet" href="/css/navbar.css">
+    
+</head>
   <body>
     <section id="head" style="border-bottom: 1px solid rgba(0, 0, 0, 0.3);z-index: 2;">
       <div class="container-fluid">
@@ -129,7 +83,7 @@
         </li>
       </ul>
       
-        <a class="btn my-2 my-sm-0 px-4"  style="background-color: #DF2443;color: white;border-radius: 8px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Search For Blood</a>
+        <a class="btn my-2 my-sm-0 px-4 btn-primary"  style="color: white;border-radius: 8px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Search For Blood</a>
       
     </div>
   
@@ -168,7 +122,7 @@
                   <input type="number" name="unit" id="" style="border: 1px solid rgba(0, 0, 0, 0.3);border-radius: 8px;padding: 10px;" placeholder="Enter number of unit">
                  </div>
                  <div class="col-md-12 p-3">
-                  <input type="submit" name="" style="background-color: #DF2443;border-radius: 12px;border: none;padding: 10px;margin: auto;" value="Submit" id="">
+                  <input type="submit" name="" class="form-control"  style="background-color: #DF2443;border-radius: 12px;border: none;padding: 10px;margin: auto;" value="Submit" id="">
                  </div>
               </div>
             </form>

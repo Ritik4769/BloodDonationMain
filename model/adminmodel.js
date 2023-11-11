@@ -11,8 +11,16 @@ const admin1=mongoose.Schema({
 });
 export const admin=mongoose.model("admin",admin1);
 const Add_bloodSchema = new mongoose.Schema({
-   Blood_Type:{type:String,required:true,trim:true},
-   Blood_Unit:{type:Number,required:true,trim:true},
+   Blood_Type:{
+      type:String,
+      required:true,
+      trim:true
+   },
+   Blood_Unit:{
+      type:Number,
+      required:true,
+      trim:true
+   },
    Arrival_date: Date,
    Expiry_Date: Date   
 });

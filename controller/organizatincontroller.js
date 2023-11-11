@@ -128,3 +128,16 @@ export const Organization_profileupdate = async (req, res) => {
     res.status(500).send('Internal server error');
   }
 };
+
+export const org_reviewcontroller=async(req,res)=>{
+  try{
+     const {id,review}=req.body;
+     await organization1.updateOne({_id:id},{$set:{
+      review:review
+     }});
+     var data=await organization1.findOne({_id:id});
+     res.render('pages/organization _profile',{organization:data,msg:""});
+  }catch(error){
+    console.log('error ',error);
+  }
+}

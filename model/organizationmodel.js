@@ -2,15 +2,18 @@ import mongoose from "mongoose";
 const organization=mongoose.Schema({
     OrganizationName:{
         type:String,
-        required:true
+        required:true,
+        trim:true
     },
     OrganizerName:{
         type:String,
-        required:true
+        required:true,
+        trim:true
     },
     ContactNumber:{
         type:Number,
-        required:true
+        required:true,
+        trim:true
     },
     Email:{
         type:String,
@@ -31,6 +34,9 @@ const organization=mongoose.Schema({
     Description:{
         type:String,
         required:true
+    },
+    review:{
+        type:String
     }
 });
 export const organization1=mongoose.model("organization",organization);

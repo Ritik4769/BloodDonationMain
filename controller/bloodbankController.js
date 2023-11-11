@@ -2,13 +2,19 @@ import Registration from "../model/blood_bankregistration.js";
 import {blood_bank_inventory} from '../model/adminBloodinventory.js';
 import {Add_blood_Unit} from '../model/adminmodel.js';
 import bcrypt from 'bcrypt';
-// import {transporter} from '../model/emailmodel.js';
 import randomstring from 'randomstring';
 import {mailer} from './mailer.js';
 import axios from 'axios';
 import url from 'url';
+import dotenv from 'dotenv';
+dotenv.config();
+
 var blood_bank_data={};
 var otp="";
+import stripe from 'stripe';
+
+const { STRIPE_SECRET_KEY ,STRIPE_PUBLISHABLE_KEY} = process.env;
+const stripeInstance = stripe(STRIPE_SECRET_KEY);
 
 const apiKey = '3ad5877981e942d897df1f410c48c621';
 
@@ -34,56 +40,6 @@ async function getCoordinates(address, city, state) {
   }
 }
 
-export const blood_bank_AddController =async (req,res)=>{  
-  if(otp==req.body.bankotp) {
-
-  try {
-    console.log("reqbody",req.body.bankotp);
-    const {bloodBankname,ownerNamename,bloodBankCategory,licenseNumber,Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,parentHospital,openingTime,closingTime,bloodBankEmail,password,ownerContactNo,bloodBankAddress,city,state,zipcode} = blood_bank_data;
-    
-    const exist=await Registration.findOne({bloodBankEmail:bloodBankEmail});
-    if(exist){
-      res.render("pages/blood_bank_registration",{blood_bank:blood_bank_data,email:"email allready exist",otp:"",wrongotp:""});
-    }
-    else{
-      const coordinates = await getCoordinates(bloodBankAddress,city,state);
-        if (!coordinates) {
-          res.render("pages/blood_bank_registration", {blood_bank:blood_bank_data,email:"",otp:"",wrongotp:"Coordinates Not Find" });
-        }
-        const days=Sunday+","+Monday+","+Tuesday+","+Wednesday+","+Thursday+","+Friday+","+Saturday;
-        console.log("Days opened "+days);
-        const { latitude, longitude } = coordinates;
-      const hashpassword=await bcrypt.hash(password,10);
-      const newBloodBank=await Registration.create({
-        bloodBankname:bloodBankname,
-        ownerNamename:ownerNamename,
-        bloodBankCategory: bloodBankCategory,
-        licenseNumber: licenseNumber,
-        parentHospital: parentHospital,
-        openingTime:openingTime,
-        closingTime:closingTime, 
-        days:days,
-        bloodBankEmail: bloodBankEmail,
-        password:hashpassword,
-        ownerContactNo:ownerContactNo,
-        bloodBankAddress:bloodBankAddress,
-        city:city,
-        state: state,
-        zipcode:zipcode,
-        latitude:latitude, // Store the latitude in the database
-        longitude:longitude, // Store the longitude in the database
-      });
-      res.render("pages/blood_bank_profile",{bloodbank:newBloodBank,msg:""});
-    }   
-    
-  } catch (error) {
-    console.log(error)
-  }
- }else{
-  res.render("pages/blood_bank_registration",{blood_bank:blood_bank_data,email:"",otp:"",wrongotp:"Wrong Otp Register Again"});
- }
-}
-
 export const verifyemail=async(req,res)=>{
   blood_bank_data=req.body;
   console.log("OTP controller Runned",blood_bank_data);
@@ -96,10 +52,108 @@ export const verifyemail=async(req,res)=>{
   var email=req.body.bloodBankEmail;
   mailer(email,message,(info)=>{
     if(info){
-      res.render("pages/blood_bank_registration",{blood_bank:"",email:"",otp:"opt sent",wrongotp:""});
+      res.render("pages/blood_bank_registration",{blood_bank:"",email:"",otp:"opt sent",wrongotp:"",key:"",amount:""});
     }
-    res.render('pages/blood_bank_registration',{blood_bank:blood_bank_data,email:"email not sent try again",otp:"",wrongotp:""});
+    res.render('pages/blood_bank_registration',{blood_bank:blood_bank_data,email:"email not sent try again",otp:"",wrongotp:"",key:"",amount:""});
   });  
+}
+export const blood_bank_AddController =async (req,res)=>{  
+  if(otp==req.body.bankotp) {
+
+  try {
+    console.log("reqbody",req.body.bankotp);
+    const {bloodBankname,ownerNamename,bloodBankCategory,licenseNumber,Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,parentHospital,openingTime,closingTime,bloodBankEmail,password,ownerContactNo,bloodBankAddress,city,state,zipcode} = blood_bank_data;    
+    const exist=await Registration.findOne({bloodBankEmail:bloodBankEmail});
+    if(exist){
+      res.render("pages/blood_bank_registration",{blood_bank:blood_bank_data,email:"email allready exist",otp:"",wrongotp:"",key:"",amount :""});
+    }
+    else{
+      console.log("STRIPE_PUBLISHABLE_KEY:", process.env.STRIPE_PUBLISHABLE_KEY);
+      res.render("pages/blood_bank_registration",{blood_bank:blood_bank_data,email:"",otp:"",wrongotp:"",key:STRIPE_PUBLISHABLE_KEY,amount :'100000'});
+    }   
+   
+  } catch (error) {
+    console.log(error);
+  }
+  
+ }else{
+  res.render("pages/blood_bank_registration",{blood_bank:blood_bank_data,email:"",otp:"",wrongotp:"Wrong Otp Register Again",key:"",amount :""});
+ }
+}
+export const paymentdetailsController =async(req,res)=>{
+  try {
+
+    stripeInstance.customers.create({
+        email: req.body.stripeEmail,
+        source: req.body.stripeToken,
+        name: blood_bank_data.bloodBankName,
+        
+        address: {
+            line1: blood_bank_data.bloodBankAddress,
+            postal_code: blood_bank_data.zipcode,
+            city: blood_bank_data.city,
+            state: blood_bank_data.state,
+            country: 'India',
+        }
+    })
+    .then(async(customer) => { 
+         return await stripeInstance.paymentIntents.create({
+            amount: parseInt(req.body.amount),
+            currency: 'INR',
+            payment_method_types: ['card'],
+            customer: customer.id,
+            //  source: 'tok-',
+          });
+    })
+    .then((charge) => {
+        console.log('charge ',charge);
+        res.redirect("success");
+    })
+    .catch((err) => {
+        console.log('error',err);
+        res.redirect("failure");
+    });
+    } catch (error) {
+        console.log(error.message);
+    }
+
+}
+export const successController=async(req,res)=>{  
+
+try{
+  const {bloodBankname,ownerNamename,bloodBankCategory,licenseNumber,Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,parentHospital,openingTime,closingTime,bloodBankEmail,password,ownerContactNo,bloodBankAddress,city,state,zipcode} = blood_bank_data;
+  const coordinates = await getCoordinates(bloodBankAddress,city,state);
+  if (!coordinates) {
+    res.render("pages/blood_bank_registration", {blood_bank:blood_bank_data,email:"",otp:"",wrongotp:"Coordinates Not Find" ,key:"",amount :""});
+  }
+     const days=Sunday+","+Monday+","+Tuesday+","+Wednesday+","+Thursday+","+Friday+","+Saturday;
+     console.log("Days opened "+days);
+     const { latitude, longitude } = coordinates;
+    const hashpassword=await bcrypt.hash(password,10);
+    const newBloodBank=await Registration.create({
+      bloodBankname:bloodBankname,
+      ownerNamename:ownerNamename,
+      bloodBankCategory: bloodBankCategory,
+      licenseNumber: licenseNumber,
+      parentHospital: parentHospital,
+      openingTime:openingTime,
+      closingTime:closingTime, 
+      days:days,
+      bloodBankEmail: bloodBankEmail,
+      password:hashpassword,
+      ownerContactNo:ownerContactNo,
+      bloodBankAddress:bloodBankAddress,
+      city:city,
+      state: state,
+      zipcode:zipcode,
+      latitude:latitude, // Store the latitude in the database
+      longitude:longitude, // Store the longitude in the database
+    });
+    res.render("pages/blood_bank_profile",{bloodbank:newBloodBank,msg:"payment successful"});
+    }catch(error){
+      console.log(error.message)
+    }
+
 }
 
 export const ViewUserController = async (req,res)=>{

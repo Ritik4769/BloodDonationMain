@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+  }
+  #head{
+padding: 1px;
+background: white;
+display: flex;
+align-items: center;
+z-index: 2;
+}
+.nav-item{
+padding: 0 12px;
+}
+.container1{
+max-width: 1200px;
+padding: 2px;
+margin: auto;
+}
+.nav-item:hover{
+transition: 0.5s!important;
+background: #EEEEEE;
+border: none;
+border-radius: 9px;
+}
+.dropdown-item:focus{
+background: #EEEEEE!important;
+}
+.pos-sticky{
+position: fixed!important;
+top: 0!important;
+z-index: 10;
+width: 100%;
+}
+.fa{
+font-size: 20px;
+font-weight: bold;
+}
+.para,.para1{
+font-size: 15px;
+}
+@media screen and (max-width:560px){  
+.fa{
+  font-size: 15px;
+}
+}

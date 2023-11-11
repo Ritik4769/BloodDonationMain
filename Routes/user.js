@@ -1,5 +1,5 @@
 import express from 'express';
-import {verifyemail,verifyotp,appDataController,update_Controller,bloodRequestController,userSeeReportController,searchblood,blood_search,userprofile} from '../controller/usercontroller.js';
+import {verifyemail,verifyotp,appDataController,update_Controller,bloodRequestController,userSeeReportController,searchblood,blood_search,userprofile,reviewcontroller} from '../controller/usercontroller.js';
 import  {jwt,SECRET_KEY}  from '../controller/logincontroller.js';
 import {upload} from '../middleware/upload.js';
 var router=express.Router();
@@ -50,4 +50,5 @@ router.get('/seereport/:id',userSeeReportController);
 router.get('/searchblood',searchblood);
 router.get('/blood_bank_search',blood_search);
 router.get('/user_profile/:id',userprofile);
+router.post('/review',reviewcontroller);
  export default router;

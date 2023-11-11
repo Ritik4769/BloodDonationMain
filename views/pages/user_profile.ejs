@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
     <link rel="stylesheet" href="/css/profile.css">
     <script src="/js/cities.js"></script>
+    
 </head>
 <body>
     <header>
@@ -107,7 +109,72 @@
         <%= msg1 %>
       </div>
     <%}%>
-
+   <!-- -------------------------------Review Modal---------------------- -->
+   <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Review Our Website</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-wrapper">  
+            <div class="container2 d-flex align-items-center justify-content-center">
+              <div class="row justify-content-center">    
+                
+                <!-- star rating -->
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                  <!-- star 5 -->
+                  <input type="radio" class="input2" id="5-star-rating" name="star-rating" value="5">
+                  <label for="5-star-rating" class="star-rating label">
+                    <i class="fa fa-star-o d-inline-block"></i>
+                  </label>
+                  
+                   <!-- star 4 -->
+                  <input type="radio" class="input2" id="4-star-rating" name="star-rating" value="4">
+                  <label for="4-star-rating" class="star-rating star label">
+                    <i class="fa fa-star-o d-inline-block"></i>
+                  </label>
+                  
+                   <!-- star 3 -->
+                  <input type="radio"class="input2"  id="3-star-rating" name="star-rating" value="3">
+                  <label for="3-star-rating" class="star-rating star label">
+                    <i class="fa fa-star-o d-inline-block"></i>
+                  </label>
+                  
+                  <!-- star 2 -->
+                  <input type="radio" class="input2" id="2-star-rating" name="star-rating" value="2">
+                  <label for="2-star-rating" class="star-rating star label">
+                    <i class="fa fa-star-o d-inline-block"></i>
+                  </label>
+                  
+                  <!-- star 1 -->
+                  <input type="radio" class="input2" id="1-star-rating" name="star-rating" value="1">
+                  <label for="1-star-rating" class="star-rating star label">
+                    <i class="fa fa-star-o d-inline-block"></i>
+                  </label>
+                  
+                 </div>
+                
+              </div>
+            </div>
+          </div>
+           <form action="/user/review" method="post">
+              <input type="hidden" name="id" value="<%=user._id%>" id="">
+              <label for="">
+                Give Your Thought For Us
+              </label>
+             <textarea name="review" id="" cols="30" rows="3" class="form-control rounded-3" placeholder="Enter your review"></textarea>
+             <input type="submit" class="my-2 btn btn-danger text-light" name="" id="" value="Submit">
+           </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>        </div>
+      </div>
+    </div>
+  </div>
+   <!-- -------------------------------Review Modal End------------------ -->
    
     <section id="profile">
         <div class="container">
@@ -118,8 +185,8 @@
                       <div class="profile-name py-4 px-4 d-flex justify-content-between align-items-center">
                         <h2><%=user.name%></h2>
                         <div>
-                        <a type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" >Edit Profile</a>
-                        <a href="/login/logout/<%=user.email%>" class="btn btn-danger mx-2" >Logout</a>
+                        <a type="button" data-toggle="modal" data-target="#exampleModal " class="btn btn-primary my-1" >Edit Profile</a>
+                        <a href="/login/logout/<%=user.email%>" class="my-1 btn btn-danger mx-2" >Logout</a>
                       </div>
                         <!-- Add your profile details here -->
                        </div>  
@@ -208,6 +275,12 @@
                     <a href="/" class="btn-danger mt-4 p-2 rounded-2" style="width: 150px;text-align: center;text-decoration: none;">Back</a>
                   </div>
                 </div>
+
+                <div class="my-2 p-3 rounded-3 border-0 bg-white" style="box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);">
+                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                     Give Review
+                  </button>      
+                </div>
               </div>
             </div>
         </div>
@@ -216,6 +289,7 @@
     <footer>
         <%- include('../partials/footer', {variant: 'compact'});%>
     </footer>
+    
     <script language="javascript">print_state("sts");</script>
 </body>
 </html>
